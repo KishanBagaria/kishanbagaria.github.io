@@ -1,0 +1,67 @@
+==================================================================
+https://keybase.io/kishanbagaria
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://kishanbagaria.com
+  * I am kishanbagaria (https://keybase.io/kishanbagaria) on keybase.
+  * I have a public key with fingerprint 64D4 5F07 9B63 DF26 05E2  2147 3967 F5FF 6A09 5352
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "64d45f079b63df2605e221473967f5ff6a095352",
+            "host": "keybase.io",
+            "key_id": "3967f5ff6a095352",
+            "kid": "01016fc8de1fc98f84cb0b0dd262b44fea67ad56e4454ac9f0fbaeb8c42369d7c8f70a",
+            "uid": "228c2e0405e6e2a0d5f61720f1e7cb00",
+            "username": "kishanbagaria"
+        },
+        "service": {
+            "hostname": "kishanbagaria.com",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1424727388,
+    "expire_in": 157680000,
+    "prev": "cd982f970e85264eccb3247054631bc000ff72c6d46781cb7f6d0c6a0505b512",
+    "seqno": 21,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.4
+Comment: https://keybase.io/crypto
+
+yMIgAnicbZJtSBRBGMfPrKyjF6kopJcPmyXSWbNzs7N796UysMKiPlRYCNfu7Mzd
+ku5eu3dehykEUUEvEmQKkhFUUF0frNAKP+QLFVpiFL1QVGZJqRwUcQTV1azUN+fL
+MM/z///mmT/TOzvX4825Es/ePnT16c+c/q4tcc+OsXOVtYJm6UkhWCvsoxMbM8ww
+taO2YcaEoICRjiQG5ICG/TqDGEgUQhHJ/gCWmcQYVkFA8ktQ8AkRy3EdHKOpDl1t
+WLzGDyFD59VJ9PsmGkAEImZE0anISEBhCiIa0ICuQww1hBhVsazqEqYISUglAQaY
+plJNIQj6cUCXicJkoHJcfAIHoUIgBYjPiSlUgS4xLMoQMJHKHAxcoUNtU62m7qyG
+E1FNTQ2rtqEKdT6Bt2oMQt0c3OdMJltNrGpOidpWzCJWFW9HYrGoE3TtsWTU1Seo
+FvpHCmmGqfNEuaOG2o5hmUJQ5EoSM1y0iCCSoexXFJ9AD0QNm4YMVyHJWAF8uffQ
+Go4kekCBLCADqkgQI0qI5udWICHsFzXCpYzJkGAdYVkRiSYzrAPC05aApEmim7dD
+95uWEIQin1MNc6ZjhE01FrepUNd9r3KqJ8frmT5tivspPN6Z+f+/ynUl789Gq+RW
+qPFJRWo7vtxQkRp+fdruWtPalEldbEoPrV/5+sW1wp4j74XinqrsyLr00NEbLxbP
+SDxoicztnt5Q1LG2vqQ1syz5vBz9+BAdGzcGTw8N3nyTaa47JixsH1txzdpU0KQO
+jp9c2Tiau2j+vIMD1ube0vE59weW7l7V9utsWWvbgu3ddvJ8qniDdNxycptPJJKF
+o5c67zbVXik60Pg2/5GyxLzw8tWP7KaBL8tLR0sPF3x8Uuj7nhDOeBueH0lnTj1b
+u23+1scdBZY/nAdak38udxbu/xbL3lEavn5inx+W7crMndq3cwQM42C9+K48HIp+
+2/sqv+x3f7qlz26ftecvutg5Ug==
+=Rg8C
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/kishanbagaria
+
+==================================================================

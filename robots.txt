@@ -1,0 +1,4 @@
+Sitemap: https://kishanbagaria.com/sitemap.xml
+
+User-agent: *
+Disallow: /download/*
