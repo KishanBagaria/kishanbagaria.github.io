@@ -17,8 +17,8 @@
 <meta property="og:url" content="https://kishanbagaria.com/smartcapslock/">
 <meta property="og:type" content="product">
 <style>
-html {height:100%;-webkit-tap-highlight-color:transparent}
-body{font: 1em/160% 'Avenir Next', Avenir, 'Trebuchet MS', sans-serif; color:#333; height:98%;min-width: 419px}
+html {height:100%;scroll-behavior: smooth;-webkit-tap-highlight-color:transparent}
+body{font: 1em/160% 'Avenir Next', Avenir, 'Trebuchet MS', sans-serif; color:#333; height:100%;min-width: 419px}
 header {background: #1A2980; background-image: radial-gradient(60% 105%, #26D0CE, #1A2980); height:100%; min-height: 500px;text-align: center}
 table {height:100%; width:100%}
 h2, h3 {font-weight: 500; line-height: 160%}
@@ -63,6 +63,13 @@ section:nth-child(even) {background: rgb(248,249,250); border:solid rgb(234,235,
 
 footer{text-align: center; padding: 2em}
 footer a{margin: -2px}
+
+#more {display: none}
+@media(min-height:560px) {
+#more {display: block; color: rgba(255,255,255,.7); position: absolute; margin: auto; bottom: 0; left: 0; right: 0; font-size: 18px; text-decoration: none; padding: 24px 0}
+#more:hover {color: rgba(255,255,255,.9)}
+#more:active,#more:focus {color:#fff; background: none}
+}
 </style>
 <script src="https://gumroad.com/js/gumroad.js"></script>
 </head>
@@ -80,11 +87,11 @@ SmartCapsLock lets you just select the text and press Caps Lock again to undo th
 <p></p>
 </div>
 </div>
-<h3 id="download">
-<a href="https://gum.co/smartcapslock" target="_blank">Download</a></h3>
+<h3 id="download"><a href="https://gum.co/smartcapslock" target="_blank">Download</a></h3>
+<a id="more" href="#more" aria-hidden="true">╲╱</a>
 </div></td></tr></table>
 </header>
-<main>
+<main id="m">
 <section>
 <div>
     <img src="-/MenuBar.png" alt="SmartCapsLock Menu Bar Icons" width="500">
@@ -142,6 +149,39 @@ Send feedback: <a href="mailto:me@kishan.info">me@kishan.info</a>
 Thanks to <a href="http://www.reddit.com/r/Showerthoughts/comments/2tr2tt/if_you_type_something_all_in_caps_accidentally/">Reddit</a> for the idea
 </footer>
 <script>
+window.raf = (function(){
+  return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame ||
+         function (callback) {
+           window.setTimeout(callback, 1000 / 60);
+         };
+})();
+function scrollToY(scrollTargetY) {
+    var scrollY = window.scrollY,
+        scrollTargetY = scrollTargetY || 0,
+        speed = 2000,
+        currentTime = 0;
+    var time = Math.max(.1, Math.min(Math.abs(scrollY - scrollTargetY) / speed, .8));
+    var easing = function (pos) {
+        if ((pos/=0.5) < 1) return 0.5*Math.pow(pos,5);
+        return 0.5 * (Math.pow((pos-2),5) + 2);
+    };
+    function tick() {
+        currentTime += 1 / 60;
+        var p = currentTime / time;
+        if (p < 1) {
+            var t = easing(p);
+            raf(tick);
+            window.scrollTo(0, scrollY + ((scrollTargetY - scrollY) * t));
+        } else {
+            window.scrollTo(0, scrollTargetY);
+        }
+    }
+    tick();
+}
+document.getElementById('more').onclick = function () {
+    scrollToY(window.innerHeight);
+    return false;
+};
 var iOS = /iPad|iPhone|iPod/.test(navigator.platform);
 function selectDOMText(element, start, end) {
     if (!iOS && window.getSelection) {
@@ -178,6 +218,7 @@ var replayElement = document.getElementById('replay');
 var p1 = typingElement.children[1];
 var p2 = typingElement.children[2];
 function textTypingAnimation() {
+    scrollToY(0);
     p2.style.opacity = '0';
     replayElement.style.opacity = '0';
     replayElement.style.cursor = '';
