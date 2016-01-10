@@ -71,7 +71,7 @@ footer a{margin: -2px}
 #more:active,#more:focus {color:#fff; background: none}
 }
 </style>
-<script src="https://gumroad.com/js/gumroad.js"></script>
+<script src="https://gumroad.com/js/gumroad-embed.js"></script>
 </head>
 <body ontouchstart="">
 <header>
@@ -87,7 +87,7 @@ SmartCapsLock lets you just select the text and press Caps Lock again to undo th
 <p></p>
 </div>
 </div>
-<h3 id="download"><a href="https://gum.co/smartcapslock" target="_blank">Download</a></h3>
+<h3 id="download"><a href="https://gum.co/smartcapslock" onclick="scrollToY(document.getElementById('gumroad').offsetTop);return false" target="_blank">Download</a></h3>
 <a id="more" href="#more" aria-hidden="true">╲╱</a>
 </div></td></tr></table>
 </header>
@@ -131,6 +131,9 @@ SmartCapsLock lets you just select the text and press Caps Lock again to undo th
     </div>
 </div>
 </section>
+<section id="gumroad">
+<div class="gumroad-product-embed" data-gumroad-product-id="smartcapslock"><a href="https://gumroad.com/l/smartcapslock">Loading...</a></div>
+</section>
 <section id="windows">
 <div>
 <img src="-/Windows.min.svg" alt="Windows" width="66" height="66" style="float:left;padding:0 .5em">
@@ -142,11 +145,9 @@ SmartCapsLock lets you just select the text and press Caps Lock again to undo th
 </section>
 </main>
 <footer>
-Made by <a href="https://kishanbagaria.com">Kishan Bagaria</a> 
-<br><br>
-Send feedback: <a href="mailto:hi@kishan.info">hi@kishan.info</a>
-<br><br>
-Thanks to <a href="http://www.reddit.com/r/Showerthoughts/comments/2tr2tt/if_you_type_something_all_in_caps_accidentally/">Reddit</a> for the idea
+Made by <a href="https://kishanbagaria.com">Kishan Bagaria</a><br><br>
+Send feedback: <a href="mailto:hi@kishan.info">hi@kishan.info</a><br><br>
+Idea from <a href="http://www.reddit.com/r/Showerthoughts/comments/2tr2tt/if_you_type_something_all_in_caps_accidentally/">Reddit</a>
 </footer>
 <script>
 window.raf = (function(){
