@@ -46,7 +46,7 @@ section h2{margin: .5em 0 0; line-height: 120%}
     #d2w  {position: absolute; left: 60%; top:  10px}
     #oclb {position: absolute; left: 35%; top: 240px}
     #scl  {position: absolute; left: 10%; top: 320px}
-    #git  {position: absolute; left: 65%; top: 400px}
+    #git  {position: absolute; left: 65%; top: 380px}
 }
 @media(max-width: 550px) {
     header,a,section{display: block}
