@@ -15,7 +15,7 @@ section:not(#git):hover, #git a:hover, header:hover {-webkit-transform: scale(1.
 #git a:hover {-webkit-transform: scale(1.1) rotate(-4deg);transform: scale(1.1) rotate(-4deg)}
 section h2{margin: .5em 0 0; line-height: 120%}
 .bubble {border-radius: 50%; text-align: center; box-sizing: border-box; margin: auto}
-.bub {width: 24px; height: 24px; border-radius: 50%; position: absolute; -webkit-animation: pulse infinite alternate 4s ease-in-out; animation: pulse infinite alternate 4s ease-in-out}
+.bub {width: 24px; height: 24px; border-radius: 50%; position: absolute; -webkit-animation: show .4s, pulse infinite alternate 4s ease-in-out; animation: show .4s, pulse infinite alternate 4s ease-in-out}
 @-webkit-keyframes pulse { to {-webkit-transform: scale(1.2);transform: scale(1.2)}}
 @keyframes pulse { to {-webkit-transform: scale(1.2);transform: scale(1.2)}}
 @-webkit-keyframes show { from {opacity: 0} }
