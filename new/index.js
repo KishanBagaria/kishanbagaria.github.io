@@ -26,10 +26,9 @@ function getRandomInt(max, min) {
 }
 
 var bubContainer = document.getElementById('bubs');
-var dontTouch = ['div','section','h2','h3','img','a'];
-var jx=[]
+var dontTouch = ['header','div','section','h2','h3','img','a'];
+
 function isThereAnyElAt(x, y) {
-    jx.push(document.elementFromPoint(x, y).tagName);
     return dontTouch.indexOf(document.elementFromPoint(x, y).tagName.toLowerCase()) !== -1;
 }
 
