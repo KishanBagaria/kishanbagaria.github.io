@@ -1,0 +1,59 @@
+{}
+*:not(.ui-draggable-dragging) {-webkit-transition: .3s all;transition: .3s all;-webkit-animation: show .4s;animation: show .4s}
+body{font: 14px/160% 'Avenir Next', sans-serif}
+img {max-width: 100%}
+h2,h3{font-weight: normal; margin: 0; color: #4A4A4A}
+h2{font-size: 1.6em}
+h3{font-size: 1em; font-weight: normal}
+a {text-decoration: none; display: inline-block}
+header, section {text-align: center; display: inline-block}
+header{background: white; border: 4px solid #D0021B; width: 252px; height: 302px; margin: -65px 0 0 -65px; padding: 50px 50px 0 50px; border-radius: 50%; vertical-align: top}
+header h2 {color: #D0021B; font-size: 24px; text-transform: uppercase; letter-spacing: 1px}
+header h3 {color: #4A4A4A; font-size: 15px; text-transform: lowercase}
+main{max-width: 1100px;position: relative}
+section:not(#git):hover, #git a:hover, header:hover {-webkit-transform: scale(1.1) rotate(-2deg);transform: scale(1.1) rotate(-2deg)}
+#git a:hover {-webkit-transform: scale(1.1) rotate(-4deg);transform: scale(1.1) rotate(-4deg)}
+section h2{margin: .5em 0 0; line-height: 120%}
+.bubble {border-radius: 50%; text-align: center; box-sizing: border-box; margin: auto}
+.bub {width: 24px; height: 24px; border-radius: 50%; position: absolute; -webkit-animation: pulse infinite alternate 4s ease-in-out; animation: pulse infinite alternate 4s ease-in-out}
+@-webkit-keyframes pulse { to {-webkit-transform: scale(1.2);transform: scale(1.2)}}
+@keyframes pulse { to {-webkit-transform: scale(1.2);transform: scale(1.2)}}
+@-webkit-keyframes show { from {opacity: 0} }
+@keyframes show { from {opacity: 0} }
+
+#d2w .bubble {background: -webkit-radial-gradient(50% 50%, #00D2FF, #002040);background: radial-gradient(50% 50%, #00D2FF, #002040); border: 8px solid #4FC3F7; width: 300px; height: 300px}
+#d2w h2 {color: #4FC3F7}
+#d2w img {margin-top:42px}
+
+#oclb .bubble {background: url(llama.png), -webkit-radial-gradient(#FFEB3B, #F57F17);background: url(llama.png), radial-gradient(#FFEB3B, #F57F17); border: 4px solid rgba(121,85,72,.8); width: 192px; height: 192px}
+#oclb h2 {color: #795548; font-size: 19px}
+#oclb img {margin-top:32px; max-width: 128px}
+
+#scl {margin-top: 5px}
+#scl h2 {color: #0D47A1}
+#scl h3 {font-size: 12px}
+
+#git .bubble {background:white;border: 2px dashed #03A9F4; width: 280px; height: 280px; padding: 30px 1em 0}
+#git h2 {color: #03A9F4; font-size: 24px}
+#git h3 {font-size: 13px; margin-bottom: 10px}
+#git a {display: inline-block; margin: 0 4px}
+#git a:not(#keybase) {border-radius: 50%; text-align: center; box-sizing: border-box; width: 80px; height: 80px; border:4px solid rgba(0,0,0,.1)}
+#git #twitter {background: #55acee; padding: 20px 0 0 4px}
+#git #email {background: #FF9800; padding: 15px 0 0 0}
+#git #keybase {margin-top:-4px}
+
+@media(min-width: 800px) {
+    #d2w  {position: absolute; left: 60%; top:  10px}
+    #oclb {position: absolute; left: 35%; top: 240px}
+    #scl  {position: absolute; left: 10%; top: 320px}
+    #git  {position: absolute; left: 65%; top: 400px}
+}
+@media(max-width: 550px) {
+    header,a,section{display: block}
+    header{margin:auto;border:0;padding:1em 0;height:auto}
+    /*.bubble{border-radius:0;border:0!important;width:100%!important}
+    section{margin:1em 0!important}*/
+}
+@media(max-width: 799px) {
+    section {margin: 2em 1em}
+}
