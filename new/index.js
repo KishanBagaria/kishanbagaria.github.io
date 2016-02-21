@@ -26,11 +26,11 @@ function getRandomInt(max, min) {
 }
 
 var bubContainer = document.getElementById('bubs');
-var dontTouch = [].slice.call(document.querySelectorAll('section'));
-dontTouch.push(document.querySelector('header'));
-
+var dontTouch = ['div','section','h2','h3','img','a'];
+var jx=[]
 function isThereAnyElAt(x, y) {
-    return dontTouch.indexOf(document.elementFromPoint(x, y)) > -1;
+    jx.push(document.elementFromPoint(x, y).tagName);
+    return dontTouch.indexOf(document.elementFromPoint(x, y).tagName.toLowerCase()) !== -1;
 }
 
 function addRandomBubble(i) {
@@ -52,7 +52,7 @@ function addRandomBubble(i) {
 
 function addBubbles() {
     if (document.documentElement.clientWidth > 400) {
-        for (var i = 0; i < 30; i++) {
+        for (var i = 0; i < (document.documentElement.clientWidth/50); i++) {
             addRandomBubble(i);
         }
         $('.bub').draggable();
