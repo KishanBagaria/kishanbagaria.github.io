@@ -30,9 +30,7 @@ var dontTouch = [].slice.call(document.querySelectorAll('section'));
 dontTouch.push(document.querySelector('header'));
 
 function isThereAnyElAt(x, y) {
-    return !document.elementsFromPoint(x, y).every(function(el) {
-        return dontTouch.indexOf(el) < 0;
-    });
+    return dontTouch.indexOf(document.elementFromPoint(x, y)) > -1;
 }
 
 function addRandomBubble(i) {
