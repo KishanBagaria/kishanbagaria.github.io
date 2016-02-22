@@ -50,7 +50,7 @@ function addRandomBubble(i) {
 }
 
 function addBubbles() {
-    if (document.documentElement.clientWidth > 400) {
+    if (document.documentElement.clientWidth > 450) {
         for (var i = 0; i < (document.documentElement.clientWidth/50); i++) {
             addRandomBubble(i);
         }
