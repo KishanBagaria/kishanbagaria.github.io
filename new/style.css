@@ -1,6 +1,5 @@
 {}
 *:not(.ui-draggable-dragging) {-webkit-transition: .3s all;transition: .3s all;-webkit-animation: show .4s;animation: show .4s;-webkit-tap-highlight-color:transparent}
-html, body {width:100%; overflow:hidden}
 body{font: 14px/160% 'Avenir Next', Avenir, 'Trebuchet MS', sans-serif}
 img {max-width: 100%}
 h2,h3{font-weight: normal; margin: 0; color: #4A4A4A}
@@ -50,23 +49,23 @@ section h2{margin: .5em 0 0; line-height: 120%}
     section {margin: 2em 0}
 }
 @media(min-width: 601px) {
-    #projects a,#projects section{display: block}
+    #projects section{display: block}
     section{margin: 1.5em 0}
     #git{position: absolute; left: 5%; top: 360px}
     #projects{position: absolute;right: 0;top:60px}
 }
 @media(min-width: 700px) {
     header{display: inline-block}
-    section {position: absolute}
+    section {position: absolute;margin:0}
     #projects{position:initial}
-    #d2w  {right: 2%; top:  10px}
+    #d2w  {right: 2%; top: 10px}
     #oclb {left: 30%; top: 260px}
     #scl  {left: 2%; top: 360px}
-    #git  {right: 1%; left:initial; top: 390px}
+    #git  {right: 1%; left:initial; top: 380px}
 }
 @media(min-width: 800px) {
-    #d2w  {right: initial; left:  60%; top:  10px}
-    #oclb {right: initial; left:  37%; top: 240px}
-    #scl  {right: initial; left:  10%; top: 320px}
-    #git  {right: initial; left:  65%; top: 385px}
+    #d2w  {left: 60%}
+    #oclb {left: 37%; top: 240px}
+    #scl  {left: 10%; top: 320px}
+    #git  {left: 65%; top: 380px}
 }
