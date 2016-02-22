@@ -1,5 +1,6 @@
 {}
-*:not(.ui-draggable-dragging) {-webkit-transition: .3s all;transition: .3s all;-webkit-animation: show .4s;animation: show .4s}
+*:not(.ui-draggable-dragging) {-webkit-transition: .3s all;transition: .3s all;-webkit-animation: show .4s;animation: show .4s;-webkit-tap-highlight-color:transparent}
+html, body {width:100%; overflow:hidden}
 body{font: 14px/160% 'Avenir Next', Avenir, 'Trebuchet MS', sans-serif}
 img {max-width: 100%}
 h2,h3{font-weight: normal; margin: 0; color: #4A4A4A}
