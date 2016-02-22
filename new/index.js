@@ -64,5 +64,5 @@ window.addEventListener('resize', function() {
 });
 
 $(function () {
-    $('header, section').draggable()
+    //$('header, section').draggable()
 });

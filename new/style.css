@@ -6,8 +6,8 @@ h2,h3{font-weight: normal; margin: 0; color: #4A4A4A}
 h2{font-size: 1.6em}
 h3{font-size: 1em; font-weight: normal}
 a {text-decoration: none; display: inline-block}
-header, section {text-align: center; display: inline-block}
-header{background: white; border: 4px solid #D0021B; width: 252px; height: 302px; margin: -65px 0 0 -65px; padding: 50px 50px 0 50px; border-radius: 50%; vertical-align: top}
+header, section {text-align: center}
+header{background: white; border: 4px solid #D0021B; width: 252px; height: 302px; margin: -65px 0 0 -65px; padding: 50px 50px 0 50px; border-radius: 50%}
 header h2 {color: #D0021B; font-size: 24px; text-transform: uppercase; letter-spacing: 1px}
 header h3 {color: #4A4A4A; font-size: 15px; text-transform: lowercase}
 main{max-width: 1100px;position: relative}
@@ -36,7 +36,7 @@ section h2{margin: .5em 0 0; line-height: 120%}
 #git .bubble {background:white;border: 2px dashed #03A9F4; width: 280px; height: 280px; padding: 30px 1em 0}
 #git h2 {color: #03A9F4; font-size: 24px}
 #git h3 {font-size: 13px; margin-bottom: 10px}
-#git a {display: inline-block; margin: 0 4px}
+#git a {margin: 0 4px}
 #git a:not(#keybase) {border-radius: 50%; box-sizing: border-box; width: 80px; height: 80px; border:4px solid rgba(0,0,0,.1)}
 #git #twitter {background: #55acee; padding: 20px 0 0 4px}
 #git #email {background: #FF9800; padding: 15px 0 0 0}
@@ -44,26 +44,28 @@ section h2{margin: .5em 0 0; line-height: 120%}
 
 
 @media(max-width: 600px) {
-    header,a,section{display: block}
+    header,section,#projects a{display: block}
     header{margin:auto;border:0;padding:1em 0;height:auto}
     section {margin: 2em 0}
 }
-@media(min-width: 601px) and (max-width: 699px) {
-    #projects,a,section{display: block}
+@media(min-width: 601px) {
+    #projects a,#projects section{display: block}
     section{margin: 1.5em 0}
     #git{position: absolute; left: 5%; top: 360px}
-    #projects{position: absolute;right: 0;top:0}
+    #projects{position: absolute;right: 0;top:60px}
 }
 @media(min-width: 700px) {
+    header{display: inline-block}
     section {position: absolute}
-    #d2w  {right:  2%;   left:unset; top:  10px}
-    #oclb {right: unset; left:  30%; top: 260px}
-    #scl  {right: unset; left:   2%; top: 360px}
-    #git  {right:  1%;   left:unset; top: 390px}
+    #projects{position:initial}
+    #d2w  {right: 2%; top:  10px}
+    #oclb {left: 30%; top: 260px}
+    #scl  {left: 2%; top: 360px}
+    #git  {right: 1%; left:initial; top: 390px}
 }
 @media(min-width: 800px) {
-    #d2w  {right: unset; left:  60%; top:  10px}
-    #oclb {right: unset; left:  37%; top: 240px}
-    #scl  {right: unset; left:  10%; top: 320px}
-    #git  {right: unset; left:  65%; top: 385px}
+    #d2w  {right: initial; left:  60%; top:  10px}
+    #oclb {right: initial; left:  37%; top: 240px}
+    #scl  {right: initial; left:  10%; top: 320px}
+    #git  {right: initial; left:  65%; top: 385px}
 }
