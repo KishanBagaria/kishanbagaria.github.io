@@ -1,5 +1,5 @@
 {}
-*:not(.ui-draggable-dragging) {-webkit-transition: .3s all;transition: .3s all;-webkit-animation: show .4s;animation: show .4s;-webkit-tap-highlight-color:transparent}
+* /*:not(.ui-draggable-dragging)*/{-webkit-transition: .3s all;transition: .3s all;-webkit-animation: show .4s;animation: show .4s;-webkit-tap-highlight-color:transparent}
 body{font: 14px/160% 'Avenir Next', Avenir, 'Trebuchet MS', sans-serif}
 img {max-width: 100%}
 h2,h3{font-weight: normal; margin: 0; color: #4A4A4A}
@@ -12,12 +12,14 @@ header h2 {color: #D0021B; font-size: 24px; text-transform: uppercase; letter-sp
 header h3 {color: #4A4A4A; font-size: 15px; text-transform: lowercase}
 main{max-width: 1100px;position: relative}
 #projects section:hover, #git a:hover, header:hover {-webkit-transform: scale(1.1) rotate(-2deg);transform: scale(1.1) rotate(-2deg)}
+#projects section:active, #git a:active, header:active {-webkit-transform: scale(.9);transform: scale(.9)}
 #git a:hover {-webkit-transform: scale(1.1) rotate(-4deg);transform: scale(1.1) rotate(-4deg)}
+#git a:active {-webkit-transform: scale(.9);transform: scale(.9)}
 section h2{margin: .5em 0 0; line-height: 120%}
 .bubble {border-radius: 50%; box-sizing: border-box; margin: auto}
-.bub {width: 24px; height: 24px; border-radius: 50%; position: absolute; -webkit-animation: show .4s, pulse infinite alternate 4s ease-in-out; animation: show .4s, pulse infinite alternate 4s ease-in-out}
-@-webkit-keyframes pulse { to {-webkit-transform: scale(1.2);transform: scale(1.2)}}
-@keyframes pulse { to {-webkit-transform: scale(1.2);transform: scale(1.2)}}
+.bub {width: 24px; height: 24px; border-radius: 50%; position: absolute; -webkit-animation: show .4s, pulse infinite alternate 4s ease-in-out; animation: show .4s, pulse infinite alternate 4s ease-in-out; opacity: .9; z-index: -9999}
+@-webkit-keyframes pulse { to {-webkit-transform: scale(1.2);transform: scale(1.2)} }
+@keyframes pulse { to {-webkit-transform: scale(1.2);transform: scale(1.2)} }
 @-webkit-keyframes show { from {opacity: 0} }
 @keyframes show { from {opacity: 0} }
 
