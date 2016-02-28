@@ -23,50 +23,6 @@
     
     
       <item>
-        <title>Visual Studio 2015 ISO Direct Download Links</title>
-        <link>https://kishanbagaria.com/visual-studio-2015-iso-direct-download-links/</link>
-        <guid isPermaLink="true">https://kishanbagaria.com/visual-studio-2015-iso-direct-download-links/</guid>
-        <pubDate>Wed, 22 Jul 2015 00:00:00 +0530</pubDate>
-        
-        <description><![CDATA[Visual Studio Community 2015 - English
-vs2015.com_enu.iso
-SHA1: BAAD3CEBAB7A5834D8F78F7D02E4880C010F3BA9
-
-Visual Studio Enterprise 2015 - English
-vs2015.ent_enu.iso
-SHA1: 07C949078F895CE0D9C03A1B8D55571A8C90AC94
-
-Visual Studio Professional 2015 - English
-vs2015.pro_enu.iso
-SHA1: E01F364C3F21CDFCEBB25D3C028398741F08EB24
-
-Visual Studio Test Professional 2015 - English
-vs2015.testpro_enu.iso
-SHA1: A532B03F4B461DE68F4A86D34F478F2C87F6413D
-
-
-
-If you're looking for non-English links, click here.
-
-
-Links extracted from https://www.visualstudio.com/en-us/downloads/visual-studio-2015-downloads-vs.aspx
-SHA1 values extracted from https://www.visualstudio.com/en-us/downloads/visual-studio-2015-iso-sha1-vs.aspx
-
-]]></description>
-      </item>
-    
-    
-      <item>
-        <title>Visual Studio 2015 ISO Direct Download Links - Other Languages</title>
-        <link>https://kishanbagaria.com/visual-studio-2015-iso-direct-download-links-non-english-languages/</link>
-        <guid isPermaLink="true">https://kishanbagaria.com/visual-studio-2015-iso-direct-download-links-non-english-languages/</guid>
-        <pubDate>Wed, 22 Jul 2015 00:00:00 +0530</pubDate>
-        
-        <description><![CDATA[If you're looking for English links, click here. Visual Studio Community 2015 Chinese (Simplified): vs2015.com_chs.iso   SHA1: 1044F9F4E0EA1304AFECF6780BF599F1DA248DF8 Chinese (Traditional): vs2015.com_cht.iso   SHA1: FDBA716E9CE9F27E95D48E773E168BEA2143FE13 German: vs2015.com_deu.iso   SHA1: 503D0B7932E3446AC73272870051981F67D26EAD Spanish: vs2015.com_esn.iso   SHA1: 37FBCFDF1B96B145E1AF84447C8F2BBD6195DD55 French: vs2015.com_fra.iso   SHA1: 2A6C0895B80CC3B907B6864AF783491D43F9D00D Italian: vs2015.com_ita.iso   SHA1: 731C517A51AC4A2267A8858BDF032E62486BE553 Japanese: vs2015.com_jpn.iso   SHA1: 71C246831BB71C0DB958D106DDC017E6243E8679 Korean: vs2015.com_kor.iso   SHA1: 74A60388637036B567C3CB1F271EAB4C57380F70 Russian: vs2015.com_rus.iso   SHA1: 537D88A9426A50616F5C9A984AE5EF6DD1AC0F25 Visual Studio Enterprise 2015 Chinese...]]></description>
-      </item>
-    
-    
-      <item>
         <title>Show HN Karma for Hacker News</title>
         <link>https://kishanbagaria.com/userscripts/show-hn-karma/</link>
         <guid isPermaLink="true">https://kishanbagaria.com/userscripts/show-hn-karma/</guid>
@@ -104,7 +60,7 @@ Opera: Violentmonkey
         <guid isPermaLink="true">https://kishanbagaria.com/userscripts/one-click-llama-button/</guid>
         <pubDate>Tue, 29 Apr 2014 00:00:00 +0530</pubDate>
         <category>userscripts</category>
-        <description><![CDATA[<img src="http://fc09.deviantart.net/fs70/f/2014/123/8/7/one_click_llama_button_by_kishan_bagaria-d7ghl1r.png" alt="One Click Llama Button for DeviantArt" /><br/>One Click Llama Button finds all deviant and group names in the page and adds a button next to them which lets you give them a Llama in just one click. Installing One Click Llama Button For Chrome/Firefox/Opera: Update your browser, if you aren't using the latest version. Install an extension in your browser which lets you use userscripts (One Click Llama Button is...]]></description>
+        <description><![CDATA[<img src="http://fc09.deviantart.net/fs70/f/2014/123/8/7/one_click_llama_button_by_kishan_bagaria-d7ghl1r.png" alt="One Click Llama Button for DeviantArt" /><br/>One Click Llama Button finds all deviant and group names in the page and adds a button next to them which lets you give them a Llama in just one click. Installing One Click Llama Button Chrome/Firefox/Opera/Safari 1. Update your browser, if you aren't using the latest version. 2. Install an extension in your browser which lets you use userscripts (One Click Llama Button...]]></description>
       </item>
     
   </channel>
