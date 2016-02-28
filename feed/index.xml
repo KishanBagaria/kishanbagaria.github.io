@@ -38,9 +38,9 @@ Installing the userscript
 
   
     Install an extension in your browser which lets you use userscripts:
-Chrome: Tampermonkey
-Firefox: Greasemonkey (you have to restart Firefox after installing Greasemonkey)
-Opera: Violentmonkey
+ Chrome: Tampermonkey
+ Firefox: Greasemonkey (you have to restart Firefox after installing Greasemonkey)
+ Opera: Violentmonkey
   
   
     Click Show HN Karma and install the userscript.
