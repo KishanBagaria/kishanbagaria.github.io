@@ -23,16 +23,16 @@ header {background: #1A2980; background-image: radial-gradient(60% 105%, #26D0CE
 table {height:100%; width:100%}
 h2, h3 {font-weight: 500; line-height: 160%}
 p {white-space:pre-wrap;text-align:left}
-a{padding: 2px 4px 1px;border-radius: 5px}
-a,a:visited{color:#4A90E2}
+a{padding: 2px 4px 1px;border-radius: 5px;color:#4A90E2; display: inline-block}
 a:hover {color:rgb(252,96,91); text-decoration: none}
-a:focus,a:active {color:white;background:rgb(252,96,91);text-decoration: none;}
+a:focus,a:active {color:white;background:rgb(252,96,91);text-decoration: none}
 img{max-width: 100%}
-p,a:hover,#replay,#download {transition:.3s all ease-in-out}
+a,p,#replay,#download {transition:.3s all ease-in-out}
 
 #window {background:url(window.png) no-repeat;background-size:contain;width:419px;height: 306px;margin:auto;position: relative}
     h1 {color:white; font-size:3em; font-weight: 300; margin-top: 0}
-    #replay {height: 23px;width:36px;position: absolute;right: 52px;top:30.5px;z-index:2;background: url(replay.png) no-repeat;background-size: contain}
+    #replay {height: 23px;width:36px;position: absolute;right: 52px;top:30.5px;z-index:2;background: url(replay.png) no-repeat;background-size: contain; cursor: pointer}
+    #replay.hide {opacity: 0; cursor: auto}
     #typing {width: 285px;margin: auto;font:14px/1.6em 'Helvetica Neue', Helvetica, Arial, sans-serif;position: relative;padding-top: 55px}
 
 #window span {background:#ADD3F9;padding: 2px 0 3px}
@@ -78,11 +78,10 @@ footer a{margin: -2px}
 <table><tr><td valign="middle"><div>
 <h1>SmartCapsLock</h1>
 <div id="window">
-<div id="replay" style="opacity:0"></div>
+<div id="replay" class="hide"></div>
 <div id="typing">
-<p><noscript>DON'T YOU GET ANNOYED WHEN YOU ACCIDENTALLY TYPE EVERYTHING WITH CAPS LOCK ON?
-
-SmartCapsLock lets you just select the text and press Caps Lock again to undo the mistake instead of typing everything again.</noscript></p>
+<p id="text1"><noscript>DON'T YOU GET ANNOYED WHEN YOU ACCIDENTALLY TYPE EVERYTHING WITH CAPS LOCK ON?</noscript></p>
+<p id="text2"><noscript>SmartCapsLock lets you just select the text and press Caps Lock again to undo the mistake instead of typing everything again.</noscript></p>
 <p></p>
 <p></p>
 </div>
@@ -90,6 +89,7 @@ SmartCapsLock lets you just select the text and press Caps Lock again to undo th
 <h3 id="download"><a href="https://gum.co/smartcapslock" onclick="scrollToY(document.getElementById('gumroad').offsetTop);return false" target="_blank">Download</a></h3>
 <a id="more" href="#more" aria-hidden="true">╲╱</a>
 </div></td></tr></table>
+<a href="/" style="position:absolute;left:0;top:0;font-size:12px;letter-spacing:2px;color:white;font-weight:100;text-transform:uppercase;padding: 2px 9px;background:rgba(250,251,252,0.1);text-decoration:none;border-radius:0">&lt; Back to Kishan Bagaria</a>
 </header>
 <main>
 <section>
@@ -132,7 +132,7 @@ SmartCapsLock lets you just select the text and press Caps Lock again to undo th
 </div>
 </section>
 <section id="gumroad">
-<div class="gumroad-product-embed" data-gumroad-product-id="smartcapslock"><a href="https://gumroad.com/l/smartcapslock">Loading...</a></div>
+<div class="gumroad-product-embed" data-gumroad-product-id="smartcapslock"><a href="https://gumroad.com/l/smartcapslock">Download Form Loading...<noscript> Nope, enable JavaScript first.</noscript></a></div>
 </section>
 <section id="windows">
 <div>
@@ -160,9 +160,9 @@ function scrollToY(scrollTargetY) {
     var scrollY = window.scrollY,
         scrollTargetY = scrollTargetY || 0,
         speed = 2000,
-        currentTime = 0;
-    var time = Math.max(.1, Math.min(Math.abs(scrollY - scrollTargetY) / speed, .8));
-    var easing = function (pos) {
+        currentTime = 0,
+        time = Math.max(.1, Math.min(Math.abs(scrollY - scrollTargetY) / speed, .8)),
+        easing = function (pos) {
         if ((pos/=0.5) < 1) return 0.5*Math.pow(pos,5);
         return 0.5 * (Math.pow((pos-2),5) + 2);
     };
@@ -206,32 +206,32 @@ function selectDOMText(element, start, end) {
         element.innerHTML = element.innerHTML.substr(0, start) + '<span>' + element.innerHTML.substr(start) + '</span>';
     }
 }
-var text = document.getElementsByTagName('noscript')[0].innerHTML.split('\n\n');
-var textToType = text[0];
-var words = textToType.split(' ');
-var wordLengths = [1, 6, 4, 4, 8, 5, 4, 13, 5, 11, 5, 5, 5, 3];
+var text1 = document.getElementById('text1').children[0].innerHTML,
+    text2 = document.getElementById('text2').children[0].innerHTML,
+    textToType = text1,
+    words = textToType.split(' '),
+    wordLengths = [1, 6, 4, 4, 8, 5, 4, 13, 5, 11, 5, 5, 5, 3];
 /*for (var i = 0; i < words.length; i++) {
     wordLengths.push(words[i].length+(i == (words.length-1) ? 0 : 1));
 }*/
-var totalLength = textToType.length;
-var typingElement = document.getElementById('typing');
-var replayElement = document.getElementById('replay');
-var p1 = typingElement.children[1];
-var p2 = typingElement.children[2];
+var totalLength = textToType.length,
+    typingElement = document.getElementById('typing'),
+    replayElement = document.getElementById('replay'),
+    p1 = typingElement.children[2],
+    p2 = typingElement.children[3];
 function textTypingAnimation() {
     scrollToY(0);
     p2.style.opacity = '0';
-    replayElement.style.opacity = '0';
-    replayElement.style.cursor = '';
+    replayElement.className = 'hide';
     replayElement.onclick = null;
-    var typingInterval = setInterval(typeText, 50);
-    var typedLength = 5;
+    var typingInterval = setInterval(typeText, 50),
+        typedLength = 5;
     function typeText() {
         typedLength += 1;
         if(typedLength > totalLength) {
             clearInterval(typingInterval);
             setTimeout(function() {
-                p2.innerHTML = text[1];
+                p2.innerHTML = text2;
                 p2.style.opacity = '';
             }, 500);
             setTimeout(textSelectionAnimation, 3000);
@@ -243,9 +243,9 @@ function textTypingAnimation() {
 }
 function textSelectionAnimation() {
     p1.innerHTML = textToType;
-    var selectionInterval = setInterval(selectText, 100);
-    var selectedLength = totalLength;
-    var wl = wordLengths.slice();
+    var selectionInterval = setInterval(selectText, 100),
+        selectedLength = totalLength,
+        wl = wordLengths.slice();
     function selectText() {
         selectedLength -= wl.pop();
         if(selectedLength < 0) {
@@ -254,8 +254,7 @@ function textSelectionAnimation() {
                 p1.innerHTML = textToType[0] + textToType.substr(1).toLowerCase();
             }, 1000);
             setTimeout(function() {
-                replayElement.style.opacity = '';
-                replayElement.style.cursor = 'pointer';
+                replayElement.className = '';
                 replayElement.onclick = textTypingAnimation;
             }, 1500);
             return;
