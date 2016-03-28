@@ -37,27 +37,17 @@
 </aside>
 <main><div id="page">
 <h1 id="page-title">One Click Llama Button — Preferences</h1>
-<div><h3>Show buttons after deviant's name in</h3>
+<div><h3>Show buttons in</h3>
 
-<label><input type="radio" name="showin" value="*"> All pages (Default)</label><br>
-<label><input type="radio" name="showin" value="notifycenter"> Notification Center</label><br>
-<label><input type="radio" name="showin" value="profile"> Profile Page (only one button after the big username)</label><br>
-<!-- 
-<script>
-var forEach = function(array, callback) {
-    for (var i = 0; i < array.length; i++) callback(array[i], i);
-};
+<label><input type="radio" name="showIn" value="*"> All pages (Default)</label><br>
+<label><input type="radio" name="showIn" value="notifycenter"> Notification Center</label><br>
+<label><input type="radio" name="showIn" value="profile"> Profile Page (only after the first username)</label><br>
 
-var inputs = document.getElementsByTagName('input');
-forEach(inputs, function(input) {
-    input.onchange = function() {
-        GM_setValue(input.name, input.value);
-    };
-});
+<h3>Show buttons before/after usernames</h3>
 
-var showIn = GM_getValue('showin') || '*';
-document.querySelector('input[value=' +  showIn + ']').checked = true;
-</script> --></div>
+<label><input type="radio" name="showPos" value="before"> Before usernames</label>
+<label><input type="radio" name="showPos" value="after"> After usernames</label>
+</div>
 <div style="text-align:center;margin:1em 0"><ins class="adsbygoogle lb foot_lb" style="display:inline-block" data-ad-client="ca-pub-5503777349428340" data-ad-slot="1131905289"></ins>
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
 <footer>
