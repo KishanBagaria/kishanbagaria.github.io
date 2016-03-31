@@ -4,23 +4,18 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<style>body{font: 14px/160% Avenir Next, Avenir, Trebuchet MS, sans-serif; color: #212121; max-width: 800px}</style>
+<style>body{font: 14px/160% Avenir Next, Avenir, Trebuchet MS, sans-serif; color: #212121}</style>
 </head>
 <body><noscript>JavaScript is disabled, please enable it to use this bookmarklet.</noscript>
 
 <ol>
   <li>Add a bookmark to this page.</li>
-  <li>Copy this link's URL: <a id="bookmarklet" href="#javascript-disabled"></a></li>
-  <li>Edit the bookmark you added and replace its URL with the one you copied.</li>
+  <li>Edit the bookmark and remove everything up to the <strong>#</strong> (pound/hash) character so that the link starts with <strong>javascript:</strong></li>
   <li>Done.</li>
 </ol>
 
-<p>Alternatively, if your bookmarks are synced through devices and you're using a desktop browser, you can simply drag the link in step 2 to your bookmarks bar.</p>
-
-<p>Alternatively alternatively,
-1. Add a bookmark to this page.
-2. Edit the bookmark and remove everything up to the <strong>#</strong> (pound/hash) character so that the link starts with <strong>javascript:</strong>
-3. Done.</p>
+<p>Alternatively, if your bookmarks are synced through devices and you're using a desktop browser, you can simply drag this link to your bookmarks bar:<br />
+<a id="bookmarklet" href="#javascript-disabled"></a></p>
 
 <script>
 var name = decodeURIComponent(location.search.slice(1).replace(/\+/g, ' ')),
