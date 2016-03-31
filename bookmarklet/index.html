@@ -1,9 +1,27 @@
-<script>document.title=decodeURIComponent(location.search.slice(1).replace(/\+/g, ' '))</script>
-
-<style>body{font: 14px/160% Avenir Next, Avenir, Trebuchet MS, sans-serif; color: #212121}</style>
-
-<ol>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>body{font: 14px/160% Avenir Next, Avenir, Trebuchet MS, sans-serif; color: #212121; max-width: 800px}</style>
+</head>
+<body><ol>
   <li>Add a bookmark to this page.</li>
-  <li>Edit the bookmark and remove all text up to the <strong>#</strong> (pound/hash) character. Your bookmark should start with <strong>javascript:</strong></li>
+  <li>Edit the bookmark and remove all text up to the <strong>#</strong> (pound/hash) character.
+Your bookmark should start with <strong>javascript:</strong></li>
   <li>Done.</li>
 </ol>
+
+<p>Alternatively, drag the following link in your bookmarks bar:</p>
+
+<p><a id="bookmarklet" href="#"></a>
+<script>
+var name = decodeURIComponent(location.search.slice(1).replace(/\+/g, ' ')),
+    b = document.getElementById('bookmarklet');
+document.title = name;
+b.innerHTML = name;
+b.href = location.hash.slice(1);
+</script></p>
+</body>
+</html>

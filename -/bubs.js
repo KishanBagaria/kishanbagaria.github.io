@@ -36,7 +36,9 @@ function addBubbles() {
         //$('.bub').draggable();
     }
 }
-window.addEventListener('load', addBubbles);
+window.addEventListener('load', function() {
+  setTimeout(addBubbles, 1e3);
+});
 window.addEventListener('resize', function() {
     while (bubContainer.firstChild) bubContainer.removeChild(bubContainer.firstChild);
     addBubbles();
