@@ -36,7 +36,7 @@
 
 </aside>
 <main><div id="intro">
-  <h2>Hi, I'm Kishan</h2>
+  <h2><span>Hi</span>, I'm Kishan</h2>
   <p>I love making things and breaking them. Here you'll find some of the stuff I've made.</p>
 </div>
 <section id="git">
@@ -71,6 +71,18 @@
     </a>
   </section>
 </div>
+<script>
+var span = document.querySelector('#intro h2 span'),
+    greetings = ['Hi', 'Hey', 'Hello', 'Bello', 'Yo', 'Howdy'],
+    index = 0;
+setInterval(function() {
+  span.style.opacity = '0';
+  setTimeout(function() {
+    span.innerHTML = greetings[index = ++index % greetings.length];
+    span.style.opacity = '1';
+  }, 160);
+}, 5e3);
+</script>
 </main>
 </div>
 <script>
