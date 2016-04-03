@@ -183,9 +183,9 @@ document.getElementById('more').onclick = function () {
     scrollToY(window.innerHeight);
     return false;
 };
-var iOS = /iPad|iPhone|iPod/.test(navigator.platform);
+var isiOS = /iPad|iPhone|iPod/i.test(navigator.platform);
 function selectDOMText(element, start, end) {
-    if (!iOS && window.getSelection) {
+    if (!isiOS && window.getSelection) {
         var range = document.createRange();
         range.setStart(element.firstChild, start);
         range.setEnd(element.firstChild, end);
