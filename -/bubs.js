@@ -33,19 +33,18 @@ function addRandomBubble() {
 }
 
 function addBubbles() {
+  while (bubContainer.firstChild) bubContainer.removeChild(bubContainer.firstChild);
   if (document.documentElement.clientWidth > 450) {
     start = Date.now();
-    for (var i = 0; i < document.documentElement.clientWidth / 50; i++) addRandomBubble(i);
+    var bubblesCount = Math.min(500, document.documentElement.clientWidth * document.documentElement.clientHeight / (40 * 40) / 20);
+    while (--bubblesCount > 0) addRandomBubble();
     //$('.bub').draggable();
   }
 }
 window.addEventListener('load', function () {
   setTimeout(addBubbles, 600);
 });
-window.addEventListener('resize', function () {
-  while (bubContainer.firstChild) bubContainer.removeChild(bubContainer.firstChild);
-  addBubbles();
-});
+window.addEventListener('resize', addBubbles);
 
 // $(function() {
 //     $('header, section').draggable()
