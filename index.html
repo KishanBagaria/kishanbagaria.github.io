@@ -72,13 +72,13 @@
   </section>
 </div>
 <script>
-var span = document.querySelector('#intro h2 span'),
-    greetings = ['Hi', 'Hey', 'Hello', 'Bello', 'Yo', 'Howdy'],
+var GREETINGS = ['Hi', 'Hey', 'Hello', 'Bello', 'Yo', 'Howdy'],
+    span = document.querySelector('#intro h2 span'),
     index = 0;
 setInterval(function() {
   span.style.opacity = '0';
   setTimeout(function() {
-    span.innerHTML = greetings[index = ++index % greetings.length];
+    span.innerHTML = GREETINGS[index = ++index % greetings.length];
     span.style.opacity = '1';
   }, 160);
 }, 5e3);

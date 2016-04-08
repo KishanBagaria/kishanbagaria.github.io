@@ -19,6 +19,10 @@
 
     
 
+<style>
+    span.oclb{animation:none}
+    [data-oclb-not-loaded]{display:none}
+</style>
 
 <script>console.log("%cDON'T PANIC!","font:900 4em Avenir,'Trebuchet MS'")</script>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -41,6 +45,16 @@
 
 <h3 id="no-oclb">One Click Llama Button hasn't loaded yet. This page will not work.</h3>
 
+<div style="background:#dde5d8;border:1px solid #b5bfb5;border-radius:6px;padding:1em;display:inline-block;text-align:center" data-oclb-not-loaded>
+    <span class="oclb oclb-unknown"></span>
+    <span class="oclb oclb-give"></span>
+    <span class="oclb oclb-giving"></span>
+    <span class="oclb oclb-success"></span>
+    <span class="oclb oclb-error"></span>
+    <span class="oclb oclb-spam"></span>
+    <span class="oclb oclb-already"></span>
+</div>
+
 <h3>Show buttons in</h3>
 
 <label><input class="oclb" type="radio" name="showIn" value="*"> All pages (Default)</label><br>
@@ -50,6 +64,34 @@
 <h3>Show buttons <label><input class="oclb" type="radio" name="showPos" value="before"> before / </label> <label><input class="oclb" type="radio" name="showPos" value="after"> after </label>usernames</h3>
 
 <h3><label><input class="oclb" type="checkbox" name="animation"> Transition when changing icons</label></h3>
+<table style="width:initial;margin-top:-1em" data-oclb-not-loaded>
+    <tr>
+        <td>Transition enabled:</td>
+        <td><span class="oclb oclb-unknown oclb-p-transition"></span></td>
+    </tr>
+    <tr>
+        <td>Transition disabled:</td>
+        <td><span class="oclb oclb-unknown oclb-p-transition" style="transition:none"></span></td>
+    </tr>
+</table>
+
+<script>
+var forEach = function(array, callback) {
+    for (var i = 0; i < array.length; i++) callback(array[i], i);
+};
+var TRANSITIONS = [
+    'unknown', 'give', 'giving', 'success',
+    'unknown', 'already',
+    'unknown', 'give', 'giving', 'error',
+    'unknown', 'give', 'giving', 'spam',
+    //'unknown', 'give', 'giving', 'already'
+];
+var spans = [].slice.call(document.getElementsByClassName('oclb-p-transition'));
+var index = 0;
+setInterval(function() {
+    spans[0].className = spans[1].className = ('oclb oclb-' + TRANSITIONS[index = ++index % TRANSITIONS.length]);
+}, 2e3);
+</script>
 </div>
 
 <div style="text-align:center;margin:1em 0"><ins class="adsbygoogle lb foot_lb" style="display:inline-block" data-ad-client="ca-pub-5503777349428340" data-ad-slot="1131905289"></ins>
