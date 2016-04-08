@@ -22,6 +22,7 @@
 <style>
     span.oclb{animation:none}
     [data-oclb-not-loaded]{display:none}
+    .pref-group{margin-top:-1em}
 </style>
 
 <script>console.log("%cDON'T PANIC!","font:900 4em Avenir,'Trebuchet MS'")</script>
@@ -55,22 +56,23 @@
     <span class="oclb oclb-already"></span>
 </div>
 
-<h3>Show buttons in</h3>
+<h3>Show buttons <label><input class="oclb" type="radio" name="showPos" value="before"> before / </label> <label><input class="oclb" type="radio" name="showPos" value="after"> after </label>usernames</h3>
 
+<h3>Show buttons in</h3>
+<div class="pref-group">
 <label><input class="oclb" type="radio" name="showIn" value="*"> All pages (Default)</label><br>
 <label><input class="oclb" type="radio" name="showIn" value="notifycenter"> Notification Center</label><br>
 <label><input class="oclb" type="radio" name="showIn" value="profile"> Profile Page (only after the first username)</label><br>
+</div>
 
-<h3>Show buttons <label><input class="oclb" type="radio" name="showPos" value="before"> before / </label> <label><input class="oclb" type="radio" name="showPos" value="after"> after </label>usernames</h3>
-
-<h3><label><input class="oclb" type="checkbox" name="animation"> Transition when changing icons</label></h3>
-<table style="width:initial;margin-top:-1em" data-oclb-not-loaded>
+<h3>Transition when changing icons</h3>
+<table class="pref-group" style="width:initial" data-oclb-not-loaded>
     <tr>
-        <td>Transition enabled:</td>
+        <td><label><input class="oclb" type="radio" name="animation" value="true"> Transition enabled:</label></td>
         <td><span class="oclb oclb-unknown oclb-p-transition"></span></td>
     </tr>
     <tr>
-        <td>Transition disabled:</td>
+        <td><label><input class="oclb" type="radio" name="animation" value="false"> Transition disabled:</label></td>
         <td><span class="oclb oclb-unknown oclb-p-transition" style="transition:none"></span></td>
     </tr>
 </table>
