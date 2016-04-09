@@ -78,7 +78,7 @@ var GREETINGS = ['Hi', 'Hey', 'Hello', 'Bello', 'Yo', 'Howdy'],
 setInterval(function() {
   span.style.opacity = '0';
   setTimeout(function() {
-    span.innerHTML = GREETINGS[index = ++index % greetings.length];
+    span.innerHTML = GREETINGS[index = ++index % GREETINGS.length];
     span.style.opacity = '1';
   }, 160);
 }, 5e3);

@@ -21,7 +21,7 @@
 
 <style>
     span.oclb{animation:none}
-    [data-oclb-not-loaded]{display:none}
+    [data-oclb-not-loaded]{display:none!important}
     .pref-group{margin-top:-1em}
 </style>
 
@@ -38,7 +38,10 @@
 <h3>Developer · Designer · Hacker</h3>
 </a>
 </header>
-
+<div style="text-align:center;margin:1em 0">
+<ins class="adsbygoogle content_ad" style="display:inline-block" data-ad-client="ca-pub-5503777349428340" data-ad-slot="2608638488"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
 </aside>
 <main><div id="page">
 <h1 id="page-title">One Click Llama Button — Preferences</h1>
@@ -65,7 +68,7 @@
 <label><input class="oclb" type="radio" name="showIn" value="profile"> Profile Page (only after the first username)</label><br>
 </div>
 
-<h3>Transition when changing icons</h3>
+<h3 data-oclb-not-loaded>Transition when changing icons</h3>
 <table class="pref-group" style="width:initial" data-oclb-not-loaded>
     <tr>
         <td><label><input class="oclb" type="radio" name="animation" value="true"> Transition enabled:</label></td>
@@ -80,30 +83,28 @@
 <script>
 var forEach = function(array, callback) {
     for (var i = 0; i < array.length; i++) callback(array[i], i);
-};
-var TRANSITIONS = [
+}, TRANSITIONS = [
     'unknown', 'give', 'giving', 'success',
     'unknown', 'already',
     'unknown', 'give', 'giving', 'error',
     'unknown', 'give', 'giving', 'spam',
     //'unknown', 'give', 'giving', 'already'
-];
-var spans = [].slice.call(document.getElementsByClassName('oclb-p-transition'));
-var index = 0;
+], spans = [].slice.call(document.getElementsByClassName('oclb-p-transition')),
+   index = 0;
 setInterval(function() {
     spans[0].className = spans[1].className = ('oclb oclb-' + TRANSITIONS[index = ++index % TRANSITIONS.length]);
 }, 2e3);
 </script>
 </div>
 
-<div style="text-align:center;margin:1em 0"><ins class="adsbygoogle lb foot_lb" style="display:inline-block" data-ad-client="ca-pub-5503777349428340" data-ad-slot="1131905289"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
 <footer>
 <div id="copyright">&copy; 2015-16 <a href="/">Kishan Bagaria</a></div>
 <div><a target="_blank" href="https://twitter.com/KishanBagaria">Follow me on Twitter</a> &middot; <a href="mailto:hi@kishan.info">Email me</a> &middot; <a target="_blank" href="https://keybase.io/KishanBagaria">Track me on Keybase</a></div>
 <div id="gte"></div>
 </footer>
-</div></main>
+</div>
+</main>
 </div>
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
