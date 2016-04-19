@@ -43,7 +43,15 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
 </aside>
 <main><div id="page">
 <h1 id="page-title">One Click Llama Button — How To Install</h1>
-<div><h4>I'm using Chrome/Firefox/Opera/Safari</h4>
+<div><h3 id="oclb-installed-success"></h3>
+<script>
+window.addEventListener('message', function (e) {
+    if (e.data !== 'oclb-loaded') return;
+    document.getElementById('oclb-installed-success').innerHTML = "If you're seeing this, it means you have successfully installed One Click Llama Button.";
+});
+</script>
+
+<h4>I'm using Chrome/Firefox/Opera/Safari</h4>
 
 <p>1. Update your browser, <a href="http://whatbrowser.org/">if you aren't using the latest version</a>.</p>
 
