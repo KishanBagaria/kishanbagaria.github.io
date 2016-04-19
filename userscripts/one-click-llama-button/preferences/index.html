@@ -19,14 +19,18 @@
 
     
 
+<script>
+console.log("%cDON'T PANIC!","font:900 4em Avenir,'Trebuchet MS'");
+function forEach(array, callback) { for (var i = 0; i < array.length; i++) callback(array[i], i); };
+</script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <style>
     span.oclb{animation:none}
     [data-oclb-not-loaded]{display:none!important}
     .pref-group{margin-top:-1em}
+    .oclb-pg-transition label{width:145px;display:inline-block}
 </style>
 
-<script>console.log("%cDON'T PANIC!","font:900 4em Avenir,'Trebuchet MS'")</script>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 <body ontouchstart="">
 <div id="wrapper">
@@ -73,21 +77,23 @@
 </div>
 
 <h3 data-oclb-not-loaded>Transition when changing icons</h3>
-<table class="pref-group" style="width:initial" data-oclb-not-loaded>
-    <tr>
-        <td><label><input class="oclb" type="radio" name="animation" value="true"> Transition enabled:</label></td>
-        <td><span class="oclb oclb-unknown oclb-p-transition"></span></td>
-    </tr>
-    <tr>
-        <td><label><input class="oclb" type="radio" name="animation" value="false"> Transition disabled:</label></td>
-        <td><span class="oclb oclb-unknown oclb-p-transition" style="transition:none"></span></td>
-    </tr>
-</table>
+<div class="pref-group oclb-pg-transition" data-oclb-not-loaded>
+<label><input class="oclb" type="radio" name="animation" value="true"> Transition enabled:</label>
+<span class="oclb oclb-unknown oclb-p-transition"></span><br>
+<label><input class="oclb" type="radio" name="animation" value="false"> Transition disabled:</label>
+<span class="oclb oclb-unknown oclb-p-transition" style="transition:none"></span>
+</div>
+
+<br>
+
+<h3><a href="../">One Click Llama Button</a></h3>
+<h3><a href="../exchangers/">One Click Llama Button — Exchangers List</a></h3>
+<h3><a target="_blank" href="http://kishan-bagaria.deviantart.com/art/One-Click-Llama-Button-450957519">Comments on DeviantArt</a></h3>
+<h3><a target="_blank" href="http://www.deviantart.com/notifications/notes/#to=Kishan-Bagaria">Contact Developer</a></h3>
 
 <script>
-var forEach = function(array, callback) {
-    for (var i = 0; i < array.length; i++) callback(array[i], i);
-}, TRANSITIONS = [
+'use strict';
+var TRANSITIONS = [
     'unknown', 'give', 'giving', 'success',
     'unknown', 'already',
     'unknown', 'give', 'giving', 'error',
@@ -99,6 +105,15 @@ var forEach = function(array, callback) {
 setInterval(function() {
     spans[0].className = spans[1].className = ('oclb oclb-' + TRANSITIONS[index = ++index % TRANSITIONS.length]);
 }, 2e3);
+window.addEventListener('message', function (e) {
+    if (e.data !== 'oclb-loaded') return;
+    var no_oclb = document.getElementById('no-oclb');
+    if (no_oclb) no_oclb.remove();
+    var hidden = document.querySelectorAll('[data-oclb-not-loaded]');
+    forEach(hidden, function(h) {
+        h.removeAttribute('data-oclb-not-loaded');
+    });
+});
 </script>
 </div>
 
@@ -126,6 +141,7 @@ function googleTranslateElementInit() {
 }
 </script>
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 
 </body>
 </html>
