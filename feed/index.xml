@@ -4,8 +4,8 @@
     <title>Kishan Bagaria</title>
     <description></description>
     <link>https://kishanbagaria.com</link>
-    <lastBuildDate>Fri, 13 Nov 2015 00:00:00 +0530</lastBuildDate>
-    <pubDate>Fri, 13 Nov 2015 00:00:00 +0530</pubDate>
+    <lastBuildDate>Fri, 13 Nov 2015 00:00:00 +0000</lastBuildDate>
+    <pubDate>Fri, 13 Nov 2015 00:00:00 +0000</pubDate>
     <atom:link href="https://kishanbagaria.com/feed/" rel="self" type="application/rss+xml" />
     <language>en-US</language>
     <atom:link rel="hub" href="http://pubsubhubbub.appspot.com"/>
@@ -16,7 +16,7 @@
         <title>SmartCapsLock</title>
         <link>https://kishanbagaria.com/smartcapslock/</link>
         <guid isPermaLink="true">https://kishanbagaria.com/smartcapslock/</guid>
-        <pubDate>Fri, 13 Nov 2015 00:00:00 +0530</pubDate>
+        <pubDate>Fri, 13 Nov 2015 00:00:00 +0000</pubDate>
         
         <description><![CDATA[SmartCapsLock SmartCapsLock DON'T YOU GET ANNOYED WHEN YOU ACCIDENTALLY TYPE EVERYTHING WITH CAPS LOCK ON? SmartCapsLock lets you just select the text and press Caps Lock again to instantly fix the case instead of typing everything again. Download ╲╱ &lt; Back to Kishan Bagaria Caps Lock Off. Caps Lock On. SmartCapsLock sits quietly in your menu bar and acts as an indicator always telling...]]></description>
       </item>
@@ -26,7 +26,7 @@
         <title>Show HN Karma for Hacker News</title>
         <link>https://kishanbagaria.com/userscripts/show-hn-karma/</link>
         <guid isPermaLink="true">https://kishanbagaria.com/userscripts/show-hn-karma/</guid>
-        <pubDate>Wed, 08 Oct 2014 00:00:00 +0530</pubDate>
+        <pubDate>Wed, 08 Oct 2014 00:00:00 +0000</pubDate>
         <category>userscripts</category>
         <description><![CDATA[<img src="/--/show_hn_karma/homepage.png" alt="Show HN Karma for Hacker News" /><br/>
 
@@ -58,12 +58,12 @@ Installing the userscript
         <title>One Click Llama Button for DeviantArt</title>
         <link>https://kishanbagaria.com/userscripts/one-click-llama-button/</link>
         <guid isPermaLink="true">https://kishanbagaria.com/userscripts/one-click-llama-button/</guid>
-        <pubDate>Tue, 29 Apr 2014 00:00:00 +0530</pubDate>
+        <pubDate>Tue, 29 Apr 2014 00:00:00 +0000</pubDate>
         <category>userscripts</category>
         <description><![CDATA[<img src="http://orig11.deviantart.net/0337/f/2016/102/7/f/one_click_llama_button_by_kishan_bagaria-d7ghl1r.png" alt="One Click Llama Button for DeviantArt" /><br/>
 
-One Click Llama Button (OCLB) is a userscript (kinda like a browser extension) which adds a Llama button next to every deviant's name in DeviantArt pages.
-You just need to click this button once and it'll automatically give a Llama to that deviant.
+One Click Llama Button (OCLB) is a userscript (kinda like a browser extension) which adds a llama button next to every deviant's name in DeviantArt pages.
+You just need to click this button once and it'll automatically give a llama to that deviant.
 
 How To Install
 

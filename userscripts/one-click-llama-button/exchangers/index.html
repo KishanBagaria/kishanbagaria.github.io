@@ -128,18 +128,19 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
 <div class="tfoot">
 <div id="oclb-sort"><b>sort by</b> <label><input type="radio" name="oclb-sort"> received</label> <label><input type="radio" name="oclb-sort"> given</label> <label><input type="radio" name="oclb-sort" checked> ratio</label></div>
 <div style="margin-top:2px" id="oclb-order"><b>order</b> <label><input type="radio" name="oclb-order" checked> ascending</label> <label><input type="radio" name="oclb-order"> descending</label></div>
-<div style="margin-top:10px"><b>last updated</b> <label>April 22 2016, 02:59:08 AM</label></div>
+<div style="margin-top:10px"><b>last updated</b> <label><time datetime="2016-04-21T21:29:08+00:00">April 21 2016, 09:29 PM UTC</time></label></div>
 </div>
 </div>
 
 <h3>Adding Yourself</h3>
 
-<p>If you give a llama to anyone who gives you one, you are eligible to be added on this list. Just <a href="http://www.deviantart.com/notifications/notes/#to=Kishan-Bagaria">send me a note</a> with subject as "Add me in OCLB Exchangers List".</p>
+<p>There is only one rule you must follow if you want to listed here, and that is you must return all llamas you get and return them in a month or you'll be removed.</p>
+<p>If that's good with you, just <a href="http://www.deviantart.com/notifications/notes/#to=Kishan-Bagaria">send me a note</a> saying "add me in the OCLB Exchangers List".</p>
 <ul>
-<li>You'll only be added if your llama give ratio (given / received) is more than 0.9. I'll tell you if it is not and you can increase this by giving more llamas.</li>
+<li>You'll be added only if your llama give ratio (given / received) is more than 0.9. I'll tell you if it is not and you can increase this by <a target="_blank" href="http://me.deviantart.com/badges/">returning the llamas you got.</a></li>
 <li>If you've been added on the list, you'll be removed from it if:
     <ul>
-        <li>You don't return any llamas for 4 weeks straight (because you're taking a hiatus or aliens abducted you). You can ask me to add you again after you return all llamas.</li>
+        <li>You don't return any llamas for 4 weeks straight (because you're taking a hiatus or llamas from another planet abducted you). You can ask me to add you again after you return all llamas.</li>
         <li>You receive 100,000 llamas.</li>
     </ul>
 </li>
@@ -159,8 +160,8 @@ var tbody = document.querySelector('#oclb-exchangers-list .tbody'),
 forEach(document.querySelectorAll('#oclb-sort label'), function(label, index) {
     label.onclick = function() {
         rows.sort(function(a, b) {
-            var _ = function(__) {
-                return parseFloat(__.children[2 + index].innerHTML.replace(/,/g, ''));
+            var _ = function(row) {
+                return parseFloat(row.children[2 + index].innerHTML.replace(/,/g, ''));
             };
             return _(a) - _(b);
         });
@@ -174,6 +175,12 @@ forEach(document.querySelectorAll('#oclb-order label'), function(label, index) {
         tbody.style.flexFlow = index ? 'column-reverse' : 'column';
     };
 });
+window.addEventListener('message', function(e) {
+    if (e.data.indexOf('oclb.loggedInDev') !== 0) return;
+    ga('send', 'event', 'OCLB', 'Exchangers List', e.data.split('|')[1], {nonInteraction: true});
+});
+var time = document.querySelector('time');
+time.innerHTML = new Date(time.getAttribute('datetime')).toLocaleString();
 </script>
 </div>
 
