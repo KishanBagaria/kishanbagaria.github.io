@@ -280,7 +280,7 @@ window.addEventListener('message', function(e) {
         label.innerHTML = '<input type="radio" name="oclb-sort"> oclb button status';
         label.firstChild.onclick = function() {
             setRowOrders(function(row) {
-                var className = row.children[row.children.length-1].firstChild.className.slice(10);
+                var className = row.lastElementChild.firstChild.className.slice(10);
                 return parseFloat(row.children[row.children.length-2].innerHTML.replace(/,/g, '')) + oclbClassNames.indexOf(className);
             });
             setStyle(5);
