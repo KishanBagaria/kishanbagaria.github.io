@@ -252,7 +252,7 @@ var tbody = document.querySelector('#oclb-exchangers-list .tbody'),
         });
     },
     setStyle = function(index) {
-        style.innerHTML = style.innerHTML.replace(/\(\d/, '(' + index);
+        style.innerHTML = style.innerHTML.replace(/\d/, index);
     };
 forEach(document.querySelectorAll('#oclb-sort label'), function(label, index) {
     label.onclick = function() {
