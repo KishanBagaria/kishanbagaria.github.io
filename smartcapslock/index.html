@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>SmartCapsLock</title>
-<link rel="stylesheet" href="normalize.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.min.css">
 <link rel="icon" href="/favicon.png" sizes="16x16" type="image/png">
 <link rel="icon" href="/favicon@2x.png" sizes="32x32" type="image/png">
 <link rel="canonical" href="https://kishanbagaria.com/smartcapslock/">
@@ -221,6 +221,7 @@ var totalLength = textToType.length,
     replayElement = document.getElementById('replay'),
     p1 = typingElement.children[2],
     p2 = typingElement.children[3];
+p1.innerHTML = 'Loading...';
 function textTypingAnimation() {
     scrollToY(0);
     p2.style.opacity = '0';
