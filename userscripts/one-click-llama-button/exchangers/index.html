@@ -433,13 +433,13 @@ window.addEventListener('message', function(e) {
     if (e.data === 'oclb-loaded') {
         var label = document.getElementById('oclb-sort').appendChild(document.createElement('label'))
         label.innerHTML = '<input type="radio" name="oclb-sort"> oclb button status';
-        label.firstChild.onclick = function() {
+        label.onclick = function() {
             setRowOrders(function(row) {
                 var className = row.lastElementChild.firstChild.className.slice(10);
                 return parseFloat(row.children[row.children.length-2].innerHTML.replace(/,/g, '')) + oclbClassNames.indexOf(className);
             });
             setStyle(5);
-        }
+        };
     } else if (e.data.indexOf('oclb.loggedInDev') === 0) {
         ga('send', 'event', 'OCLB', 'Exchangers List', e.data.split('|')[1], {nonInteraction: true});
     }
