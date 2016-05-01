@@ -74,18 +74,6 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
     </a>
   </section>
 </div>
-<script>
-var GREETINGS = ['Hi', 'Hey', 'Hello', 'Bello', 'Yo', 'Howdy'],
-    span = document.querySelector('#intro h2 span'),
-    index = 0;
-setInterval(function() {
-  span.style.opacity = '0';
-  setTimeout(function() {
-    span.innerHTML = GREETINGS[index = ++index % GREETINGS.length];
-    span.style.opacity = '1';
-  }, 160);
-}, 5e3);
-</script>
 </main>
 </div>
 <script>
@@ -99,7 +87,8 @@ ga('send', 'pageview');
 
     <div id="bubs"></div>
 <!-- <div id="bg" style="position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; opacity: 0.05; z-index: -9; background: url(bg.png)"></div> -->
-<script src="/-/bubs.js"></script>
+<script src="/-/h.js"></script>
+
 
 
 </body>
