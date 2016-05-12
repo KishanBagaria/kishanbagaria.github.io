@@ -67,13 +67,19 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
 
 <h3><label><input class="oclb" type="checkbox" name="addForGroups"> Add Llama buttons for groups</label></h3>
 
-<h3>Show Llama buttons <label><input class="oclb" type="radio" name="showPos" value="before"> before / </label> <label><input class="oclb" type="radio" name="showPos" value="after"> after </label>usernames</h3>
+<h3>Show Llama buttons</h3>
+<div class="pref-group">
+<label><input class="oclb" type="radio" name="showPos" value="after"> after username symbols</label><br>
+<label><input class="oclb" type="radio" name="showPos" value="afterUsernames"> after usernames</label><br>
+<label><input class="oclb" type="radio" name="showPos" value="before"> before usernames</label><br>
+</div>
 
 <h3>Show Llama buttons in</h3>
 <div class="pref-group">
 <label><input class="oclb" type="radio" name="showIn" value="*"> All pages (Default)</label><br>
 <label><input class="oclb" type="radio" name="showIn" value="notifycenter"> Notification Center</label><br>
 <label><input class="oclb" type="radio" name="showIn" value="profile"> Profile Page (only after the first username)</label><br>
+<label><input class="oclb" type="radio" name="showIn" value="notifycenter+profile"> Notification Center &amp; Profile Page</label><br>
 </div>
 
 <h3 data-oclb-not-loaded>Transition when changing icons</h3>
