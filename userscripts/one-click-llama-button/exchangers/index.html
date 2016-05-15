@@ -33,6 +33,7 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
 
 .thead .tr{border-bottom:2px solid #D32F2F}
 .tbody .tr{border-bottom:1px solid #FFEBEE}
+.tbody .tr:hover {background:rgba(255, 235, 238,.3)}
 .tfoot b {color:#D32F2F;width:85px;display:inline-block}
 .tfoot label {display:inline-block;margin:0 3px}
 
@@ -40,7 +41,7 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
 .td{padding:0 2px;color:#757575}
 
 .tbody{display:flex;flex-flow:column;padding:1em 0}
-.tr{display:flex;align-items:center;padding:3px 0}
+.tr{display:flex;align-items:center;padding:1px 0}
 .th,.td{text-align:right}
 .td:first-child,.td:last-child{width:30px;text-align:center}
 .th:first-child,.th:last-child{width:30px;align-self:flex-end}
@@ -575,6 +576,7 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
 <h3><a target="_blank" href="http://www.deviantart.com/notifications/notes/#to=Kishan-Bagaria">Contact Developer</a></h3>
 
 <script>
+/*global ga, forEach*/
 'use strict';
 var tbody = document.querySelector('#oclb-exchangers-list .tbody'),
     style = document.getElementById('oclb-style'),
@@ -606,12 +608,13 @@ forEach(document.querySelectorAll('#oclb-order label'), function(label, index) {
 });
 window.addEventListener('message', function(e) {
     if (e.data === 'oclb-loaded') {
-        var label = document.getElementById('oclb-sort').appendChild(document.createElement('label'))
+        var label = document.getElementById('oclb-sort').appendChild(document.createElement('label'));
         label.innerHTML = '<input type="radio" name="oclb-sort"> oclb button status';
         label.onclick = function() {
             setRowOrders(function(row) {
-                var className = row.lastElementChild.firstChild.className.slice(10);
-                return parseFloat(row.children[row.children.length-2].innerHTML.replace(/,/g, '')) + oclbClassNames.indexOf(className);
+                var className = row.lastElementChild.firstChild.className.slice(10),
+                    ratio = parseFloat(row.lastElementChild.previousElementSibling.innerHTML.replace(/,/g, ''));
+                return ratio + (100 * oclbClassNames.indexOf(className));
             });
             setStyle(5);
         };
