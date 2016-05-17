@@ -595,7 +595,7 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
 var tbody = document.querySelector('#oclb-exchangers-list .tbody'),
     style = document.getElementById('oclb-style'),
     rows = [].slice.call(tbody.children),
-    oclbClassNames = ['give', 'giving', 'success', 'already', 'spam', 'error', 'enough', 'unknown'],
+    oclbClassNames = ['give', 'spam', 'error', 'giving', 'success', 'already', 'enough', 'unknown'],
     setRowOrders = function(key) {
         rows.sort(function(a, b) {
             return key(a) - key(b);
@@ -620,7 +620,7 @@ forEach(document.querySelectorAll('#oclb-order label'), function(label, index) {
         tbody.style.flexFlow = index ? 'column-reverse' : 'column';
     };
 });
-window.addEventListener('message', function(e) {
+function msgListener(e) {
     if (e.data === 'oclb-loaded') {
         var label = document.getElementById('oclb-sort').appendChild(document.createElement('label'));
         label.innerHTML = '<input type="radio" name="oclb-sort"> oclb button status';
@@ -634,8 +634,10 @@ window.addEventListener('message', function(e) {
         };
     } else if (e.data.indexOf('oclb.loggedInDev') === 0) {
         ga('send', 'event', 'OCLB', 'Exchangers List', e.data.split('|')[1], {nonInteraction: true});
-    }
-});
+        window.removeEventListener('message', msgListener);
+    } //remove first if block and merge in second when v4.2 adopts mass adoption
+}
+window.addEventListener('message', msgListener);
 var time = document.querySelector('time');
 time.innerHTML = new Date(time.getAttribute('datetime')).toLocaleString();
 </script>
