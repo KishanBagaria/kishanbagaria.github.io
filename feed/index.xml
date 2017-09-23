@@ -28,7 +28,7 @@
         <guid isPermaLink="true">https://kishanbagaria.com/userscripts/show-hn-karma/</guid>
         <pubDate>Wed, 08 Oct 2014 00:00:00 +0000</pubDate>
         <category>userscripts</category>
-        <description><![CDATA[<img src="/--/show_hn_karma/homepage.png" alt="Show HN Karma for Hacker News" /><br/>Show HN Karma is an userscript which appends the karma of HN users after their names. Installing the userscript 1. Install an extension in your browser which lets you use userscripts: Chrome [Tampermonkey][chrome]{:target="_blank"} Firefox [Greasemonkey][firefox]{:target="_blank"} Opera [Violentmonkey][opera]{:target="_blank"} Safari (not for iOS) [Tampermonkey][safari] If you're using Firefox, you have to restart it to finish installing Greasemonkey so do it before you jump to the next...]]></description>
+        <description><![CDATA[<img src="/--/show_hn_karma/homepage.png" alt="Show HN Karma for Hacker News" /><br/>Show HN Karma is an userscript which appends the karma of HN users after their names. Installing the userscript 1. Install an extension in your browser which lets you use userscripts: Chrome Tampermonkey Firefox Greasemonkey Opera Violentmonkey Safari (not for iOS) Tampermonkey If you're using Firefox, you have to restart it to finish installing Greasemonkey so do it before you jump to the next...]]></description>
       </item>
     
     
