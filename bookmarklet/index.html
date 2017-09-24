@@ -53,12 +53,11 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
 
 <script>
 var name = decodeURIComponent(location.search.slice(1).replace(/\+/g, ' ')),
-    b = document.getElementById('bookmarklet'),
-    title = 'Installing ' + name + ' Bookmarklet';
-document.title = title;
+    b = document.getElementById('bookmarklet');
+document.title = name;
 b.innerHTML = name;
 b.href = location.hash.slice(1);
-document.getElementById('page-title').innerHTML = title;
+document.getElementById('page-title').innerHTML = 'Installing ' + name + ' Bookmarklet';
 </script>
 
 </div>
