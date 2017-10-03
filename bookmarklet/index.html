@@ -56,12 +56,16 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
 <p>Alternatively, if your bookmarks are synced through devices and you're using a desktop browser, you can simply drag this link to your bookmarks bar:<br />
 <a id="bookmarklet" href="#javascript-disabled"></a></p>
 
+<p>You can also add a bookmark manually, just enter the following in the URL field:
+<code id="bookmark-code"></code></p>
+
 <script>
 var name = decodeURIComponent(location.search.slice(1).replace(/\+/g, ' ')),
     b = document.getElementById('bookmarklet');
 document.title = name;
 b.innerHTML = name;
 b.href = location.hash.slice(1);
+document.getElementById('bookmark-code').innerText = location.hash.slice(1);
 document.getElementById('page-title').innerHTML = 'Installing ' + name + ' Bookmarklet';
 </script>
 
