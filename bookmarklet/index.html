@@ -61,11 +61,13 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
 
 <script>
 var name = decodeURIComponent(location.search.slice(1).replace(/\+/g, ' ')),
-    b = document.getElementById('bookmarklet');
+    b = document.getElementById('bookmarklet'),
+    js = location.hash.slice(1);
+if (!js) alert("This link hasn't loaded successfully. Please go back and click on the link again or try a different browser.");
 document.title = name;
 b.innerHTML = name;
-b.href = location.hash.slice(1);
-document.getElementById('bookmark-code').innerText = location.hash.slice(1);
+b.href = js;
+document.getElementById('bookmark-code').innerText = js;
 document.getElementById('page-title').innerHTML = 'Installing ' + name + ' Bookmarklet';
 </script>
 
