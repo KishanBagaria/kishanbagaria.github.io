@@ -4,12 +4,22 @@
     <title>Kishan Bagaria</title>
     <description></description>
     <link>https://kishanbagaria.com</link>
-    <lastBuildDate>Fri, 13 Nov 2015 00:00:00 +0000</lastBuildDate>
-    <pubDate>Fri, 13 Nov 2015 00:00:00 +0000</pubDate>
+    <lastBuildDate>Thu, 21 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
     <atom:link href="https://kishanbagaria.com/feed/" rel="self" type="application/rss+xml" />
     <language>en-US</language>
     <atom:link rel="hub" href="http://pubsubhubbub.appspot.com"/>
     <atom:link rel="hub" href="http://pubsubhubbub.superfeedr.com"/>
+    
+    
+      <item>
+        <title>BountyCon</title>
+        <link>https://kishanbagaria.com/bountycon/</link>
+        <guid isPermaLink="true">https://kishanbagaria.com/bountycon/</guid>
+        <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+        
+        <description><![CDATA[Recently, Facebook and Google partnered up and launched a capture-the-flag competition called BountyCon. Unlike most CTFs, you couldn't simply solve a list of challenges and find all the flags. The flags were hidden creatively across multiple FB and Google products. FB also made a group for this called Bobby's Daily Thoughts run by a fictional engineer named "Bobby Tables", where they posted some hints...]]></description>
+      </item>
     
     
       <item>

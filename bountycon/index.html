@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>BountyCon</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
+<link rel="stylesheet" href="/-/s.css?6">
+<meta name="google-translate-customization" content="f934b5e145f327d8-b53758c32f456a85-g94347205ee1f0565-11"></meta>
+<link rel="icon" href="/favicon.png" sizes="16x16" type="image/png">
+<link rel="icon" href="/favicon@2x.png" sizes="32x32" type="image/png">
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://kishanbagaria.com/feed/">
+<link rel="canonical" href="https://kishanbagaria.com/bountycon/">
+<meta name="author" content="Kishan Bagaria">
+<meta property="og:site_name" content="Kishan Bagaria">
+
+<meta property="article:published_time" content="2019-02-21T00:00:00+00:00">
+
+    <meta name="description" content="Recently, Facebook and Google partnered up and launched a capture-the-flag competition called BountyCon. Unlike most CTFs, you couldn't simply solve a list of challenges and find all the flags. T...">
+
+<script>
+console.log("%cDON'T PANIC!","font:900 4em Avenir,'Trebuchet MS'");
+function forEach(array, callback) { for (var i = 0; i < array.length; i++) callback(array[i], i); };
+</script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-5503777349428340",enable_page_level_ads:true})</script>
+
+</head>
+<body ontouchstart="" class="layout-page">
+<div id="wrapper">
+<aside>
+<header>
+<a href="/">
+<img src="/-/avatar.svg" width="196" height="215">
+<h2>Kishan Bagaria</h2>
+</a>
+</header>
+
+<div style="text-align:center;margin:1em 0">
+<ins class="adsbygoogle content_ad" style="display:inline-block" data-ad-client="ca-pub-5503777349428340" data-ad-slot="5719070676"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+</aside>
+<main><div id="page">
+<article itemscope itemtype="http://schema.org/Article">
+<h1 itemprop="name headline" id="page-title">BountyCon</h1>
+<div itemprop="articleBody">
+
+<p><img src="https://imgs.xkcd.com/comics/exploits_of_a_mom.png" alt="Exploits of a Mom" /></p>
+
+
+
+<p>Recently, Facebook and Google partnered up and launched a capture-the-flag competition called <a href="https://www.facebook.com/notes/facebook-bug-bounty/introducing-bountycon/2415701251777420/">BountyCon</a>. Unlike most CTFs, you couldn't simply solve a list of challenges and find all the flags. The flags were hidden creatively across multiple FB and Google products.</p>
+
+
+
+<p>FB also made a group for this called Bobby's Daily Thoughts run by a fictional engineer named "Bobby Tables", where they posted some hints and challenges so that you could at least find some flags if you didn't feel like finding them	in the dark, and also to enable them to post more complex challenges. Flags would be worth 100 points if only one person found it, and would decrease by 1 every time it's found, up to a minimum of 25 points.</p>
+
+<div style="text-align:center;margin:1em 0">
+<ins class="adsbygoogle content_ad" style="display:inline-block" data-ad-client="ca-pub-5503777349428340" data-ad-slot="5719070676"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+
+
+<p>I'm going to describe my experience of the CTF and how I found 30 flags totalling 1949 points.</p>
+
+
+
+<p>The CTF began when FB's Bug Bounty page posted the note <a href="https://www.facebook.com/notes/facebook-bug-bounty/introducing-bountycon/2415701251777420/">Introducting BountyCon</a>. Soon <a href="https://twitter.com/GoogleVRP/status/1083474706156711942">@GoogleVRP</a> tweeted about the competition:</p>
+
+
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">We have been hiding a bunch of <a href="https://twitter.com/hashtag/BountyCon?src=hash&amp;ref_src=twsrc%5Etfw">#BountyCon</a> flags across our products and infrastructure (with more coming soon). Can you find them all? <a href="https://t.co/Ev6NkyQhTl">https://t.co/Ev6NkyQhTl</a> <a href="https://twitter.com/fbsecurity?ref_src=twsrc%5Etfw">@fbsecurity</a></p>
+
+&mdash; Google Vulnerability Reward Program (VRP) (@GoogleVRP) <a href="https://twitter.com/GoogleVRP/status/1083474706156711942?ref_src=twsrc%5Etfw">January 10, 2019</a></blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>I was scrolling through my Twitter feed when I saw that someone had tweeted a link to FB's post. It looked like a nice challenge and I was immediately hooked.</p>
+
+
+
+<h3>[Google] Security.txt</h3>
+
+<p>I began finding flags by googling "BountyCon". This led to <code class="highlighter-rouge">https://www.google.com/.well-known/security.txt</code> which had <a href="https://securitytext.org/google.com/document/3">a flag</a>:</p>
+
+
+
+<blockquote>
+  <p># Flag: BountyCon{075████████████████████████}</p>
+
+
+</blockquote>
+
+<h3>[FB] Open Source Challenge</h3>
+
+<p>I searched "BountyCon" on a few sites, one of which was GitHub. Searching on GitHub showed lots of instances of the security.txt flag in a repo called <em>securitytext</em> which had multiple files containing Google's security.txt file. This search also found a commit in <a href="https://github.com/facebook/hhvm/commit/6e3dbe7925723860718c8e673f2c03f81188276a">FB's HHVM repo</a> which had a flag:</p>
+
+
+
+<blockquote>
+  <p><code class="highlighter-rouge">BountyCon{Aau████████████████████████}</code></p>
+
+
+</blockquote>
+
+<p>Later I discovered that the introduction post in FB's group hinted about this flag:</p>
+
+
+
+<blockquote>
+  <p>[…] Bobby still has time left over for some his hobbies, including cycling, singing karaoke and <strong>contributing to big Facebook open source projects to better the performance of code that people write</strong>.</p>
+
+
+</blockquote>
+
+<h3>[FB] App Secret Challenge</h3>
+
+<p>This was the <a href="https://www.facebook.com/groups/bobbysdailythoughts/permalink/1985363344892535/">first post</a> in the group with an attached file:</p>
+
+
+<blockquote>
+  <p>Bobby stumbled across this old YAML snippet from one of his colleagues' test projects. Bobby recalls linking a signature to this client, but can't find it. [link to download config.yaml file]</p>
+
+
+</blockquote>
+
+<p>The config.yaml file contained a <code class="highlighter-rouge">client_id</code> and <code class="highlighter-rouge">client_secret</code>. Only the <code class="highlighter-rouge">client_id</code> was needed to solve this. You could simply visit <a href="https://www.facebook.com/games/?app_id=901417563579056">https://www.facebook.com/games/?app_id=901417563579056</a> which showed an error message:</p>
+
+
+<blockquote>
+  <p>Sorry, BountyCon{61v████████████████████████} hasn't been approved for display in App Center.</p>
+
+
+</blockquote>
+
+<p>The client/app's name was the flag. You could also have used the <a href="https://developers.facebook.com/tools/explorer/?method=GET&amp;path=901417563579056">Graph API Explorer</a> to get info on the app which displayed the name/flag as well.</p>
+
+
+
+<h3>[FB] Regex Challenge</h3>
+
+<p>This was another <a href="https://www.facebook.com/groups/bobbysdailythoughts/permalink/1985363931559143/">posted challenge</a>:</p>
+
+
+
+<blockquote>
+  <p>To mix things up Bobby hid his signature amongst thousands of fake signatures. It is your task to find the correct one using the following requirements.</p>
+
+
+
+  <p>- The password must start with 'BountyCon{' and end with a '}'.
+- The password consists of three or more groups where each group consists of three parts: (1) 3 to 15 (inclusive) alphanumeric characters. (2) A word, either 'correct', 'horse', 'battery', or 'staple' (3) One optional symbol, '+', '*', '.' or '!'. The first two parts must be separated with an underscore
+- Each group must be separated by an underscore
+- After the last group there must be an underscore followed by an ASCII emoji, where the eyes are either ':' or ';' and the mouth is either ')' or '('.
+[link to download flags.txt file]</p>
+
+
+</blockquote>
+
+<p>This challenge required you to craft a regex with the help of the requirements listed in the post and find a single flag among 10k flags.</p>
+
+
+
+<p>The correct regex is:</p>
+
+
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>^BountyCon\{([a-zA-Z0-9]{3,15}_((correct)?(horse)?(battery)?(staple)?)[+*.!]?_){4,}[:;][()]\}$
+</code></pre></div></div>
+
+<p>which would lead to this flag:</p>
+
+
+<blockquote>
+  <p>BountyCon{Qzk████████████████████████}</p>
+
+
+</blockquote>
+
+<p>Brute-forcing the flag submission endpoint was against the rules or you could have solved this without constructing the regex.</p>
+
+
+
+<h3>[FB] Group Comment Challenge</h3>
+
+<p>Bobby's intro post said:</p>
+
+
+<blockquote>
+  <p>If you're stuck, look out for hints in the comments</p>
+
+
+</blockquote>
+
+<p>And the comments on that page (specifically any page starting with facebook.com/groups/) contained a flag:</p>
+
+
+<blockquote>
+  <div style="display:none">BountyCon{Aas████████████████████████}</div>
+</blockquote>
+
+<hr />
+
+<p>I should note here that some FB flags were static (like the App Secret one above) and some were dynamic. The dynamic flags were generated on each page load probably containing the FB user ID to help them catch unsuspecting cheaters who shared flags. This was great thinking. Some of FB's static flags looked like dynamic ones but most static flags were simply written in leet speak like other CTFs. All of Google's flags were static however and randomly generated.</p>
+
+
+
+<hr />
+
+<h3>[Google] VRP Rules Page Comment</h3>
+
+<p>If you visited Google's Vulnerability Reward Program rules page, which was linked to on multiple pages including the BountyCon info page, you'd find a flag in the comments:</p>
+
+
+
+<blockquote>
+  <!-- BountyCon{ace████████████████████████} -->
+</blockquote>
+
+<hr />
+
+<p>Eventually I got tired of manually crawling the pages and searching for "BountyCon" so I fired up Burp Proxy and opened up a few search windows for <code class="highlighter-rouge">BountyCon</code>, <code class="highlighter-rouge">Qm91bnR5Q29u</code> (base64 encoded), etc. This became a bit overkill and Burp ate a lot of memory. To replace this, I wrote a custom searching script for <a href="https://mitmproxy.org/">mitmdump</a> which had about 50 different search strings (all "BountyCon" in different encodings, <a href="https://gist.github.com/KishanBagaria/b36512ea0534287e8de9822c7e9a71c7">list here</a>).</p>
+
+
+
+<hr />
+
+<h3>[FB] Hash Cracking Challenge</h3>
+
+<p><a href="https://www.facebook.com/groups/bobbysdailythoughts/permalink/1989011064527763/">Group Post</a>:</p>
+
+
+
+<blockquote>
+  <p>Bobby split one of his signatures into three hashes. Use the endpoint and crack the hashes to find it:</p>
+
+
+
+  <ol>
+    <li>a9e534c4287509dc9588caf5fe76be67</li>
+    <li>4dcc4173d80a2817206e196a38f0dbf7850188ff</li>
+    <li>39c63ddb96a31b9610cd976b896ad4f0</li>
+  </ol>
+
+  <p>https://www.facebook.com/whitehat/ctf/bountycon/hashes/?p1=<hash1>&amp;p2=<hash2>&amp;p3=<hash3></hash3></hash2></hash1></p>
+
+
+</blockquote>
+
+<p>You could reverse these hashes by simply googling them. I used <a href="https://crackstation.net/">CrackStation</a> to identify and crack the hashes and it identified the first hash as NTLM and cracked the last two hashes as "hacker" and "man". I googled "ntlm hash cracker" and cracked the first hash as "mr" using some random site.</p>
+
+
+
+<p>Now you can access <a href="https://www.facebook.com/whitehat/ctf/bountycon/hashes/?p1=mr&amp;p2=hacker&amp;p3=man">https://www.facebook.com/whitehat/ctf/bountycon/hashes/?p1=mr&amp;p2=hacker&amp;p3=man</a> and get the flag in the response.</p>
+
+
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(;;);{</span>
+   <span class="s2">"flag"</span><span class="p">:</span> <span class="s2">"BountyCon{Aav████████████████████████}"</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3>[FB] Brute-force Challenge</h3>
+
+<p><a href="https://www.facebook.com/groups/bobbysdailythoughts/permalink/1985363508225852/">Group Post</a>:</p>
+
+
+
+<blockquote>
+  <p>Bobby found some of his old notes about a "secret" POST endpoint that, as well as the usual parameters, takes a "secret_id" value:</p>
+
+
+
+</blockquote>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">"https://www.facebook.com/whitehat/ctf/bountycon/secret/"</span> <span class="na">method=</span><span class="s">"POST"</span><span class="nt">&gt;</span>
+[...other params...]
+<span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"secret_id"</span> <span class="na">placeholder=</span><span class="s">"Integer below 10000"</span> <span class="na">value=</span><span class="s">"REDACTED"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre></div></div>
+
+<blockquote>
+
+  <p>To find his signature, make a valid async request and supply the correct secret value.</p>
+
+
+</blockquote>
+
+<p>You can do this with Burp Repeater, that's probably the simplest way. Simply take any existing POST request to Facebook to find the extra params needed to make a valid request. I did this with Chrome Network Tools to get a valid POST request, curl and shell scripting to automate the request. I removed the redundant params with trial and error.</p>
+
+
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">--cookie</span> cookies.txt https://www.facebook.com/whitehat/ctf/bountycon/secret/ <span class="nt">-F</span> <span class="nv">fb_dtsg</span><span class="o">=</span><span class="s2">"redacted:redacted"</span> <span class="nt">-F</span> <span class="se">\_</span><span class="nv">_a</span><span class="o">=</span>1 <span class="nt">-F</span> <span class="se">\_</span><span class="nv">_req</span><span class="o">=</span>1 <span class="nv">secret_id</span><span class="o">=</span>123
+</code></pre></div></div>
+
+<p>(to export the cookies.txt file you can use a browser extension)</p>
+
+
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(;;);</span> <span class="p">{</span>
+    <span class="s2">"__ar"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"payload"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"Error"</span><span class="p">:</span> <span class="s2">"Desktop response to be implemented, mobile should be ready. ~ Bob"</span>
+    <span class="p">},</span>
+    <span class="s2">"bootloadable"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="s2">"ixData"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="s2">"bxData"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="s2">"gkxData"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="s2">"qexData"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="s2">"lid"</span><span class="p">:</span> <span class="s2">"6653726769552872881"</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Bob will ask you to try the mobile endpoint instead so simply replace <code class="highlighter-rouge">www.facebook.com</code> with <code class="highlighter-rouge">m.facebook.com</code></p>
+
+
+
+<p>Here's the fish script I used:</p>
+
+
+
+<pre><code class="language-fish">for i in (seq 1 9999)
+    if not test -e $i
+        curl -s https://m.facebook.com/whitehat/ctf/bountycon/secret/ --cookie cookies.txt -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36' -F fb_dtsg="redacted:redacted" -F secret_id=$i &gt; $i
+        la $i
+        grep -i BountyCon $i
+    end
+end
+</code></pre>
+
+<p>This will save the responses to the filesystem and will also continue where it left off if you press <kbd>Ctrl+C</kbd> and run it later.</p>
+
+
+
+<p>The <code class="highlighter-rouge">secret_id</code> turned out to be <code class="highlighter-rouge">5391</code>:</p>
+
+
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(;;);</span> <span class="p">{</span>
+    <span class="s2">"payload"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"actions"</span><span class="p">:</span> <span class="p">[{</span>
+            <span class="s2">"cmd"</span><span class="p">:</span> <span class="s2">"append"</span><span class="p">,</span>
+            <span class="s2">"target"</span><span class="p">:</span> <span class="s2">"static_templates"</span><span class="p">,</span>
+            <span class="s2">"html"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+            <span class="s2">"replaceifexists"</span><span class="p">:</span> <span class="kc">true</span>
+        <span class="p">}],</span>
+        <span class="s2">"contentless_response"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="s2">"bootloadable"</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s2">"ixData"</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s2">"bxData"</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s2">"gkxData"</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s2">"qexData"</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s2">"resource_map"</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s2">"payload"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"flag"</span><span class="p">:</span> <span class="s2">"BountyCon{Aau████████████████████████}"</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3>[FB] Crypto Challenge</h3>
+
+<p><a href="https://www.facebook.com/groups/bobbysdailythoughts/permalink/1985364121559124/">Group Post</a>:</p>
+
+
+
+<blockquote>
+  <p>What treasures can this encrypted string hold? Hint: the decrypted text and the key contain [a-zA-Z0-9] only. Good luck!
+[encrypted string in hex]
+[link to download bob_crypt.cpp file]</p>
+
+
+</blockquote>
+
+<p>The hint and the file are crucial to decrypting the text. When inspecting the <code class="highlighter-rouge">bob_crypt.cpp</code> file, you'd find that all it does is a simple XOR encryption and accepts a key of 16 characters only. Since the key length is small and ciphertext is long, and you know all the valid characters in the key and ciphertext, you can write a script to generate keys and eliminate them if the output plaintext contains any invalid characters. I didn't find any existing scripts for this so I ended up writing my own in JavaScript, which I've also published on this site: <a href="/tools/xor-key-bruteforce/">XOR Key Bruteforce</a></p>
+
+
+
+<p>This will find a single key and the output plaintext will be in base64, which after decoding will say:</p>
+
+
+
+<blockquote>
+  <p>Congratulations! You decrypted the message successfully. Here is your flag: BountyCon{Aav████████████████████████} and some noise: +BLHEOQHtBgc5RQEnlg9/JTN7bWONjjTf3/1s1gU0ea4lUD4K8q7R0dyoxQo6BPA1PRw+KivhTj8/5ubMTXMrSF95SJ52ijVB8l+0hYM1+V0/D8VTwj951lHgwKiOTm2TAOKKIbMXmbwzMW8E9ZIa4LkWJk/VlBqCy3cL604s8x2rcCPi62q8JN1CgQIyu0LXfDJ6mo5Yg1OZqTsEqsfnKleaB9Faek6X1OtjbO3r9EkKEFvShSgyo8SxtZWnEtq77P0fgbtBkjC4u3OsZfXffc6CQwB3XSy3voORUmcAfuTnHNYN0z+ZqXb4VmBxXc84gD+727zvLl8YHiNu3aQg==</p>
+
+
+</blockquote>
+
+<h3>[FB] Static Analysis Tool Challenge</h3>
+
+<p><a href="https://www.facebook.com/groups/bobbysdailythoughts/permalink/1985363701559166/">Group Post</a>:</p>
+
+
+
+<blockquote>
+  <p>In 2015, the Product Security team started developing a new static analysis tool. Bobby remembered that the tool runs over Facebook's entire web codebase and was designed to run at scale, but can't think of the name.</p>
+
+
+
+  <p>Find the name of the tool and give your answer in lowercase using the format: BountyCon{<your_answer>}</your_answer></p>
+
+
+</blockquote>
+
+<p>A quick google search would tell you that FB only has a single static code analysis tool, called Infer. I was under this false impression for a while and tried BountyCon{infer} and its variations like BountyCon{fbinfer}. After a while, when I reread the post, I realized that the said tool was developed by the Product Security team, and Infer was developed by a different team. After a few complex google searches, I found that the tool is "Zoncolan". It has very few mentions on the web. You can find more info about it <a href="https://www.facebook.com/ECOOPconf/posts/1032953650121669">here</a>.</p>
+
+
+
+<h3>[FB] Android Manifest Challenge</h3>
+
+<p><a href="https://www.facebook.com/groups/bobbysdailythoughts/permalink/1988087774620092/">Bobby's intro post</a> hints:</p>
+
+
+
+<blockquote>
+  <p>A lesser known fact, though, is that Bobby is the only person in the Singapore office that is part of two teams at the same time: the team that works on <strong>Facebook for Android</strong>, and the team that works on some of our web services […]</p>
+
+
+</blockquote>
+
+<p>This made me certain that there were some flags in the Facebook for Android app. I downloaded the latest version of the apk from <a href="https://apkpure.com/facebook/com.facebook.katana">apkpure.com</a>, extracted it using <a href="https://github.com/iBotPeaches/Apktool">apktool</a> and recursively searched for BountyCon in the directory:</p>
+
+
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apktool d com.facebook.katana.apk
+<span class="nb">grep</span> <span class="nt">-ri</span> bountycon <span class="nb">.</span>
+</code></pre></div></div>
+
+<p>This found two matches, one in the <code class="highlighter-rouge">AndroidManifest.xml</code> file:</p>
+
+
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;meta-data</span> <span class="na">android:name=</span><span class="s">"bountycon_flag"</span> <span class="na">android:value=</span><span class="s">"BountyCon{m4n████████████████████████}"</span><span class="nt">/&gt;</span>
+</code></pre></div></div>
+
+<h3>[FB] Deep Link Challenge</h3>
+
+<p>And the other match was in <code class="highlighter-rouge">smali_classes12/com/facebook/katana/activity/PsaaActivity.smali</code> which was slightly obfuscated. apktool extracted smali code which was quite complex so I tried a few different tools to get decompiled Java code for the <code class="highlighter-rouge">PsaaActivity</code> class:</p>
+
+
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kt">void</span> <span class="nf">S</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">paramBundle</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="n">getIntent</span><span class="o">().</span><span class="na">getStringExtra</span><span class="o">(</span><span class="s">"secret"</span><span class="o">);</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">str</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"bountycon_secret_53cur3dbycryp70!"</span><span class="o">))</span>
+  <span class="o">{</span>
+  	<span class="kt">byte</span><span class="o">[]</span> <span class="n">arrayOfByte</span><span class="o">;</span>
+    <span class="kt">int</span><span class="o">[]</span> <span class="n">arrayOfInt</span> <span class="o">=</span> <span class="o">{</span> <span class="mi">264</span><span class="o">,</span> <span class="mi">444</span><span class="o">,</span> <span class="mi">468</span><span class="o">,</span> <span class="mi">440</span><span class="o">,</span> <span class="mi">464</span><span class="o">,</span> <span class="mi">484</span><span class="o">,</span> <span class="mi">268</span><span class="o">,</span> <span class="mi">444</span><span class="o">,</span> <span class="mi">440</span><span class="o">,</span> <span class="mi">492</span><span class="o">,</span> <span class="mi">396</span><span class="o">,</span> <span class="mi">456</span><span class="o">,</span> <span class="mi">208</span><span class="o">,</span> <span class="mi">488</span><span class="o">,</span> <span class="mi">484</span><span class="o">,</span> <span class="mi">380</span><span class="o">,</span> <span class="mi">400</span><span class="o">,</span> <span class="mi">204</span><span class="o">,</span> <span class="mi">204</span><span class="o">,</span> <span class="mi">448</span><span class="o">,</span> <span class="mi">432</span><span class="o">,</span> <span class="mi">196</span><span class="o">,</span> <span class="mi">440</span><span class="o">,</span> <span class="mi">428</span><span class="o">,</span> <span class="mi">380</span><span class="o">,</span> <span class="mi">436</span><span class="o">,</span> <span class="mi">208</span><span class="o">,</span> <span class="mi">216</span><span class="o">,</span> <span class="mi">196</span><span class="o">,</span> <span class="mi">396</span><span class="o">,</span> <span class="mi">500</span> <span class="o">};</span>
+    <span class="n">arrayOfByte</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="n">arrayOfInt</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">arrayOfInt</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="n">arrayOfByte</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="o">((</span><span class="kt">byte</span><span class="o">)(</span><span class="n">arrayOfInt</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;&gt;</span> <span class="mi">2</span><span class="o">));</span>
+    <span class="o">}</span>
+  	<span class="n">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="n">getApplicationContext</span><span class="o">(),</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="n">arrayOfByte</span><span class="o">),</span> <span class="mi">0</span><span class="o">).</span><span class="na">show</span><span class="o">();</span>
+  <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+  	<span class="n">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="n">getApplicationContext</span><span class="o">(),</span> <span class="s">"Almost there, something is missing"</span><span class="o">,</span> <span class="mi">0</span><span class="o">).</span><span class="na">show</span><span class="o">();</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>The flag is present in the array and you can simply copy the relevant code and run it to get the flag.</p>
+
+
+
+<p>I expect the FB guys obfuscated it because they wanted you to go to the deep link to find the flag. The deep link is <a href="fb://bountycon_flag_activity?secret=bountycon_secret_53cur3dbycryp70!"><code class="highlighter-rouge">fb://bountycon_flag_activity?secret=bountycon_secret_53cur3dbycryp70!</code></a>. Without the <code class="highlighter-rouge">secret</code> param, you'll see a toast notification that says "Almost there, something is missing".</p>
+
+
+
+<p>You might have noticed that there was no match for <code class="highlighter-rouge">bountycon_flag_activity</code>. This is because that string was part of a switch-case statement and got optimized by the compiler as <code class="highlighter-rouge">ntycon_flag_activity</code> in <code class="highlighter-rouge">smali_classes5/X/4Si.smali</code>.</p>
+
+
+
+<p>If you're an iOS user and have no accessible Android device, you can install <a href="https://www.bluestacks.com/">BlueStacks</a> on your Mac/PC. Then you can click the above deep link on this webpage (in the Android browser) which will take you to the FB app and display the flag: <code class="highlighter-rouge">BountyCon{cr4████████████████████████}</code></p>
+
+
+
+<p>You can also use <a href="https://developer.android.com/studio/command-line/adb"><code class="highlighter-rouge">adb</code></a> to go to the deep link directly:</p>
+
+
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>adb shell am start <span class="nt">-W</span> <span class="nt">-a</span> android.intent.action.VIEW <span class="nt">-d</span> <span class="s2">"fb://bountycon_flag_activity?secret=bountycon_secret_53cur3dbycryp70!"</span>
+</code></pre></div></div>
+
+<h3>[Google] VRP Report Page -&gt; Name computations using aria-*</h3>
+
+<p>The page where you can report security bugs to Google, <a href="https://goo.gl/vulnz">https://goo.gl/vulnz</a>, had some hidden HTML which wouldn't be easily caught if you simply searched for "BountyCon":</p>
+
+
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"height: 1px; width: 1px; position: fixed; opacity: 0.01;"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;textarea</span> <span class="na">class=</span><span class="s">"hidden"</span> <span class="na">readonly</span> <span class="na">aria-labelledby=</span><span class="s">"bc_3ba"</span><span class="nt">&gt;</span>Flag<span class="nt">&lt;/textarea&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"bc_180"</span> <span class="na">aria-owns=</span><span class="s">"bc_56c bc_e81 bc_5c1"</span><span class="nt">&gt;</span>Con{73<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"bc_4f4"</span><span class="nt">&gt;</span>11392f<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"bc_56c"</span><span class="nt">&gt;</span>775676<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"bc_873"</span> <span class="na">aria-owns=</span><span class="s">"bc_f0f"</span><span class="nt">&gt;</span>88c21f<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"bc_e81"</span> <span class="na">aria-owns=</span><span class="s">"bc_4f4 bc_873"</span><span class="nt">&gt;</span>a022a6<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"bc_5c1"</span><span class="nt">&gt;</span>585c3a<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"bc_3ba"</span> <span class="na">aria-owns=</span><span class="s">"bc_d5b bc_180 bc_9f3"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"bc_d5b"</span><span class="nt">&gt;</span>Bounty<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"bc_f0f"</span><span class="nt">&gt;</span>80f689<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"bc_9f3"</span><span class="nt">&gt;</span>66}<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>To get the flag, you simply have to rearrange the parts of the string with the help of the <code class="highlighter-rouge">aria-*</code> and <code class="highlighter-rouge">id</code> attributes. My first impulse was to write a script for this but that was overkill and I did it by hand.</p>
+
+
+
+<h3>[Google] DNS Record</h3>
+
+<p>I expected them to hide atleast one flag in DNS records and although bountycon.facebook.com and a lot of other variations like bountycon.fb.com or bountycon.goo.gl didn't yield anything, bountycon.google.com did:</p>
+
+
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>dig ANY bountycon.google.com
+<span class="o">[</span>...]
+bountycon.google.com.	1336	IN	TXT	<span class="s2">"flag=BountyCon{9de████████████████████████}"</span>
+<span class="o">[</span>...]
+</code></pre></div></div>
+
+<p>Later FB ended up hiding a flag in DNS as well and posted a hint in the group.</p>
+
+
+
+<h3>[FB] IDOR Challenge</h3>
+
+<p>Initially, I expected the submit flag endpoint to be well tested and have no simple vulnerabilities like SQL injections so I didn't test it for anything. Some time later, as it turned out FB was hiding flags mostly in security related pages, I figured the submit page should have a flag hidden. So I tried submitting <code class="highlighter-rouge">Robert'); DROP TABLE Students;-- </code> (and few other strings) since they referenced Bobby Tables but that didn't work.</p>
+
+
+
+<p><img src="/--/bountycon/inspect-submit-form.png" alt="Inspecting Submit Form" />
+The form had a hidden <code class="highlighter-rouge">user_id</code> field containing your user ID, which if you modified to another valid user ID (I used 4, which is the smallest valid user ID), and submitted the form, you'd get a popup containing another flag:
+<img src="/--/bountycon/idor-flag.png" alt="IDOR Flag" /></p>
+
+
+
+<h3>[FB] Edit History Challenge</h3>
+
+<p>I was reading <a href="https://www.facebook.com/groups/bobbysdailythoughts/permalink/1988087774620092/">Bobby's intro post</a> multiple times and on closer inspection, found that it was edited. All you had to do was click "View Edit History" and you'd find the flag:
+<img src="/--/bountycon/view-edit-history.png" alt="View Edit History" />
+<img src="/--/bountycon/bobby-edit-history.png" alt="Edit History Flag" /></p>
+
+
+
+<p>Quite cleverly hidden in plain sight.</p>
+
+
+
+<h3>[Google] Hall of Fame</h3>
+
+<p><a href="https://www.google.com/about/appsecurity/hall-of-fame/">Google's Hall of Fame page</a> is one of the primary links on their VRP site. It had a flag hidden in a JS file. You wouldn't find this simply by searching "BountyCon" in the page source, but by searching it in all requests (using the browser's developer tools or a proxy etc.)</p>
+
+
+
+<p><code class="highlighter-rouge">https://bughunter.withgoogle.com/static/js/app_compiled.js</code> had this piece of code:</p>
+
+
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"https://placeholder.bountycon"</span> <span class="o">==</span> <span class="nx">d</span><span class="p">.</span><span class="nx">website</span> <span class="o">&amp;&amp;</span> <span class="nx">alert</span><span class="p">(</span><span class="nx">atob</span><span class="p">(</span><span class="s2">"Qm91bnR5Q29uezVmOTAxZjUyZmU0ODA2YjgyYjViZWRjMzlhNDQyMWFmfQ=="</span><span class="p">));</span>
+</code></pre></div></div>
+
+<p>If in your HoF profile, you set your website address to <code class="highlighter-rouge">https://placeholder.bountycon</code>, you'd get an alert with the flag. Instead you can simply copy the code and run it in the browser console, or copy the base64 encoded string and decode it using your favorite tool:</p>
+
+
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">atob</span><span class="p">(</span><span class="s2">"Qm91bnR5Q29uezVmOTAxZjUyZmU0ODA2YjgyYjViZWRjMzlhNDQyMWFmfQ=="</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="s2">"BountyCon{5f9████████████████████████}"</span>
+</code></pre></div></div>
+
+<h3>[Google] Bug Hunter University ICS file</h3>
+
+<p>Google linked to their <a href="https://sites.google.com/site/bughunteruniversity/">Bug Hunter University</a> site a bunch of times on their VRP site. It has a search box where you can search for "BountyCon" to find a <code class="highlighter-rouge">BountyCon.ics</code> file.</p>
+
+
+
+<p>You can open the file in any text editor to find the flag:</p>
+
+
+
+<blockquote>
+  <p>X-SECRET-FLAG: BountyCon{198████████████████████████}</p>
+
+
+</blockquote>
+
+<p>Normally people might just double-click the ICS file, which will open up your calendar app but not show you the flag.</p>
+
+
+
+<h3>[Google] VRP Home Icon</h3>
+
+<p><img src="/--/bountycon/vrp-home-icon.png" alt="VRP Home Icon" /></p>
+
+
+
+<p>The <a href="https://www.google.com/about/appsecurity/">VRP home page</a> has a little flag icon on the top right section of the page. Another flag cleverly hidden in plain sight. Since it was an image file, I downloaded it expecting it to have the flag hidden with steganography. However that wasn't the case and when I went to look for hints in the source code, I found the <code class="highlighter-rouge">alt</code> attribute contained the flag in base64 encoding.</p>
+
+
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"images/flag.jpg"</span> <span class="na">alt=</span><span class="s">"Qm91bnR5Q29ue2JlYjkzZjY4ZmNmMDQ1N2M1OTdkYTg0YTZjZGI0MGMzZTk4NWQxYjB9"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>BountyCon{beb████████████████████████}</p>
+
+
+</blockquote>
+
+<h3>[FB] Stegnography Challenge</h3>
+
+<p><a href="https://www.facebook.com/profile.php?id=499682194">Bobby Tables</a>, the user operating FB's group, had a pretty blank profile except for a cover photo with "F5" as the description.</p>
+
+
+
+<p>I looked at this image and the "F5" text but it didn't make any sense. Does it want me to press the F5 key? (I tried that.) While researching steganography methods for the previous flag (Google's VRP home icon), I found an interesting steganography algorithm called F5. Things immediately clicked and it became certain that Bobby's cover image had a flag hidden with the F5 steganography algorithm.</p>
+
+
+
+<p>I saved the full resolution version of the image from Facebook (make sure the file name ends with <code class="highlighter-rouge">_o.jpg</code>). Then I downloaded a F5 decoding script (<a href="https://code.google.com/archive/p/f5-steganography/">f5.jar</a>, <a href="http://vsl.sourceforge.net/">VSL</a>) and tried "BountyCon", "" etc. as the password but that didn't work so I tried another decoding script written in a different language (<a href="http://desudesutalk.github.io/f5stegojs/">f5stegojs</a>). None of that worked, so I tried poking through the image in other ways. I uploaded it to this online tool that hides an image in another image: <a href="https://incoherency.co.uk/image-steganography/">https://incoherency.co.uk/image-steganography/</a> and found the password. You might be better off using <a href="https://github.com/zardus/ctf-tools/blob/master/stegsolve/install">stegsolve</a> for this since it outputs a clearer image:
+<img src="/--/bountycon/stegsolve.png" alt="" /></p>
+
+
+
+<p>Finally, you can install <a href="https://github.com/desudesutalk/f5stegojs">f5stegojs</a> and run this to get the flag:</p>
+
+
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>f5stego <span class="nt">-x</span> <span class="nt">-p</span> BountyConStegan0graphy f5.jpg output.txt
+130 bytes was extracted to <span class="s2">"output.txt"</span><span class="nb">.</span>
+<span class="nv">$ </span><span class="nb">cat </span>output.txt
+BountyCon<span class="o">{</span>Aav████████████████████████<span class="o">}</span>
+</code></pre></div></div>
+
+<p>There's also an <a href="https://desudesutalk.github.io/f5stegojs/">in-browser version of this tool</a>.</p>
+
+
+
+<h3>[Google] Issue Tracker -&gt; Hidden Sheet</h3>
+
+<p>I was reading a bug bounty write-up or a presentation where I first saw <a href="https://issuetracker.google.com/">Issue Tracker</a> being mentioned. It's the site where you can see your submitted bug reports and respond to replies by the Google security team. People who have submitted security bugs to Google must be familiar with it (I wasn't). It's related to security and seemed liked another place where Google would hide a flag.</p>
+
+
+
+<p>I searched for "BountyCon" in the search box but that resulted in zero matches. Some days later, I thought of trying it again which was a good idea because Google had created <a href="https://issuetracker.google.com/issues/122876090">an issue</a> with the title "BountyCon". After this happened, whenever I had an idea about where they might hide flags and I wouldn't find it there, I would save the idea and try it again a few days later so that I don't miss any flag if they hide it in the future (not a fun activity).</p>
+
+
+
+<p>The "BountyCon" issue only had the following text:</p>
+
+
+
+<blockquote>
+  <p>16VFAH9dkFwQR7t1zRDuiaTgqe0j0C6fVxKQjVYETqMA</p>
+
+
+
+  <p>(this is not the flag)</p>
+
+
+</blockquote>
+
+<p>The string looked like it was encoded or part of a link. I attempted base64 decoding first and then began treating it as a link fragment. https://goo.gl/16VFAH9dkFwQR7t1zRDuiaTgqe0j0C6fVxKQjVYETqMA and https://g.co/16VFAH9dkFwQR7t1zRDuiaTgqe0j0C6fVxKQjVYETqMA were 404ing.<br />
+Google docs/sheets/slides URLs have IDs starting with "1" and the string looked like a document ID. So you just need to get an existing URL and swap the ID:
+<a href="https://docs.google.com/spreadsheets/d/16VFAH9dkFwQR7t1zRDuiaTgqe0j0C6fVxKQjVYETqMA/">https://docs.google.com/spreadsheets/d/16VFAH9dkFwQR7t1zRDuiaTgqe0j0C6fVxKQjVYETqMA/</a>
+I tried it as a "spreadsheet" first (other options are "document", "presentation" etc.) and luckily it worked.</p>
+
+
+
+<p>The title of the spreadsheet is "BountyCon flag is hidden in this spreadsheet". There's a hidden sheet with the flag as its name:
+<img src="/--/bountycon/hidden-sheet.png" alt="Google Hidden Sheet" /></p>
+
+
+
+<p>You can simply go to the page source, search for "BountyCon{" and get the flag.</p>
+
+
+
+<p>Initially when I submitted this flag, it didn't accept it as valid, so I <a href="/--/bountycon/googlevrp-dm.png">DM'd @GoogleVRP on Twitter</a> and told them about it. They said they fixed it and told me to try again but it didn't work at least until 15 hours after their response. I had been trying it every hour to make sure I was the first person to submit it. (I was. 💯)</p>
+
+
+
+<h3>[FB] ROT13 Whitehat Submission Page Challenge</h3>
+
+<p>Just like Google, FB also hid a flag in the page where you can report security bugs. You can simpy go to <a href="https://www.facebook.com/whitehat/report">the Report Vulnerability Form</a> and search for "BountyCon" in its source:</p>
+
+
+
+<blockquote>
+  <p>"bountyconFlag":"ObhaglPba{Nnf████████████████████████}"</p>
+
+
+</blockquote>
+
+<p>After the page is rendered by React, this input element is also added to the DOM:</p>
+
+
+
+<blockquote>
+  <p><input name="flag" type="hidden" value="ObhaglPba{Nnf████████████████████████}" /></p>
+
+
+</blockquote>
+
+<p>The twist here is that the flag is encoded with a very common substitution cipher called ROT13. I had pre-computed "BountyCon" in different encodings some flags ago and saved them so I immediately recognized "ObhaglPba" as being in ROT13.</p>
+
+
+
+<h3>[FB] Console Log Challenge</h3>
+
+<p>After finding a flag in the Whitehat pages, I figured there would be more flags in other Whitehat pages. The <a href="https://www.facebook.com/whitehat/info/">Whitehat Info page</a> had a script that logged the flag to the console:</p>
+
+
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script&gt;</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Log error information: </span><span class="se">\"</span><span class="s2">Qm91bnR5Q29u████████████████████████</span><span class="se">\"</span><span class="s2">"</span><span class="p">)</span><span class="nt">&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<p>You must be familiar with <code class="highlighter-rouge">Qm91bnR5Q29u</code> by now. It's just another flag encoded in base64.</p>
+
+
+
+<h3>[Google] Public Cloudstore Bucket</h3>
+
+<p>One of the places I thought Google could hide a flag was in a public storage bucket. I tried <a href="http://storage.googleapis.com/bountycon/">http://storage.googleapis.com/bountycon/</a> but no bucket with that name existed. I tried it again a few days later and it said permission denied, which meant someone had registered the bucket name. A few more days later, it was accessible and had a single 1.55 GiB file named "dec-5-data.csv". At first glance, it looked like someone not FB/Google had uploaded a file to that bucket, but I still had to be sure so I downloaded the file on a server and ran grep on it.</p>
+
+
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ wget http://storage.googleapis.com/bountycon/dec-5-data.csv
+$ grep -i bountycon dec-5-data.csv
+&gt; Hyponephele maroccana,Male ,,Ecuador,"quiet steps behind him. That didn't bode well. Who could be following him this late at night and in this deadbeat part of town? And at this particular moment, just after he pulled off the big time and was making off with the greenbacks. Was there another crook who'd had the same idea, and was now watching him and waiting for a chance to grab the fruit of his labor? Or did the steps behind him mean that one of many law officers in town was on to him and just waiting to pounce and snap those cuffs on his wrists? He nervously looked all around. Suddenly he saw the alley. Like lightning he darted off to the left and disappeared between the two warehouses almost falling over the trash can lying in the middle of the sidewalk. He tried to nervously tap his way along in the inky darkness and suddenly stiffened: it was a dead-end, he would have to go back the way he had come. The steps got louder and louder, he saw the black outline of a figure coming around the corner. Is this the end of the line? he thought pressing himself back against the wall trying to make himself invisible in the dark, was all that planning and energy wasted? He was dripping with sweat now, cold and wet, he could smell the fear coming off his clothes. Suddenly next to him, with a barely noticeable squeak, a door swung quietly to and fro in the night's breeze. Could this be the haven he'd prayed for? Slowly he slid toward the door, pressing himself more and more into the wall, into the dark, away from his enemy. Would this door save his hide? BountyCon{dfb████████████████████████}",Michael,678
+</code></pre></div></div>
+
+<p>The file is full of random text taken from multiple sources <a href="https://api.libreoffice.org/examples/DevelopersGuide/BasicAndDialogs/FirstStepsBasic.odt">including this</a>.</p>
+
+
+
+<h3>[FB] m.facebook.com Page Comment Challenge</h3>
+
+<p>If you go to Facebook's mobile site and visit any FB page (page as in a Facebook Page, not <em>any</em> page) like <a href="https://m.facebook.com/BugBounty">this one</a>, you'll find a flag in the source just like the Group Comment Challenge one:</p>
+
+
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"display:none"</span><span class="nt">&gt;</span>BountyCon{Aas████████████████████████}<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<h3>[FB] Header Challenge</h3>
+
+<p>I was googling something similar to <code class="highlighter-rouge">site:facebook.com security</code> when I found this link: <a href="https://www.facebook.com/workplace/security">https://www.facebook.com/workplace/security</a></p>
+
+
+
+<p>My response searching tool found a flag in the header:</p>
+
+
+
+<blockquote>
+  <p>x-bountycon: BountyCon{Aau████████████████████████}</p>
+
+
+</blockquote>
+
+<h3>[Google] Bug Hunter University Steganography</h3>
+
+<p>After finding BountyCon.ics in the BHU site, I checked out its RSS feed: <a href="https://sites.google.com/feeds/content/site/bughunteruniversity">https://sites.google.com/feeds/content/site/bughunteruniversity</a> to check out if there's anything else that was recently updated or added. The ics file was added on 2018-12-12, the home page was updated on 2018-12-11 and a few days ago two files were added: <code class="highlighter-rouge">bug200_new (1).jpg</code> and <code class="highlighter-rouge">bug200_new.jpg</code>. The home page referenced the former image. The file name seemed suspicious because of the "(1)" and "_new". I checked out both files in two steganography tools, <a href="https://incoherency.co.uk/image-steganography/">this one</a> (nothing there) and <a href="https://futureboy.us/stegano/decinput.html">this online wrapper of steghide</a>. There was a flag hidden in <code class="highlighter-rouge">bug200_new (1).jpg</code> with steghide:</p>
+
+
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"steganoin29193.jpg":
+  format: jpeg
+  capacity: 611.0 Byte
+  embedded file "flag.txt":
+    size: 52.0 Byte
+    encrypted: no
+    compressed: no
+
+&gt; BountyCon{f67████████████████████████}
+</code></pre></div></div>
+
+<p>This was the second flag that wasn't accepted as valid. I looked up who uploaded the image in the feed (<a href="https://github.com/sirdarckcat">Eduardo Vela Nava</a>) and emailed him about this. He responded almost instantly that he'll have a look. About a day later the flag finally got accepted and he replied that they had fixed it.</p>
+
+
+
+<h3>[Google] VRP Twitter Bio</h3>
+
+<p>This one was very cleverly hidden in plain sight. The <a href="https://twitter.com/GoogleVRP">@GoogleVRP</a> account had a link in their bio:</p>
+
+
+
+<p><img src="/--/bountycon/twitter-bio.png" alt="@GoogleVRP bio" /></p>
+
+
+
+<p>This link led to <a href="https://www.google.com/about/appsecurity/?flag=Qm91bnR5Q29uezEyYzA2NTU1MTM3NTdhYmIyZWYxODk5ZWZlMzc2YTUyZjcxMTFjY2J9">https://www.google.com/about/appsecurity/?flag=Qm91bnR5Q29uezEyYzA2NTU1MTM3NTdhYmIyZWYxODk5ZWZlMzc2YTUyZjcxMTFjY2J9</a></p>
+
+
+
+<p>The flag is present as a query param in the URL in base64 encoding:</p>
+
+
+
+<blockquote>
+  <p>BountyCon{12c████████████████████████}</p>
+
+
+</blockquote>
+
+<p>This one wouldn't have been caught by the searching tool unless you clicked the link in the bio.</p>
+
+
+
+<h3>[Google] TLS Certificate</h3>
+
+<p>While googling "BountyCon", I found <code class="highlighter-rouge">bountycon.corp.google.com</code> being mentioned in one of the results leading to malwaredog.com. *.corp.google.com addresses are only accessible over Google's internal networks so I assumed it was just an internal site related to BountyCon that Google staff were using for themselves. Some days later, I searched "BountyCon" on <a href="https://crt.sh/?q=bountycon.%25">crt.sh</a>, which is a tool to search certificate transparency (CT) logs. A certificate was issued for this domain by Google. I looked into the certificate and found that it was registered for another two domains:</p>
+
+
+
+<blockquote>
+  <p>bountycon.corp.google.com
+ijxxk3tupfbw63t3mu2dkzdemfstkyrzgm4tim3bg.corp.google.com
+y4tqylbmjrtqm3fmvqwmn3fmi3dszlegbstkylbpu.corp.google.com</p>
+
+
+</blockquote>
+
+<p>I figured <code class="highlighter-rouge">ijxxk3tupfbw63t3mu2dkzdemfstkyrzgm4tim3bg</code> and <code class="highlighter-rouge">y4tqylbmjrtqm3fmvqwmn3fmi3dszlegbstkylbpu</code> were encoded strings or link fragments and since base64 requires upper case characters, it might be encoded with base32. I tried <a href="https://gchq.github.io/CyberChef/">CyberChef</a> to base32 decode the text but had no luck. I began trying more complex ideas like a custom implementation of base36, manually adding DNS entries for those domains to my /etc/hosts file, tweaking the Host header etc. I even had the crazy idea of trying out all IPs owned by Google (I generated an IP list of about 350k) until one resolves the page for that domain or <code class="highlighter-rouge">bountycon.google.com</code>. After a while, my suspicion that it's just an internal site only increased.</p>
+
+
+
+<p>A few more days later, I ended up looking into this again and tried base32 decoding with a different tool and it decoded the text successfully! I went back to CyberChef and realized that it ignored all lower case chars and was expecting upper case chars instead. I was 99% there but a tiny oversight delayed me. (Although I was still first to find the flag.)</p>
+
+
+
+<p>Base32 decoding <code class="highlighter-rouge">ijxxk3tupfbw63t3mu2dkzdemfstkyrzgm4tim3bgy4tqylbmjrtqm3fmvqwmn3fmi3dszlegbstkylbpu</code>:</p>
+
+
+
+<blockquote>
+  <p>BountyCon{e45████████████████████████}</p>
+
+
+</blockquote>
+
+<h3>[FB] DNS Challenge</h3>
+
+<p>Bobby <a href="https://www.facebook.com/groups/bobbysdailythoughts/permalink/2015051341923735/">posted another challenge</a> to the group about 19 days after the last post:</p>
+
+
+
+<blockquote>
+  <p>Bobby recently worked on a DNS entry in *.facebook.com. Can you figure out what entry it is?</p>
+
+
+</blockquote>
+
+<p>My initial thought was that I'd find something in bountycon.facebook.com, just like the Google flag, which would have been quite uninteresting of a challenge. I tried a bunch of variations of bountycon.facebook.com but none yielded anything.</p>
+
+
+
+<p>I ran <a href="https://github.com/darkoperator/dnsrecon">dnsrecon</a> to enumerate the subdomains but soon realized it didn't fetch the TXT records so I wrote a shell (fish) script to enumerate over a wordlist and extract all DNS records:</p>
+
+
+
+<pre><code class="language-fish">mkdir dns
+for i in (cat subdomains.txt)
+    if not test -e dns/$i
+        dig +short ANY $i @8.8.8.8 &gt; dns/$i
+        la dns/$i
+        grep -i BountyCon dns/$i
+    end
+end
+</code></pre>
+
+<p>The <a href="https://github.com/darkoperator/dnsrecon/blob/master/subdomains-top1mil.txt">wordlist that came with dnsrecon had 1 million entries</a> and that's the one I used. Quite soon enough, running <code class="highlighter-rouge">grep -ri bountycon dns/</code> found the flag in <code class="highlighter-rouge">push.facebook.com</code>:</p>
+
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>push.facebook.com.	21599	IN	TXT	"BountyCon{h1d████████████████████████}"
+</code></pre></div></div>
+
+<p><small>This was the third flag that wasn't being accepted so I emailed security@facebook.com (bounced), emailed security@fb.com, emailed and DM'd Neal Poole, messaged Dan Gurfinkel (Security Engineering Manager) on FB. There was no response from anyone for over 6 hours so I emailed Eduardo again to relay the message to FB. I assumed he'd contact them over a more direct channel but he simply forwarded my email to bugbounty@fb.com, which was the email address I should have originally used here. As with the previous flags, I had been submitting this flag every hour to be the fastest to submit it, and about an hour after the flag got submitted, I got a response from bugbounty@fb.com that it's been fixed.</small></p>
+
+
+
+<hr />
+
+<p>That's all the flags I found. The last flag I submitted was on Jan 29 (the FB DNS one). There was still around 22 days remaining but I didn't spend much time on more flags.</p>
+
+
+
+<p>If you found a flag not listed here, let me know and I'll add it here.</p>
+
+
+
+<p>The flags page was pretty bland so I wrote a quick userscript to enhance it:
+<img src="/--/bountycon/flags-page-normal.png" alt="" />
+<img src="/--/bountycon/flags-page-enhanced.png" alt="" /></p>
+
+
+
+<p>It sorted the flags by points, added a Google/FB icon, colored the points cell and added some stats (count, total, max, avg). Flags with 90 or higher points were marked green. I could easily see how many flags were found by 11 people or less. The total let me track how active other participants were. There was no indication in the page source if a flag belonged to FB or Google, but FB had been consistent in ending the flag descriptions with the word "Challenge" so the script simply checked for that.</p>
+
+
+
+<p>Here's some other things I tried that didn't get me any flags:</p>
+
+
+
+<ol>
+  <li>Asked Google Assistant to give me a flag and rephrased the question multiple times.</li>
+  <li>Wrote a small crawler for recursively finding all <code class="highlighter-rouge">sitemap.xml</code> files leading from <a href="https://www.google.com/sitemap.xml">https://www.google.com/sitemap.xml</a>. FB didn't have any sitemap.xml files.</li>
+  <li>Checked out <a href="http://bountycon.blogspot.com">http://bountycon.blogspot.com</a>, <a href="http://bountycon.appspot.com">http://bountycon.appspot.com</a>, <a href="http://bountycon.firebaseapp.com">http://bountycon.firebaseapp.com</a>, <a href="http://bountycon.withgoogle.com">http://bountycon.withgoogle.com</a></li>
+  <li>Probed the Firebase database used by <a href="https://capturetheflag.withgoogle.com/">Google CTF 2018</a>: <a href="https://angels-captured-the-tardis.firebaseio.com/">https://angels-captured-the-tardis.firebaseio.com/</a>. Also checked <a href="https://bountycon.firebaseio.com/.json">https://bountycon.firebaseio.com/.json</a></li>
+  <li>Checked out <vrp-game.appspot.com>, Google's older VRP site</vrp-game.appspot.com></li>
+  <li>Emailed Google (Eduardo and <a href="https://www.linkedin.com/in/jakeller">Jan Keller</a>): "Is there a flag that's not hidden anywhere but in the possession of you guys only and to retrieve it all someone has to do is just ask? :) Perhaps to somewhat simulate a social engineering attack? 🤞". They replied "lol, no, but nice try" and "Haha, good idea for next time! :)"
+Also sent empty emails to bountycon@facebook.com, bountycon@fb.com, bountycon@google.com, bountycon@gmail.com but most of the mails bounced.</li>
+  <li>Connected over Gmail's IMAP, POP, SMTP protocols:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl s_client -connect imap.gmail.com:993
+openssl s_client -connect pop.gmail.com:995
+openssl s_client -starttls smtp -connect smtp.gmail.com:587 -crlf -ign_eof
+</code></pre></div>    </div>
+    <p>and tried "BountyCon" as a command (although it was extremely unlikely they would modify critical services).</p>
+
+
+  </li>
+  <li>Attempted steganography on @GoogleVRP's profile pic.</li>
+  <li>
+    <p>Checked out Security Team Victim accounts: <a href="https://github.com/security-team-victim">GitHub</a>, <a href="https://www.youtube.com/channel/UCqsnCFnGAAomRjPqaPW6PSg">YouTube</a> etc.</p>
+
+
+  </li>
+  <li>Searched BountyCon on Shodan to find any hidden servers that might have a flag.</li>
+  <li>
+    <p>Checked out /bountycon for these URL shorteners: goo.gl, g.co, youtu.be, fb.me, fb.gg, m.me</p>
+
+
+  </li>
+  <li>Made sure the Bobby Tables actually doesn't have a profile picture set and not the default image reuploaded with data hidden with steganography. Checked the same with Bobby's Daily Thoughts' cover image.</li>
+  <li>Checked out the test users (<a href="https://www.facebook.com/bob.whitehat">Bob</a>, <a href="https://www.facebook.com/alice.whitehat.1">Alice</a>) and <a href="https://www.facebook.com/groups/1775917839350257/">group</a> mentioned on the <a href="https://www.facebook.com/whitehat/resources/">FB Whitehat resources page</a>.</li>
+  <li>Modified the form method to PUT/DELETE on the submit flag page and uploaded different harmless binary files in the <code class="highlighter-rouge">flag_value</code> field.</li>
+  <li>Tried requesting JS modules named <code class="highlighter-rouge">BountyCon</code>, <code class="highlighter-rouge">XWhitehatCTFWinnersController</code>, <code class="highlighter-rouge">XWhitehatCTFAdminController</code> etc.: <a href="https://www.facebook.com/ajax/bootloader-endpoint/?modules=BountyCon">https://www.facebook.com/ajax/bootloader-endpoint/?modules=BountyCon</a>
+Also tried requiring the modules by calling the <code class="highlighter-rouge">require</code>/<code class="highlighter-rouge">requireLazy</code> functions in the browser console: <code class="highlighter-rouge">require('BountyCon')</code></li>
+  <li>Accessed Facebook's pages over Tor: facebookcorewwwi.onion</li>
+</ol>
+
+
+
+
+</div>
+</article>
+
+
+
+
+<footer>
+<div id="copyright">&copy; 2015-2019 <a href="/">Kishan Bagaria</a></div>
+<div><a target="_blank" href="https://twitter.com/KishanBagaria">Twitter</a> &middot; <a href="mailto:hi@kishan.info">Email</a> &middot; <a target="_blank" href="https://keybase.io/KishanBagaria">Keybase</a></div>
+<div id="gte"></div>
+</footer>
+
+</div>
+</main>
+</div>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-15889022-12', 'auto');
+ga('send', 'pageview');
+</script>
+
+    <script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true, gaId: 'UA-15889022-12'}, 'gte');
+}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+</body>
+</html>
