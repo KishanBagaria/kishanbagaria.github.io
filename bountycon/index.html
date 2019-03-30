@@ -519,17 +519,17 @@ bountycon.google.com.	1336	IN	TXT	<span class="s2">"flag=BountyCon{9de███�
 
 
 
-<p><img src="/--/bountycon2019/inspect-submit-form.png" alt="Inspecting Submit Form" />
+<p><img src="/--/bountycon19/inspect-submit-form.png" alt="Inspecting Submit Form" />
 The form had a hidden <code class="highlighter-rouge">user_id</code> field containing your user ID, which if you modified to another valid user ID (I used 4, which is the smallest valid user ID), and submitted the form, you'd get a popup containing another flag:
-<img src="/--/bountycon2019/idor-flag.png" alt="IDOR Flag" /></p>
+<img src="/--/bountycon19/idor-flag.png" alt="IDOR Flag" /></p>
 
 
 
 <h3>[FB] Edit History Challenge</h3>
 
 <p>I was reading <a href="https://www.facebook.com/groups/bobbysdailythoughts/permalink/1988087774620092/">Bobby's intro post</a> multiple times and on closer inspection, found that it was edited. All you had to do was click "View Edit History" and you'd find the flag:
-<img src="/--/bountycon2019/view-edit-history.png" alt="View Edit History" />
-<img src="/--/bountycon2019/bobby-edit-history.png" alt="Edit History Flag" /></p>
+<img src="/--/bountycon19/view-edit-history.png" alt="View Edit History" />
+<img src="/--/bountycon19/bobby-edit-history.png" alt="Edit History Flag" /></p>
 
 
 
@@ -580,7 +580,7 @@ The form had a hidden <code class="highlighter-rouge">user_id</code> field conta
 
 <h3>[Google] VRP Home Icon</h3>
 
-<p><img src="/--/bountycon2019/vrp-home-icon.png" alt="VRP Home Icon" /></p>
+<p><img src="/--/bountycon19/vrp-home-icon.png" alt="VRP Home Icon" /></p>
 
 
 
@@ -608,7 +608,7 @@ The form had a hidden <code class="highlighter-rouge">user_id</code> field conta
 
 
 <p>I saved the full resolution version of the image from Facebook (make sure the file name ends with <code class="highlighter-rouge">_o.jpg</code>). Then I downloaded a F5 decoding script (<a href="https://code.google.com/archive/p/f5-steganography/">f5.jar</a>, <a href="http://vsl.sourceforge.net/">VSL</a>) and tried "BountyCon", "" etc. as the password but that didn't work so I tried another decoding script written in a different language (<a href="http://desudesutalk.github.io/f5stegojs/">f5stegojs</a>). None of that worked, so I tried poking through the image in other ways. I uploaded it to this online tool that hides an image in another image: <a href="https://incoherency.co.uk/image-steganography/">https://incoherency.co.uk/image-steganography/</a> and found the password. You might be better off using <a href="https://github.com/zardus/ctf-tools/blob/master/stegsolve/install">stegsolve</a> for this since it outputs a clearer image:
-<img src="/--/bountycon2019/stegsolve.png" alt="" /></p>
+<img src="/--/bountycon19/stegsolve.png" alt="" /></p>
 
 
 
@@ -658,7 +658,7 @@ I tried it as a "spreadsheet" first (other options are "document", "presentation
 
 
 <p>The title of the spreadsheet is "BountyCon flag is hidden in this spreadsheet". There's a hidden sheet with the flag as its name:
-<img src="/--/bountycon2019/hidden-sheet.png" alt="Google Hidden Sheet" /></p>
+<img src="/--/bountycon19/hidden-sheet.png" alt="Google Hidden Sheet" /></p>
 
 
 
@@ -666,7 +666,7 @@ I tried it as a "spreadsheet" first (other options are "document", "presentation
 
 
 
-<p>Initially when I submitted this flag, it didn't accept it as valid, so I <a href="/--/bountycon2019/googlevrp-dm.png">DM'd @GoogleVRP on Twitter</a> and told them about it. They said they fixed it and told me to try again but it didn't work at least until 15 hours after their response. I had been trying it every hour to make sure I was the first person to submit it. (I was. 💯)</p>
+<p>Initially when I submitted this flag, it didn't accept it as valid, so I <a href="/--/bountycon19/googlevrp-dm.png">DM'd @GoogleVRP on Twitter</a> and told them about it. They said they fixed it and told me to try again but it didn't work at least until 15 hours after their response. I had been trying it every hour to make sure I was the first person to submit it. (I was. 💯)</p>
 
 
 
@@ -776,7 +776,7 @@ $ grep -i bountycon dec-5-data.csv
 
 
 
-<p><img src="/--/bountycon2019/twitter-bio.png" alt="@GoogleVRP bio" /></p>
+<p><img src="/--/bountycon19/twitter-bio.png" alt="@GoogleVRP bio" /></p>
 
 
 
@@ -881,8 +881,8 @@ end
 
 
 <p>The flags page was pretty bland so I wrote a quick userscript to enhance it:
-<img src="/--/bountycon2019/flags-page-normal.png" alt="" />
-<img src="/--/bountycon2019/flags-page-enhanced.png" alt="" /></p>
+<img src="/--/bountycon19/flags-page-normal.png" alt="" />
+<img src="/--/bountycon19/flags-page-enhanced.png" alt="" /></p>
 
 
 
