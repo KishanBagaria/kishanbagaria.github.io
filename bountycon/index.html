@@ -15,7 +15,7 @@
 <meta name="author" content="Kishan Bagaria">
 <meta property="og:site_name" content="Kishan Bagaria">
 
-<meta property="article:published_time" content="2019-02-21T00:00:00+00:00">
+<meta property="article:published_time" content="2019-03-30T00:00:00+00:00">
 
     <meta name="description" content="Recently, Facebook and Google partnered up and launched a capture-the-flag competition called BountyCon. Unlike most CTFs, you couldn't simply solve a list of challenges and find all the flags. T...">
 
@@ -43,7 +43,7 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
 <h1 itemprop="name headline" id="page-title">BountyCon CTF 2019</h1>
 <div itemprop="articleBody">
 
-<p><img src="https://imgs.xkcd.com/comics/exploits_of_a_mom.png" alt="Exploits of a Mom" /></p>
+<p><a href="https://xkcd.com/327/"><img src="https://imgs.xkcd.com/comics/exploits_of_a_mom.png" alt="Exploits of a Mom" /></a></p>
 
 
 
@@ -55,7 +55,7 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
 
 
 
-<p>This is a writeup of the CTF and how I found 30 flags (out of 36 total flags according to <a href="https://twitter.com/gerben_javado">Gerben</a>) totalling 1949 points. I ranked first which got me invited to the BountyCon event. I also gave a lightning talk at Facebook APAC HQ, Singapore about the highest scoring flags and some flag finding tips. You can <a href="/--/bountycon19/bountycon-ctf-talk-by-kishanbagaria.pdf">find the slides here</a>.</p>
+<p>This is a writeup of the CTF and how I found 30 flags (out of 36 total flags according to <a href="https://twitter.com/gerben_javado">Gerben</a>) totalling 1949 points. I ranked first which got me invited to the BountyCon event held in Singapore. I also gave a lightning talk at Facebook APAC HQ about the highest scoring flags and some flag finding tips. You can <a href="/--/bountycon19/bountycon-ctf-talk-by-kishanbagaria.pdf">find the slides here</a>.</p>
 
 
 
@@ -193,13 +193,11 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
   <div style="display:none">BountyCon{Aas████████████████████████}</div>
 </blockquote>
 
-<hr />
+<h3>Static and dynamic flags</h3>
 
-<p>I should note here that some FB flags were static (like the App Secret one above) and some were dynamic. The dynamic flags were generated on each page load probably containing the FB user ID to help them catch unsuspecting cheaters who shared flags. This was great thinking. Some of FB's static flags looked like dynamic ones but most static flags were simply written in leet speak like other CTFs. All of Google's flags were static however and randomly generated.</p>
+<p>Some FB flags were static (like the App Secret one above) and some were dynamic. The dynamic flags were generated on each page load probably containing the FB user ID to help them catch unsuspecting cheaters who shared flags. This was great thinking. Some of FB's static flags looked like dynamic ones but most static flags were simply written in leet speak like other CTFs. All of Google's flags were static however and randomly generated.</p>
 
 
-
-<hr />
 
 <h3>[Google] VRP Rules Page Comment</h3>
 
@@ -211,13 +209,11 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
   <!-- BountyCon{ace████████████████████████} -->
 </blockquote>
 
-<hr />
+<h3>Automated searching tools</h3>
 
 <p>Eventually I got tired of manually crawling the pages and searching for "BountyCon" so I fired up Burp Proxy and opened up a few search windows for <code class="highlighter-rouge">BountyCon</code>, <code class="highlighter-rouge">Qm91bnR5Q29u</code> (base64 encoded), etc. This became a bit overkill and Burp ate a lot of memory. To replace this, I wrote a custom searching script for <a href="https://mitmproxy.org/">mitmdump</a> which had about 50 different search strings (all "BountyCon" in different encodings, <a href="https://gist.github.com/KishanBagaria/b36512ea0534287e8de9822c7e9a71c7">list here</a>).</p>
 
 
-
-<hr />
 
 <h3>[FB] Hash Cracking Challenge</h3>
 
@@ -561,7 +557,7 @@ The form had a hidden <code class="highlighter-rouge">user_id</code> field conta
 
 <h3>[Google] Bug Hunter University ICS file</h3>
 
-<p>Google linked to their <a href="https://sites.google.com/site/bughunteruniversity/">Bug Hunter University</a> site a bunch of times on their VRP site. It has a search box where you can search for "BountyCon" to find a <code class="highlighter-rouge">BountyCon.ics</code> file.</p>
+<p>Google linked to their <a href="https://sites.google.com/site/bughunteruniversity/">Bug Hunter University</a> site a bunch of times on their VRP site. It has a search box where you can search for "BountyCon" to find a <a href="/--/bountycon19/BountyCon.ics"><code class="highlighter-rouge">BountyCon.ics</code></a> file.</p>
 
 
 
@@ -873,7 +869,7 @@ end
 
 <hr />
 
-<p>That's all the flags I found. The last flag I submitted was on Jan 29 (the FB DNS one). There was still around 22 days remaining but I didn't spend much time on more flags.</p>
+<p>That's all the flags I found. The last flag I submitted was on Jan 29 (the FB DNS one). There was still ~22 days remaining but I didn't spend much time on finding more flags.</p>
 
 
 
@@ -881,7 +877,26 @@ end
 
 
 
-<p>The flags page was pretty bland so I wrote a quick userscript to enhance it:
+<h3>[Google] Clickjacking script</h3>
+
+<p>There was one flag that 3 other people found (98 points) but I didn't. Two of the people don't exactly know how they found it, it got caught in their Burp history. The one remaining person said they found it on Google's <a href="https://lers.google.com/">Law Enforcement Request System website</a>.</p>
+
+
+
+<p>There might have been a script on that page that made a clickjacking attempt. It seems like the script has since been removed from that site since the CTF ended so this cannot be verified. The iframe's source was <a href="https://www.google.com/analytics/web/optout?token=redacted&amp;email=redacted">https://www.google.com/analytics/web/optout?token=redacted&amp;email=redacted</a></p>
+
+
+
+<p>If you check out the source of that link, you'll find the flag:</p>
+
+
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;xmp</span> <span class="na">data-flag=</span><span class="s">BountyCon{0bf████████████████████████}</span><span class="nt">&gt;</span>.<span class="nt">&lt;/xmp&gt;</span>
+</code></pre></div></div>
+
+<h3>Flags Page Enhancement Userscript</h3>
+
+<p>The flags page was pretty rudimentary so I wrote a quick userscript to enhance it:
 <img src="/--/bountycon19/flags-page-normal.png" alt="" />
 <img src="/--/bountycon19/flags-page-enhanced.png" alt="" /></p>
 
@@ -890,6 +905,8 @@ end
 <p>It sorted the flags by points, added a Google/FB icon, colored the points cell and added some stats (count, total, max, avg). Flags with 90 or higher points were marked green. I could easily see how many flags were found by 11 people or less. The total let me track how active other participants were. There was no indication in the page source if a flag belonged to FB or Google, but FB had been consistent in ending the flag descriptions with the word "Challenge" so the script simply checked for that.</p>
 
 
+
+<hr />
 
 <p>Here's some other things I tried that didn't get me any flags:</p>
 
@@ -913,17 +930,9 @@ openssl s_client -starttls smtp -connect smtp.gmail.com:587 -crlf -ign_eof
 
   </li>
   <li>Attempted steganography on @GoogleVRP's profile pic.</li>
-  <li>
-    <p>Checked out Security Team Victim accounts: <a href="https://github.com/security-team-victim">GitHub</a>, <a href="https://www.youtube.com/channel/UCqsnCFnGAAomRjPqaPW6PSg">YouTube</a> etc.</p>
-
-
-  </li>
+  <li>Checked out Security Team Victim accounts: <a href="https://github.com/security-team-victim">GitHub</a>, <a href="https://www.youtube.com/channel/UCqsnCFnGAAomRjPqaPW6PSg">YouTube</a> etc.</li>
   <li>Searched BountyCon on Shodan to find any hidden servers that might have a flag.</li>
-  <li>
-    <p>Checked out /bountycon for these URL shorteners: goo.gl, g.co, youtu.be, fb.me, fb.gg, m.me</p>
-
-
-  </li>
+  <li>Checked out /bountycon for these URL shorteners: goo.gl, g.co, youtu.be, fb.me, fb.gg, m.me</li>
   <li>Made sure the Bobby Tables actually doesn't have a profile picture set and not the default image reuploaded with data hidden with steganography. Checked the same with Bobby's Daily Thoughts' cover image.</li>
   <li>Checked out the test users (<a href="https://www.facebook.com/bob.whitehat">Bob</a>, <a href="https://www.facebook.com/alice.whitehat.1">Alice</a>) and <a href="https://www.facebook.com/groups/1775917839350257/">group</a> mentioned on the <a href="https://www.facebook.com/whitehat/resources/">FB Whitehat resources page</a>.</li>
   <li>Modified the form method to PUT/DELETE on the submit flag page and uploaded different harmless binary files in the <code class="highlighter-rouge">flag_value</code> field.</li>
