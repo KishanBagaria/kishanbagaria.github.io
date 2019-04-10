@@ -193,11 +193,21 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
   <div style="display:none">BountyCon{Aas████████████████████████}</div>
 </blockquote>
 
+<hr />
+
 <h3>Static and dynamic flags</h3>
 
 <p>Some FB flags were static (like the App Secret one above) and some were dynamic. The dynamic flags were generated on each page load probably containing the FB user ID to help them catch unsuspecting cheaters who shared flags. This was great thinking. Some of FB's static flags looked like dynamic ones but most static flags were simply written in leet speak like other CTFs. All of Google's flags were static however and randomly generated.</p>
 
 
+
+<h3>Automated searching tools</h3>
+
+<p>Eventually I got tired of manually crawling the pages and searching for "BountyCon" so I fired up Burp Proxy and opened up a few search windows for <code class="highlighter-rouge">BountyCon</code>, <code class="highlighter-rouge">Qm91bnR5Q29u</code> (base64 encoded), etc. This became a bit overkill and Burp ate a lot of memory. To replace this, I wrote a custom searching script for <a href="https://mitmproxy.org/">mitmdump</a> which had about 50 different search strings (all "BountyCon" in different encodings, <a href="https://gist.github.com/KishanBagaria/b36512ea0534287e8de9822c7e9a71c7">list here</a>).</p>
+
+
+
+<hr />
 
 <h3>[Google] VRP Rules Page Comment</h3>
 
@@ -208,12 +218,6 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
 <blockquote>
   <!-- BountyCon{ace████████████████████████} -->
 </blockquote>
-
-<h3>Automated searching tools</h3>
-
-<p>Eventually I got tired of manually crawling the pages and searching for "BountyCon" so I fired up Burp Proxy and opened up a few search windows for <code class="highlighter-rouge">BountyCon</code>, <code class="highlighter-rouge">Qm91bnR5Q29u</code> (base64 encoded), etc. This became a bit overkill and Burp ate a lot of memory. To replace this, I wrote a custom searching script for <a href="https://mitmproxy.org/">mitmdump</a> which had about 50 different search strings (all "BountyCon" in different encodings, <a href="https://gist.github.com/KishanBagaria/b36512ea0534287e8de9822c7e9a71c7">list here</a>).</p>
-
-
 
 <h3>[FB] Hash Cracking Challenge</h3>
 
