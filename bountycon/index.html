@@ -55,7 +55,7 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
 
 
 
-<p>This is a writeup of the CTF and how I found 30 flags (out of 36 total flags according to <a href="https://twitter.com/gerben_javado">Gerben</a>) totalling 1949 points. I ranked first which got me invited to the BountyCon event held in Singapore. I also gave a lightning talk at Facebook APAC HQ about the highest scoring flags and some flag finding tips. You can <a href="/--/bountycon19/bountycon-ctf-talk-by-kishanbagaria.pdf">find the slides here</a>.</p>
+<p>This is a writeup of the CTF and how I found 30 flags (out of 36 total flags according to <a href="https://twitter.com/gerben_javado">Gerben @ FB</a>) totalling 1949 points. I ranked first which got me invited to the BountyCon event held in Singapore. I also gave a lightning talk at Facebook APAC HQ about the highest scoring flags and some flag finding tips. You can <a href="/--/bountycon19/bountycon-ctf-talk-by-kishanbagaria.pdf">find the slides here</a>.</p>
 
 
 
@@ -122,7 +122,7 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
 
 
 <blockquote>
-  <p>Sorry, BountyCon{61v████████████████████████} hasn't been approved for display in App Center.</p>
+  <p>Sorry, BountyCon{61v3_m3_4cc355} hasn't been approved for display in App Center.</p>
 
 
 </blockquote>
@@ -424,7 +424,7 @@ end
 
 
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;meta-data</span> <span class="na">android:name=</span><span class="s">"bountycon_flag"</span> <span class="na">android:value=</span><span class="s">"BountyCon{m4n████████████████████████}"</span><span class="nt">/&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;meta-data</span> <span class="na">android:name=</span><span class="s">"bountycon_flag"</span> <span class="na">android:value=</span><span class="s">"BountyCon{m4n1f357_r3c0nn41554nc3}"</span><span class="nt">/&gt;</span>
 </code></pre></div></div>
 
 <h3>[FB] Deep Link Challenge</h3>
@@ -462,7 +462,7 @@ end
 
 
 
-<p>If you're an iOS user and have no accessible Android device, you can install <a href="https://www.bluestacks.com/">BlueStacks</a> on your Mac/PC. Then you can click the above deep link on this webpage (in the Android browser) which will take you to the FB app and display the flag: <code class="highlighter-rouge">BountyCon{cr4████████████████████████}</code></p>
+<p>If you're an iOS user and have no accessible Android device, you can install <a href="https://www.bluestacks.com/">BlueStacks</a> on your Mac/PC. Then you can click the above deep link on this webpage (in the Android browser) which will take you to the FB app and display the flag: <code class="highlighter-rouge">BountyCon{cr4zy_d33pl1nk_m461c}</code></p>
 
 
 
@@ -494,7 +494,12 @@ end
 <span class="nt">&lt;/div&gt;</span>
 </code></pre></div></div>
 
-<p>To get the flag, you simply have to rearrange the parts of the string with the help of the <code class="highlighter-rouge">aria-*</code> and <code class="highlighter-rouge">id</code> attributes. My first impulse was to write a script for this but that was overkill and I did it by hand.</p>
+<p>To get the flag, you can simply rearrange the parts of the string with the help of the <code class="highlighter-rouge">aria-*</code> and <code class="highlighter-rouge">id</code> attributes. My first impulse was to write a script for this but that was overkill and I did it by hand.</p>
+
+
+
+<p>Some time later, I found a much simpler method. You can open Chrome Dev Tools, select the hidden <code class="highlighter-rouge">&lt;textarea&gt;</code> and switch to the Accessibility tab to find the flag (just remove the extra spaces):
+<img src="/--/bountycon19/chrome-dev-tools-accessibility.png" alt="Chrome Dev Tools Accessibility Tab" /></p>
 
 
 
@@ -864,7 +869,7 @@ end
 <p>The <a href="https://github.com/darkoperator/dnsrecon/blob/master/subdomains-top1mil.txt">wordlist that came with dnsrecon had 1 million entries</a> and that's the one I used. Quite soon enough, running <code class="highlighter-rouge">grep -ri bountycon dns/</code> found the flag in <code class="highlighter-rouge">push.facebook.com</code>:</p>
 
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>push.facebook.com.	21599	IN	TXT	"BountyCon{h1d████████████████████████}"
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>push.facebook.com.	21599	IN	TXT	"BountyCon{h1dd3n_1n_dns_r3c0rds}"
 </code></pre></div></div>
 
 <p><small>This was the third flag that wasn't being accepted so I emailed security@facebook.com (bounced), emailed security@fb.com, emailed and DM'd Neal Poole, messaged Dan Gurfinkel (Security Engineering Manager) on FB. There was no response from anyone for over 6 hours so I emailed Eduardo again to relay the message to FB. I assumed he'd contact them over a more direct channel but he simply forwarded my email to bugbounty@fb.com, which was the email address I should have originally used here. As with the previous flags, I had been submitting this flag every hour to be the fastest to submit it, and about an hour after the flag got submitted, I got a response from bugbounty@fb.com that it's been fixed.</small></p>
@@ -901,8 +906,8 @@ end
 <h3>Flags Page Enhancement Userscript</h3>
 
 <p>The flags page was pretty rudimentary so I wrote a quick userscript to enhance it:
-<img src="/--/bountycon19/flags-page-normal.png" alt="" />
-<img src="/--/bountycon19/flags-page-enhanced.png" alt="" /></p>
+<img src="/--/bountycon19/flagspage-normal.png" alt="Flags Page Normal" />
+<img src="/--/bountycon19/flagspage-enhanced.png" alt="Flags Page Enhanced" /></p>
 
 
 
@@ -910,9 +915,13 @@ end
 
 
 
+<p>If you'd like to install it, install <a href="https://tampermonkey.net/">Tampermonkey</a> then <a href="https://gist.github.com/KishanBagaria/e8efa6c4d100ab876377ea2882ef47af/raw/1f6e4e7f9abe6e76ed80fa5f79cc3cb38f5ddd94/BCFPE.user.js">click this link</a></p>
+
+
+
 <hr />
 
-<p>Here's some other things I tried that didn't get me any flags:</p>
+<p>Here's some things I tried that didn't get me any flags:</p>
 
 
 
@@ -944,6 +953,12 @@ openssl s_client -starttls smtp -connect smtp.gmail.com:587 -crlf -ign_eof
 Also tried requiring the modules by calling the <code class="highlighter-rouge">require</code>/<code class="highlighter-rouge">requireLazy</code> functions in the browser console: <code class="highlighter-rouge">require('BountyCon')</code></li>
   <li>Accessed Facebook's pages over Tor: facebookcorewwwi.onion</li>
 </ol>
+
+<hr />
+
+<p>Overall, the CTF and event was quite fun. Getting a chance to give a talk at the event was amazing as well. Kudos to the people who made it happen.</p>
+
+
 
 
 
