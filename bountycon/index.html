@@ -44,7 +44,7 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
 
 
 <style>
-#page .no-border {border:0!important}
+#page .no-border {background:none!important;border:0!important}
 </style>
 
 <p><a href="https://xkcd.com/327/" class="no-border"><img src="https://imgs.xkcd.com/comics/exploits_of_a_mom.png" alt="Exploits of a Mom" /></a></p>
@@ -952,7 +952,7 @@ openssl s_client -starttls smtp -connect smtp.gmail.com:587 -crlf -ign_eof
   <li>Modified the form method to PUT/DELETE on the submit flag endpoint and uploaded different harmless binary files in the <code class="highlighter-rouge">flag_value</code> field.</li>
   <li>Tried requesting JS modules named <code class="highlighter-rouge">BountyCon</code>, <code class="highlighter-rouge">XWhitehatCTFWinnersController</code>, <code class="highlighter-rouge">XWhitehatCTFAdminController</code> etc.: <a href="https://www.facebook.com/ajax/bootloader-endpoint/?modules=BountyCon">https://www.facebook.com/ajax/bootloader-endpoint/?modules=BountyCon</a>
 Also tried requiring the modules by calling the <code class="highlighter-rouge">require</code>/<code class="highlighter-rouge">requireLazy</code> functions in the browser console: <code class="highlighter-rouge">require('BountyCon')</code></li>
-  <li>Accessed Facebook's pages over Tor: facebookcorewwwi.onion</li>
+  <li>Accessed Facebook's pages over Tor: <code class="highlighter-rouge">facebookcorewwwi.onion</code></li>
 </ol>
 
 <hr />
@@ -969,6 +969,12 @@ Also tried requiring the modules by calling the <code class="highlighter-rouge">
 
 
 
+
+<footer>
+<div id="copyright">&copy; 2015-2019 <a href="/">Kishan Bagaria</a></div>
+<div><a target="_blank" href="https://twitter.com/KishanBagaria">Twitter</a> &middot; <a href="mailto:hi@kishan.info">Email</a> &middot; <a target="_blank" href="https://keybase.io/KishanBagaria">Keybase</a></div>
+<div id="gte"></div>
+</footer>
 
 </div>
 </main>
