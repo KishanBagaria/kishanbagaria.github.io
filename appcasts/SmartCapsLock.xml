@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>SmartCapsLock</title>
+    <link>https://kishanbagaria.com/appcasts/SmartCapsLock.xml</link>
+    <language>en</language>
+    <item>
+      <title>Version 3.1.1</title>
+      <pubDate>Sat, 21 Sep 2019 20:00:00 +0000</pubDate>
+      <sparkle:version>3.1.1</sparkle:version>
+      <link>https://kishanbagaria.com/smartcapslock/</link>
+    </item>
+    <item>
+      <title>Version 3.1</title>
+      <pubDate>Fri, 20 Sep 2019 20:00:00 +0000</pubDate>
+      <sparkle:version>3.1.0</sparkle:version>
+      <link>https://kishanbagaria.com/smartcapslock/</link>
+    </item>
+    <item>
+      <title>Version 3.0</title>
+      <pubDate>Wed, 18 Sep 2019 20:00:00 +0000</pubDate>
+      <sparkle:version>3.0.0</sparkle:version>
+      <link>https://kishanbagaria.com/smartcapslock/</link>
+    </item>
+    <item>
+      <title>Version 2.5</title>
+      <sparkle:version>2.5.0</sparkle:version>
+      <link>https://kishanbagaria.com/smartcapslock/</link>
+    </item>
+    <item>
+      <title>Version 2.0</title>
+      <sparkle:version>2.0.0</sparkle:version>
+      <link>https://kishanbagaria.com/smartcapslock/</link>
+    </item>
+    <item>
+      <title>Version 1.0</title>
+      <sparkle:version>1.0.0</sparkle:version>
+      <link>https://kishanbagaria.com/smartcapslock/</link>
+    </item>
+  </channel>
+</rss>
