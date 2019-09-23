@@ -28,6 +28,8 @@ a:hover {color:rgb(252,96,91); text-decoration: none}
 a:focus,a:active {color:white;background:rgb(252,96,91);text-decoration: none}
 img{max-width: 100%}
 a,p,#replay,#download {transition:.3s all ease-in-out}
+x-blink {animation: 1s blink step-end infinite}
+@keyframes blink { 50% { opacity:0; } }
 
 #window {background:url(window.png) no-repeat;background-size:contain;width:419px;height: 306px;margin:auto;position: relative}
     h1 {color:white; font-size:3em; font-weight: 300; margin-top: 0}
@@ -247,7 +249,7 @@ function textTypingAnimation() {
             setTimeout(textSelectionAnimation, 3000);
             return;
         }
-        p1.innerHTML = textToType.substr(0, typedLength) + '<blink>|</blink>';
+        p1.innerHTML = textToType.substr(0, typedLength) + '<x-blink>|</x-blink>';
         // console.log(typedLength);
     }
 }
