@@ -1,1 +1,1 @@
-~function(d){d.body.appendChild(d.createElement('script')).src='//cdn.rawgit.com/KishanBagaria/OCLB/018f76e70eb5293944b5a3dc3094b487db06f7e3/TCLB/bin/TCLB.js'}(document)
+~function(d){d.body.appendChild(d.createElement('script')).src='https://cdn.jsdelivr.net/gh/KishanBagaria/OCLB@018f76e70eb5293944b5a3dc3094b487db06f7e3/TCLB/bin/TCLB.js'}(document)
