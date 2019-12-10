@@ -4,12 +4,22 @@
     <title>Kishan Bagaria</title>
     <description></description>
     <link>https://kishanbagaria.com</link>
-    <lastBuildDate>Sat, 30 Mar 2019 00:00:00 +0000</lastBuildDate>
-    <pubDate>Sat, 30 Mar 2019 00:00:00 +0000</pubDate>
+    <lastBuildDate>Tue, 10 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <pubDate>Tue, 10 Dec 2019 00:00:00 +0000</pubDate>
     <atom:link href="https://kishanbagaria.com/feed/" rel="self" type="application/rss+xml" />
     <language>en-US</language>
     <atom:link rel="hub" href="http://pubsubhubbub.appspot.com"/>
     <atom:link rel="hub" href="http://pubsubhubbub.superfeedr.com"/>
+    
+    
+      <item>
+        <title>AirDoS: Remotely render any nearby iPhone or iPad unusable</title>
+        <link>https://kishanbagaria.com/airdos/</link>
+        <guid isPermaLink="true">https://kishanbagaria.com/airdos/</guid>
+        <pubDate>Tue, 10 Dec 2019 00:00:00 +0000</pubDate>
+        
+        <description><![CDATA[What if you could walk into a room and make every* iPhone or iPad unusable while you're there? Wait, that sounds evil. What if you could get that one annoying person off their iPhone who's always on it? I discovered a denial-of-service bug in iOS that I'm calling AirDoS which lets an attacker infinitely spam all nearby iOS devices with the AirDrop share popup....]]></description>
+      </item>
     
     
       <item>

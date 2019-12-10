@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AirDoS: Remotely render any nearby iPhone or iPad unusable</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
+<link rel="stylesheet" href="/-/s.css?kbvmmaw4cO77">
+<meta name="google-translate-customization" content="f934b5e145f327d8-b53758c32f456a85-g94347205ee1f0565-11"></meta>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?123">
+<link rel="icon" href="/favicon.png" sizes="16x16" type="image/png">
+<link rel="icon" href="/favicon@2x.png" sizes="32x32" type="image/png">
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://kishanbagaria.com/feed/">
+<link rel="canonical" href="https://kishanbagaria.com/airdos/">
+<meta name="author" content="Kishan Bagaria">
+<meta property="og:site_name" content="Kishan Bagaria">
+
+<meta property="article:published_time" content="2019-12-10T00:00:00+00:00">
+
+    <meta name="description" content="What if you could walk into a room and make every* iPhone or iPad unusable while you're there? Wait, that sounds evil. What if you could get that one annoying person off their iPhone who's always o...">
+
+<script>
+console.log("%cDON'T PANIC!","font:900 4em Avenir,'Trebuchet MS'");
+function forEach(array, callback) { for (var i = 0; i < array.length; i++) callback(array[i], i); };
+</script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-5503777349428340",enable_page_level_ads:true})</script>
+
+</head>
+<body ontouchstart="" class="layout-page">
+<div id="wrapper">
+<aside>
+<header>
+<a href="/">
+<img src="/-/avatar.svg" width="196" height="215">
+<h2>Kishan Bagaria</h2>
+</a>
+</header>
+
+<div style="text-align:center;margin:1em 0">
+<ins class="adsbygoogle content_ad" style="display:inline-block" data-ad-client="ca-pub-5503777349428340" data-ad-slot="5719070676"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+</aside>
+<main><div id="page">
+<article itemscope itemtype="http://schema.org/Article">
+<h1 itemprop="name headline" id="page-title">AirDoS: Remotely render any nearby iPhone or iPad unusable</h1>
+<div itemprop="articleBody">
+
+<p>What if you could walk into a room and make every* iPhone or iPad unusable while you're there? Wait, that sounds evil. What if you could get that one annoying person off their iPhone who's always on it?</p>
+
+
+
+<iframe width="100%" height="300" src="https://www.youtube.com/embed/B6boxYcAC1k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<p>I discovered a denial-of-service bug in iOS that I'm calling AirDoS which lets an attacker infinitely spam all nearby iOS devices with the AirDrop share popup. This share popup actually blocks the UI so the device owner won't be able to do anything on the device except Accept/Decline the popup, which will keep reappearing. It will persist even after locking/unlocking the device.</p>
+
+
+
+<p>*This bug is still subject to the AirDrop receiving setting, meaning if your AirDrop setting is set to "Everyone", anyone can be the attacker, but if it's set to "Contacts Only", only someone in your contacts can be the attacker.</p>
+
+<div style="text-align:center;margin:1em 0">
+<ins class="adsbygoogle content_ad" style="display:inline-block" data-ad-client="ca-pub-5503777349428340" data-ad-slot="5719070676"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+
+
+<p>How would you stop this if someone were to use this attack on you? Simply run away! It'll get you out of range from the attacking device. Okay, I'm not sure how well this'd work in an airplane.</p>
+
+
+
+<p>Besides getting away from the attacker, who is also unidentifiable most of the time, you can stop this by turning off AirDrop/WiFi/Bluetooth. This can be done if you can access Control Center from the lock screen but not if you have it disabled. Either way you can ask Siri to turn off WiFi or Bluetooth. Restarting your device may also give you some time to turn AirDrop off before the attack takes place again.</p>
+
+
+
+<p>To prevent this attack from taking place at all, turn on AirDrop only when you need it and don't ever keep it set to "Everyone".</p>
+
+
+
+<p>I reported this bug to Apple in August 2019. It's been fixed in iOS 13.3 with a rate limit (after declining the same device 3 times, iOS will automatically decline any subsequent requests).</p>
+
+
+
+<p>Huge thanks to Milan Stute and Alexander Heinrich, for authoring <a href="https://github.com/seemoo-lab/opendrop">opendrop</a> which powers the exploit and which originally inspired me to try this out (literally found it after five minutes of playing with opendrop).</p>
+
+
+
+<p>The PoC exploit can be found <a href="https://github.com/KishanBagaria/AirDoS">here</a>. It supports multiple devices but deliberately doesn't support devices that have their AirDrop receiving setting set to "Contacts Only" to reduce the impact of publicly posting the exploit.</p>
+
+
+
+<p>This is a simple bug and can also be exploited for a single device with a simple infinite loop and opendrop:</p>
+
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">while </span><span class="nb">true</span><span class="p">;</span> <span class="k">do </span>opendrop send <span class="nt">-r</span> 0 <span class="nt">-f</span> totally-random-file<span class="p">;</span> <span class="k">done</span>
+</code></pre></div></div>
+
+<h3>Timeline</h3>
+
+<p><strong>2019-08-19</strong>: Report sent to Apple</p>
+
+
+
+<p><strong>2019-10-03</strong>: Asked for status update</p>
+
+
+
+<p><strong>2019-10-03</strong>: Apple replied: "We are still investigating this issue. If we determine that our products are affected, then we may prepare a security update for our customers."</p>
+
+
+
+<p><strong>2019-11-14</strong>: Apple emailed: "We will be addressing the issue you reported with a mitigation in an upcoming security update and would appreciate your assessment of whether our latest beta of iOS 13.3 addresses the issue. […] While it will not receive a CVE, we want to publicly acknowledge your assistance in our security advisory."</p>
+
+
+
+<p><strong>2019-11-15</strong>: I replied confirming bug is fixed in iOS 13.3 public beta 2 and asked when can I publicly disclose</p>
+
+
+
+<p><strong>2019-11-15</strong>: Apple replied: "We would appreciate it if you can withhold public discussion of this issue until the security update is released to our customers. The security update is currently planned for mid-December 2019."</p>
+
+
+
+<p><strong>2019-12-10</strong>: iOS 13.3 released and publicly disclosed</p>
+
+
+
+
+
+</div>
+</article>
+
+
+
+
+<footer>
+<div id="copyright">&copy; 2015-2019 <a href="/">Kishan Bagaria</a></div>
+<div><a target="_blank" href="https://twitter.com/KishanBagaria">Twitter</a> &middot; <a href="mailto:hi@kishan.info">Email</a> &middot; <a target="_blank" href="https://keybase.io/KishanBagaria">Keybase</a></div>
+<div id="gte"></div>
+</footer>
+
+</div>
+</main>
+</div>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-15889022-12', 'auto');
+ga('send', 'pageview');
+</script>
+
+    <script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true, gaId: 'UA-15889022-12'}, 'gte');
+}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+</body>
+</html>
