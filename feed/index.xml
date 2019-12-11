@@ -18,7 +18,7 @@
         <guid isPermaLink="true">https://kishanbagaria.com/airdos/</guid>
         <pubDate>Tue, 10 Dec 2019 00:00:00 +0000</pubDate>
         
-        <description><![CDATA[<img src="/--/AirDoS-preview.png" alt="AirDoS: Remotely render any nearby iPhone or iPad unusable" /><br/>What if you could walk into a room and make every* iPhone or iPad unusable while you're there? Wait, that sounds evil. What if you could get that one annoying person off their iPhone who's always on it? I discovered a denial-of-service bug in iOS that I'm calling AirDoS which lets an attacker infinitely spam all nearby iOS devices with the AirDrop share popup....]]></description>
+        <description><![CDATA[<img src="/--/airdos/AirDoS-preview.png" alt="AirDoS: Remotely render any nearby iPhone or iPad unusable" /><br/>What if you could walk into a room and make every* iPhone or iPad unusable while you're there? Wait, that sounds evil. What if you could get that one annoying person off their iPhone who's always on it? I discovered a denial-of-service bug in iOS that I'm calling AirDoS which lets an attacker infinitely spam all nearby iOS devices with the AirDrop share popup....]]></description>
       </item>
     
     

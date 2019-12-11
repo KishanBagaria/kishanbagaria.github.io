@@ -15,7 +15,7 @@
 <link rel="canonical" href="https://kishanbagaria.com/airdos/">
 <meta name="author" content="Kishan Bagaria">
 <meta property="og:site_name" content="Kishan Bagaria">
-<meta property="og:image" content="/--/AirDoS-preview.png">
+<meta property="og:image" content="/--/airdos/AirDoS-preview.png">
 <meta property="article:published_time" content="2019-12-10T00:00:00+00:00">
 
     <meta name="description" content="What if you could walk into a room and make every* iPhone or iPad unusable while you're there? Wait, that sounds evil. What if you could get that one annoying person off their iPhone who's always...">
@@ -57,7 +57,7 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
 
 <iframe width="100%" height="300" src="https://www.youtube.com/embed/B6boxYcAC1k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 
-<p>I discovered a denial-of-service bug in iOS that I'm calling AirDoS which lets an attacker infinitely spam all nearby iOS devices with the AirDrop share popup. This share popup actually blocks the UI so the device owner won't be able to do anything on the device except Accept/Decline the popup, which will keep reappearing. It will persist even after locking/unlocking the device.</p>
+<p>I discovered a denial-of-service bug in iOS that I'm calling AirDoS which lets an attacker infinitely spam all nearby iOS devices with the AirDrop share popup. This share popup blocks the UI so the device owner won't be able to do anything on the device except Accept/Decline the popup, which will keep reappearing. It will persist even after locking/unlocking the device.</p>
 
 
 
@@ -74,7 +74,7 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
 
 
 
-<p>Besides getting away from the attacker, who is also unidentifiable most of the time, you can stop this by turning off AirDrop/WiFi/Bluetooth. This can be done if you can access Control Center from the lock screen but not if you have it disabled. Either way you can ask Siri to turn off WiFi or Bluetooth. Restarting your device may also give you some time to turn AirDrop off before the attack takes place again.</p>
+<p>Besides getting away from the attacker, who is also unidentifiable most of the time, you can stop this by turning off AirDrop/WiFi/Bluetooth. This can be done if you can access Control Center from the lock screen but not if you have it disabled. Either way, you can ask Siri to turn off WiFi or Bluetooth. Restarting your device may also give you some time to turn AirDrop off before the attack takes place again.</p>
 
 
 
@@ -86,11 +86,11 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
 
 
 
+<p>I've posted my PoC exploit <a target="_blank" href="https://github.com/KishanBagaria/AirDoS">on GitHub</a>. It supports multiple devices but deliberately doesn't support devices that have their AirDrop receiving setting set to "Contacts Only" to reduce the impact of publicly posting the exploit.</p>
+
+
+
 <p>Huge thanks to Milan Stute and Alexander Heinrich, for authoring <a href="https://github.com/seemoo-lab/opendrop">opendrop</a> which powers the exploit and which originally inspired me to try this out (literally found it after five minutes of playing with opendrop).</p>
-
-
-
-<p>The PoC exploit can be found <a target="_blank" href="https://github.com/KishanBagaria/AirDoS">here</a>. It supports multiple devices but deliberately doesn't support devices that have their AirDrop receiving setting set to "Contacts Only" to reduce the impact of publicly posting the exploit.</p>
 
 
 
