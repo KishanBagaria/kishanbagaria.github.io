@@ -49,7 +49,7 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
 <h1 itemprop="name headline" id="page-title">AirDoS: Remotely render any nearby iPhone or iPad unusable</h1>
 <div itemprop="articleBody">
 
-<video width="100%" src="/--/AirDoS-loop-demo.mp4" autoplay="" loop=""></video>
+<video width="100%" src="/--/airdos/AirDoS-loop-demo.mp4" autoplay="" loop=""></video>
 
 <p>What if you could walk into a room and make every* iPhone or iPad unusable while you're there? Wait, that sounds evil. What if you could get that one annoying person off their iPhone who's always on it?</p>
 
@@ -99,6 +99,16 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">while </span><span class="nb">true</span><span class="p">;</span> <span class="k">do </span>opendrop send <span class="nt">-r</span> 0 <span class="nt">-f</span> totally-random-file<span class="p">;</span> <span class="k">done</span>
 </code></pre></div></div>
+
+<h3>macOS</h3>
+
+<p>macOS shows the AirDrop share popup differently than iOS and doesn't block the UI. An attacker could still send a lot of share requests to spam someone but since the UI is non-blocking, they can easily turn off AirDrop or WiFi/Bluetooth. <a href="/--/airdos/macOS.mov">Here's a video</a> of how it looks like on macOS.</p>
+
+
+
+<p>A fix for this has been implemented in macOS Catalina 10.15.2, Security Update 2019-002 Mojave and Security Update 2019-007 High Sierra.</p>
+
+
 
 <h3>Timeline</h3>
 
