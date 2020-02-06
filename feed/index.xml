@@ -4,12 +4,22 @@
     <title>Kishan Bagaria</title>
     <description></description>
     <link>https://kishanbagaria.com</link>
-    <lastBuildDate>Tue, 10 Dec 2019 00:00:00 +0000</lastBuildDate>
-    <pubDate>Tue, 10 Dec 2019 00:00:00 +0000</pubDate>
+    <lastBuildDate>Fri, 07 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <pubDate>Fri, 07 Feb 2020 00:00:00 +0000</pubDate>
     <atom:link href="https://kishanbagaria.com/feed/" rel="self" type="application/rss+xml" />
     <language>en-US</language>
     <atom:link rel="hub" href="http://pubsubhubbub.appspot.com"/>
     <atom:link rel="hub" href="http://pubsubhubbub.superfeedr.com"/>
+    
+    
+      <item>
+        <title>BountyCon CTF 2020 Write-up</title>
+        <link>https://kishanbagaria.com/bountycon-2020/</link>
+        <guid isPermaLink="true">https://kishanbagaria.com/bountycon-2020/</guid>
+        <pubDate>Fri, 07 Feb 2020 00:00:00 +0000</pubDate>
+        
+        <description><![CDATA[BountyCon is back again! I participated last year, ranked #1 and even gave a talk at FB APAC HQ. You can find my write-up of previous year's CTF here. This time, it's like a regular CTF with all challenges posted on a single page and the complexity has been kicked up a notch. There are 17 challenges in total: 10 web, 6 reversing and...]]></description>
+      </item>
     
     
       <item>
@@ -49,32 +59,6 @@
         <pubDate>Wed, 08 Oct 2014 00:00:00 +0000</pubDate>
         <category>userscripts</category>
         <description><![CDATA[<img src="/--/show_hn_karma/homepage.png" alt="Show HN Karma for Hacker News" /><br/>Show HN Karma is an userscript which appends the karma of HN users after their names. Installing the userscript 1. Install an extension in your browser which lets you use userscripts: Chrome Tampermonkey Microsoft Edge Tampermonkey Firefox Tampermonkey Safari (not for iOS) Tampermonkey Opera Tampermonkey 2. Click Show HN Karma and install the userscript. 3. Load/reload Hacker News, you will now see the karma...]]></description>
-      </item>
-    
-    
-      <item>
-        <title>One Click Llama Button for DeviantArt</title>
-        <link>https://kishanbagaria.com/userscripts/one-click-llama-button/</link>
-        <guid isPermaLink="true">https://kishanbagaria.com/userscripts/one-click-llama-button/</guid>
-        <pubDate>Tue, 29 Apr 2014 00:00:00 +0000</pubDate>
-        <category>userscripts</category>
-        <description><![CDATA[<img src="https://orig11.deviantart.net/0337/f/2016/102/7/f/one_click_llama_button_by_kishan_bagaria-d7ghl1r.png" alt="One Click Llama Button for DeviantArt" /><br/>
-
-One Click Llama Button (OCLB) is a userscript (kinda like a browser extension) which adds a llama button next to every deviant's name in DeviantArt pages.
-You just need to click this button once and it'll automatically give a llama to that deviant.
-
-How To Install
-
-Exchangers List
-
-Preferences
-
-Comments on DeviantArt
-
-Contact Developer on DeviantArt
-
-Contributing Code on GitHub
-]]></description>
       </item>
     
   </channel>
