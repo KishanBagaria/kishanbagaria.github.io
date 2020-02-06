@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8">
-<title>BountyCon CTF 2019</title>
+<title>BountyCon CTF 2019 Write-up</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
-<link rel="stylesheet" href="/-/s.css?kbvmmaw4cO77">
+<link rel="stylesheet" href="/-/s.css?CbjRJKAbplre">
 <meta name="google-translate-customization" content="f934b5e145f327d8-b53758c32f456a85-g94347205ee1f0565-11"></meta>
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?123">
 <link rel="icon" href="/favicon.png" sizes="16x16" type="image/png">
@@ -18,7 +18,7 @@
 
 <meta property="article:published_time" content="2019-03-30T00:00:00+00:00">
 
-    <meta name="description" content="Recently, Facebook and Google partnered up and launched a capture-the-flag competition called BountyCon. Unlike most CTFs, you couldn't simply solve a list of challenges and find all the flags...">
+    <meta name="description" content="Recently, Facebook and Google partnered up and launched a capture-the-flag competition called BountyCon. Unlike most CTFs, you couldn't simply solve a list of challenges and find all the fla...">
 
 <script>
 console.log("%cDON'T PANIC!","font:900 4em Avenir,'Trebuchet MS'");
@@ -46,9 +46,11 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
 </aside>
 <main><div id="page">
 <article itemscope itemtype="http://schema.org/Article">
-<h1 itemprop="name headline" id="page-title">BountyCon CTF 2019</h1>
+<h1 itemprop="name headline" id="page-title">BountyCon CTF 2019 Write-up</h1>
 <div itemprop="articleBody">
 
+
+<!-- [Click here if you're looking for the 2020 write-up](/bountycon2020/) -->
 
 <style>
 #page .no-border {background:none!important;border:0!important}
@@ -62,7 +64,7 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
 
 
 
-<p>FB also made a group for this called Bobby's Daily Thoughts run by a fictional engineer named "Bobby Tables", where they posted some hints and challenges so that you could at least find some flags if you didn't feel like finding them	in the dark, and also to enable them to post more complex challenges. Flags would be worth 100 points if only one person found it, and would decrease by 1 every time it's found, up to a minimum of 25 points.</p>
+<p>FB also made a group for this called Bobby's Daily Thoughts run by a fictional engineer named "Bobby Tables", where they posted some hints and challenges so that you could at least find some flags if you didn't feel like finding them in the dark, and also to enable them to post more complex challenges. Flags would be worth 100 points if only one person found it, and would decrease by 1 every time it's found, up to a minimum of 25 points.</p>
 
 <div style="text-align:center;margin:1em 0">
 <ins class="adsbygoogle content_ad" style="display:inline-block" data-ad-client="ca-pub-5503777349428340" data-ad-slot="5719070676"></ins>
@@ -87,6 +89,29 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
 <p>I was scrolling through my Twitter feed when I saw that someone had tweeted a link to FB's post. It looked like a nice challenge and I was immediately hooked.</p>
 
 
+
+<h3 id="tools-mentioned-in-this-writeup">Tools mentioned in this writeup</h3>
+
+<ul>
+  <li><a href="https://developer.android.com/studio/command-line/adb">adb</a></li>
+  <li><a href="https://apkpure.com/facebook/com.facebook.katana">apkpure.com</a></li>
+  <li><a href="https://github.com/iBotPeaches/Apktool">apktool</a></li>
+  <li><a href="https://www.bluestacks.com/">BlueStacks</a></li>
+  <li><a href="https://futureboy.us/stegano/decinput.html">steghide Online</a></li>
+  <li><a href="https://github.com/zardus/ctf-tools/blob/master/stegsolve/install">stegsolve</a></li>
+  <li><a href="https://incoherency.co.uk/image-steganography/">Lower Bits Image Steganography</a></li>
+  <li><a href="http://vsl.sourceforge.net/">VSL</a></li>
+  <li><a href="https://code.google.com/archive/p/f5-steganography/">f5.jar</a></li>
+  <li><a href="http://desudesutalk.github.io/f5stegojs/">f5stegojs</a></li>
+  <li><a href="http://desudesutalk.github.io/f5stegojs/">f5stegojs Online</a></li>
+  <li><a href="https://mitmproxy.org/">mitmproxy/mitmdump</a></li>
+  <li><a href="https://developers.facebook.com/tools/explorer/?method=GET&amp;path=901417563579056">Graph API Explorer</a></li>
+  <li><a href="https://crackstation.net/">CrackStation</a></li>
+  <li><a href="https://crt.sh/">crt.sh</a></li>
+  <li><a href="https://gchq.github.io/CyberChef/">CyberChef</a></li>
+  <li><a href="https://github.com/darkoperator/dnsrecon">dnsrecon</a></li>
+  <li><a href="/tools/xor-key-bruteforce/">XOR Key Bruteforce</a></li>
+</ul>
 
 <h3 id="google-securitytxt">[Google] Security.txt</h3>
 
@@ -629,12 +654,12 @@ The form had a hidden <code class="highlighter-rouge">user_id</code> field conta
 
 
 
-<p>I saved the full resolution version of the image from Facebook (make sure the file name ends with <code class="highlighter-rouge">_o.jpg</code>). Then I downloaded a F5 decoding script (<a href="https://code.google.com/archive/p/f5-steganography/">f5.jar</a>, <a href="http://vsl.sourceforge.net/">VSL</a>) and tried "BountyCon", "" etc. as the password but that didn't work so I tried another decoding script written in a different language (<a href="http://desudesutalk.github.io/f5stegojs/">f5stegojs</a>). None of that worked, so I tried poking through the image in other ways. I uploaded it to this online tool that hides an image in another image: <a href="https://incoherency.co.uk/image-steganography/">https://incoherency.co.uk/image-steganography/</a> and found the password. You might be better off using <a href="https://github.com/zardus/ctf-tools/blob/master/stegsolve/install">stegsolve</a> for this since it outputs a clearer image:
+<p>I saved the full resolution version of the image from Facebook (make sure the file name ends with <code class="highlighter-rouge">_o.jpg</code>). Then I downloaded a F5 decoding script (<a href="https://code.google.com/archive/p/f5-steganography/">f5.jar</a>, <a href="http://vsl.sourceforge.net/">VSL</a>) and tried "BountyCon", "" etc. as the password but that didn't work so I tried another decoding script written in a different language (<a href="http://desudesutalk.github.io/f5stegojs/">f5stegojs</a>). None of that worked, so I tried poking through the image in other ways. I uploaded it to <a href="https://incoherency.co.uk/image-steganography/">this online tool</a> that hides an image in another image and found the password. You might be better off using <a href="https://github.com/zardus/ctf-tools/blob/master/stegsolve/install">stegsolve</a> for this since it outputs a clearer image:
 <img src="/--/bountycon19/stegsolve.png" alt="" /></p>
 
 
 
-<p>Finally, you can install <a href="https://github.com/desudesutalk/f5stegojs">f5stegojs</a> and run this to get the flag:</p>
+<p>Finally, you can install <a href="http://desudesutalk.github.io/f5stegojs/">f5stegojs</a> and run this to get the flag:</p>
 
 
 
@@ -644,7 +669,7 @@ The form had a hidden <code class="highlighter-rouge">user_id</code> field conta
 BountyCon<span class="o">{</span>Aav████████████████████████<span class="o">}</span>
 </code></pre></div></div>
 
-<p>There's also an <a href="https://desudesutalk.github.io/f5stegojs/">in-browser version of this tool</a>.</p>
+<p>There's also an <a href="http://desudesutalk.github.io/f5stegojs/">in-browser version of this tool</a>.</p>
 
 
 
@@ -928,7 +953,7 @@ end
 
 
 
-<p>If you'd like to install it, install <a href="https://tampermonkey.net/">Tampermonkey</a> then <a href="https://gist.github.com/KishanBagaria/e8efa6c4d100ab876377ea2882ef47af/raw/1f6e4e7f9abe6e76ed80fa5f79cc3cb38f5ddd94/BCFPE.user.js">click this link</a></p>
+<p>If you'd like to install it, install <a href="https://tampermonkey.net/">Tampermonkey</a> then <a href="https://gist.githubusercontent.com/KishanBagaria/e8efa6c4d100ab876377ea2882ef47af/raw/BC2019FPE.user.js">click this link</a></p>
 
 
 
@@ -982,9 +1007,10 @@ Also tried requiring the modules by calling the <code class="highlighter-rouge">
 
 
 
+
 <footer>
-<div id="copyright">&copy; 2015-2020 <a href="/">Kishan Bagaria</a></div>
-<div><a target="_blank" href="https://twitter.com/KishanBagaria">Twitter</a> &middot; <a href="mailto:hi@kishan.info">Email</a> &middot; <a target="_blank" href="https://keybase.io/KishanBagaria">Keybase</a></div>
+<div id="copyright">&copy; 2010-2020 <a href="/">Kishan Bagaria</a></div>
+<div><a target="_blank" href="https://twitter.com/KishanBagaria">Twitter</a> &middot; <a href="mailto:hi@kishan.info">Email</a> &middot; <a target="_blank" href="https://keybase.io/KishanBagaria">Keybase</a><br/><a href="javascript:document.documentElement.setAttribute('data-theme','dark')" class="hide-on-dark-mode">🌃</a><a href="javascript:document.documentElement.setAttribute('data-theme','light')" class="hide-on-light-mode">🌇</a></div>
 <div id="gte"></div>
 </footer>
 
