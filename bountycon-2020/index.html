@@ -18,7 +18,7 @@
 
 <meta property="article:published_time" content="2020-02-07T00:00:00+00:00">
 
-    <meta name="description" content="BountyCon is back again! I participated last year, ranked #1 and even gave a talk at FB APAC HQ. You can find my write-up of previous year's CTF here. This time, it's like a regular CTF with all c...">
+    <meta name="description" content="Write-up of 17 challenges in BountyCon CTF 2020">
 
 <script>
 console.log("%cDON'T PANIC!","font:900 4em Avenir,'Trebuchet MS'");
@@ -56,11 +56,7 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
 <div itemprop="articleBody">
 
 
-<p>BountyCon is <a href="https://www.facebook.com/notes/facebook-bug-bounty/announcing-bountycon-2020/3106668869347318/">back again</a>! I participated last year, ranked #1 and even gave a talk at FB APAC HQ. You can find my <a href="/bountycon/">write-up of previous year's CTF here</a>. This time, it's like a regular CTF with all challenges posted on a single page and the complexity has been kicked up a notch. There are 17 challenges in total: 10 web, 6 reversing and 1 pwn.</p>
-
-
-
-<p>Normally I don't participate in CTFs but I wanted to participate again since I did last time.</p>
+<p>BountyCon is <a href="https://www.facebook.com/notes/facebook-bug-bounty/announcing-bountycon-2020/3106668869347318/">back again</a>! I participated last year, ranked #1 and even gave a talk at FB APAC HQ. You can find my <a href="/bountycon/">write-up of previous year's CTF here</a>. This time, it's like a regular CTF with all challenges posted on a single page and the complexity has been kicked up a notch. There are 17 challenges in total. I was able to solve all and will be giving a talk again.</p>
 
 
 
@@ -139,6 +135,7 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
       <th>Category</th>
       <th>Published</th>
       <th>Solved</th>
+      <th>Points</th>
       <th>Solves</th>
     </tr>
   </thead>
@@ -149,6 +146,7 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
       <td>Web</td>
       <td>Dec 18</td>
       <td>Dec 18</td>
+      <td>*</td>
       <td>75+</td>
     </tr>
     <tr>
@@ -157,6 +155,7 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
       <td>Web</td>
       <td>Dec 18</td>
       <td>Dec 20</td>
+      <td>95</td>
       <td>43</td>
     </tr>
     <tr>
@@ -165,6 +164,7 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
       <td>Web</td>
       <td>Dec 18</td>
       <td>Dec 18</td>
+      <td>99</td>
       <td>34</td>
     </tr>
     <tr>
@@ -173,6 +173,7 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
       <td>Web</td>
       <td>Dec 18</td>
       <td>Dec 18</td>
+      <td>99</td>
       <td>71</td>
     </tr>
     <tr>
@@ -181,6 +182,7 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
       <td>Web</td>
       <td>Dec 18</td>
       <td>Dec 18</td>
+      <td>*</td>
       <td>75+</td>
     </tr>
     <tr>
@@ -189,6 +191,7 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
       <td>Pwn</td>
       <td>Dec 18</td>
       <td>Dec 20</td>
+      <td>*</td>
       <td>56</td>
     </tr>
     <tr>
@@ -197,6 +200,7 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
       <td>Reversing</td>
       <td>Dec 18</td>
       <td>Dec 19</td>
+      <td>*</td>
       <td>70</td>
     </tr>
     <tr>
@@ -205,6 +209,7 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
       <td>Reversing</td>
       <td>Dec 18</td>
       <td>Dec 19</td>
+      <td>*</td>
       <td>75+</td>
     </tr>
     <tr>
@@ -213,6 +218,7 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
       <td>Reversing, Android</td>
       <td>Dec 20</td>
       <td>Dec 20</td>
+      <td>*</td>
       <td>75+</td>
     </tr>
     <tr>
@@ -221,6 +227,7 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
       <td>Reversing, Android</td>
       <td>Dec 20</td>
       <td>Dec 20</td>
+      <td>*</td>
       <td>75+</td>
     </tr>
     <tr>
@@ -229,6 +236,7 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
       <td>Web, Reversing</td>
       <td>Dec 24</td>
       <td>Dec 24</td>
+      <td>99</td>
       <td>57</td>
     </tr>
     <tr>
@@ -237,6 +245,7 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
       <td>Reversing, Android</td>
       <td>Dec 24</td>
       <td>Dec 26</td>
+      <td>88</td>
       <td>26</td>
     </tr>
     <tr>
@@ -245,6 +254,7 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
       <td>Web</td>
       <td>Dec 28</td>
       <td>Dec 28</td>
+      <td>97</td>
       <td>43</td>
     </tr>
     <tr>
@@ -253,6 +263,7 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
       <td>Web, Reversing</td>
       <td>Dec 30</td>
       <td>Dec 30</td>
+      <td>99</td>
       <td>25</td>
     </tr>
     <tr>
@@ -261,6 +272,7 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
       <td>Reversing</td>
       <td>Dec 31</td>
       <td>Jan 9</td>
+      <td>96</td>
       <td>14</td>
     </tr>
     <tr>
@@ -269,6 +281,7 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
       <td>Web</td>
       <td>Jan 2</td>
       <td>Jan 4</td>
+      <td>91</td>
       <td>24</td>
     </tr>
     <tr>
@@ -277,10 +290,15 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
       <td>Web</td>
       <td>Jan 6</td>
       <td>Jan 7</td>
+      <td>91</td>
       <td>23</td>
     </tr>
   </tbody>
 </table>
+
+<p>*I didn't note the points at the time of submission for some of the earlier challenges. 99 points mean first to submit.</p>
+
+
 
 <h3 id="heart-of-stone--web--published-dec-18">Heart of Stone — Web – published Dec 18</h3>
 
@@ -534,7 +552,7 @@ It is possible to construct malicious pickle data which will execute arbitrary c
   </ul>
 </blockquote>
 
-<p>I read up on <a href="https://checkoway.net/musings/pickle/">many</a> <a href="https://intoli.com/blog/dangerous-pickles/">articles</a> and eventually was able to construct a pickle in the lowest protocol 0 (using <code class="highlighter-rouge">pickle.dumps</code> and manually edits) that outputs the flag. It was crucial for the module name to be <code class="highlighter-rouge">lambda_function</code> for the pickle to execute.</p>
+<p>I read up on <a href="https://checkoway.net/musings/pickle/">many</a> <a href="https://intoli.com/blog/dangerous-pickles/">articles</a> and eventually was able to construct a pickle in the lowest protocol 0 (using <code class="highlighter-rouge">pickle.dumps</code> and manually edits) that outputs the flag by calling the <code class="highlighter-rouge">eval</code> function with <code class="highlighter-rouge">flag</code> as argument. It was crucial for the module name to be <code class="highlighter-rouge">lambda_function</code> for the pickle to execute.</p>
 
 
 
@@ -573,6 +591,28 @@ Rp6
 
 
 </blockquote>
+
+<p>Later I learnt a very simple way of constructing the pickle thanks to <a href="https://twitter.com/mrcodedbrain">Santosh Bhandari</a>:</p>
+
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">### lambda_function.py
+</span><span class="k">class</span> <span class="nc">Epoch</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">ts</span> <span class="o">=</span> <span class="n">timestamp</span>
+
+<span class="k">class</span> <span class="nc">flag</span><span class="p">:</span>
+  <span class="k">pass</span>
+
+<span class="c1">### get_flag.py
+</span><span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">lambda_function</span>
+
+<span class="n">epoch</span> <span class="o">=</span> <span class="n">lambda_function</span><span class="o">.</span><span class="n">Epoch</span><span class="p">(</span><span class="n">lambda_function</span><span class="o">.</span><span class="n">flag</span><span class="p">)</span>
+
+<span class="n">pickled</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">epoch</span><span class="p">)</span>
+
+<span class="p">[</span><span class="o">...</span><span class="p">]</span>
+</code></pre></div></div>
 
 <h3 id="anti-what--reversing--published-dec-18">Anti What — Reversing – published Dec 18</h3>
 
@@ -1191,6 +1231,8 @@ Password: BountyCon<span class="o">{</span>b7ZjqyxX9W9TP3hYSkewxKSbCnn<span clas
 
 </blockquote>
 
+<iframe src="https://giphy.com/embed/l1J9u3TZfpmeDLkD6" style="border:0;height:300px" class="centered-img" allowfullscreen=""></iframe>
+
 <p>TL;DR: Decompile with <a href="https://ibotpeaches.github.io/Apktool/">apktool</a>, patch 10 million shakes constant to be 10 shakes, build with apktool, sign with <a href="https://github.com/patrickfav/uber-apk-signer">uber-apk-signer</a>, install with <a href="https://developer.android.com/studio/command-line/adb">adb</a></p>
 
 
@@ -1570,7 +1612,7 @@ runner runner runner runner */</span><span class="p">}</span>
 
 
 
-<p>You can proceed by dynamically debugging the app. The app can be run on a real device or an emulator. Emulators generally make things easier. I tried <a href="https://www.bluestacks.com/">BlueStacks</a> and <a href="https://www.bignox.com/">Nox</a> but later ran into issues with rooting. Eventually I ended up installing <a href="https://developer.android.com/studio">Android Studio</a>. Android Studio (AVD Manager) has first class support for emulators from Google. Make sure to install a "Google APIs" version and not a "Google Play" version or you'll face <a href="https://stackoverflow.com/questions/43923996/adb-root-is-not-working-on-emulator-cannot-run-as-root-in-production-builds">issues with running things as root</a>:</p>
+<p>Proceed by dynamically debugging the app. The app can be run on a real device or an emulator. Emulators generally make things easier. I tried <a href="https://www.bluestacks.com/">BlueStacks</a> and <a href="https://www.bignox.com/">Nox</a> but later ran into issues with rooting. Eventually I ended up installing <a href="https://developer.android.com/studio">Android Studio</a>. Android Studio (AVD Manager) has first class support for emulators from Google. Make sure to install a "Google APIs" version and not a "Google Play" version or you'll face <a href="https://stackoverflow.com/questions/43923996/adb-root-is-not-working-on-emulator-cannot-run-as-root-in-production-builds">issues with running things as root</a>:</p>
 
 
 
@@ -1687,7 +1729,7 @@ allocated memory.  The allocated memory is filled with bytes of value zero.</p>
 
 
 
-<p>You can now inspect the dumped memory and try to guess how the emoji codes are stored there. Reading the source decompilation in Ghidra might help too (I mostly guessed how everything was laid out).</p>
+<p>You can now inspect the dumped memory and try to guess how the emoji codes are stored there. Reading the source decompilation in Ghidra should help too. I mostly guessed how everything was laid out.</p>
 
 
 
@@ -2925,14 +2967,18 @@ end             <span class="c"># indicate no more commands to run for this brea
 
 </blockquote>
 
+<p>"verts" in the flag probably refers to <a href="https://en.wikipedia.org/wiki/Vertex_(geometry)">vertex/vertices</a> and <a href="https://www.libsdl.org/">SDL2</a> of course refers to the library.</p>
+
+
+
 <p>There are some other random things you can do in aglet with GDB:</p>
 
 
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Disable drawing pink outline around the text</span>
-<span class="nb">set</span> <span class="o">{</span>char[5]<span class="o">}</span>0x401c7e <span class="o">=</span> <span class="o">{</span>0x90, 0x90, 0x90, 0x90, 0x90<span class="o">}</span><span class="sb">`</span>
+<span class="nb">set</span> <span class="o">{</span>char[5]<span class="o">}</span>0x401c7e <span class="o">=</span> <span class="o">{</span>0x90, 0x90, 0x90, 0x90, 0x90<span class="o">}</span>
 <span class="c"># Disable drawing random color inside the text</span>
-<span class="nb">set</span> <span class="o">{</span>char[5]<span class="o">}</span>0x401ce0 <span class="o">=</span> <span class="o">{</span>0x90, 0x90, 0x90, 0x90, 0x90<span class="o">}</span><span class="sb">`</span>
+<span class="nb">set</span> <span class="o">{</span>char[5]<span class="o">}</span>0x401ce0 <span class="o">=</span> <span class="o">{</span>0x90, 0x90, 0x90, 0x90, 0x90<span class="o">}</span>
 </code></pre></div></div>
 
 <p><code class="highlighter-rouge">0x90</code> is the NOP instruction.</p>
