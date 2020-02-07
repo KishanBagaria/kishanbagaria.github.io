@@ -73,7 +73,7 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
 
 
 
-<p>This is a writeup of the CTF and how I found 30 flags (out of 36 total flags according to <a href="https://twitter.com/gerben_javado">Gerben @ FB</a>) totalling 1949 points. I ranked first which got me invited to the BountyCon event held in Singapore. I also gave a lightning talk at Facebook APAC HQ about the highest scoring flags and some flag finding tips. You can <a href="/--/bountycon19/bountycon-ctf-talk-by-kishanbagaria.pdf">find the slides here</a>.</p>
+<p>This is a writeup of the CTF and how I found 30 flags (out of 36 total flags according to <a href="https://twitter.com/gerben_javado">Gerben @ FB</a>) totalling 1949 points. I ranked first and was invited to the BountyCon event held in Singapore. I also gave a lightning talk at Facebook APAC HQ about the highest scoring flags and some flag finding tips. You can <a href="/--/bountycon19/bountycon-ctf-talk-by-kishanbagaria.pdf">find the slides here</a>.</p>
 
 
 
@@ -104,13 +104,16 @@ function forEach(array, callback) { for (var i = 0; i < array.length; i++) callb
   <li><a href="https://code.google.com/archive/p/f5-steganography/">f5.jar</a></li>
   <li><a href="http://desudesutalk.github.io/f5stegojs/">f5stegojs</a></li>
   <li><a href="http://desudesutalk.github.io/f5stegojs/">f5stegojs Online</a></li>
+  <li><a href="https://portswigger.net/burp">Burp Proxy</a></li>
   <li><a href="https://mitmproxy.org/">mitmproxy/mitmdump</a></li>
+  <li><a href="https://github.com/darkoperator/dnsrecon">dnsrecon</a></li>
   <li><a href="https://developers.facebook.com/tools/explorer/?method=GET&amp;path=901417563579056">Graph API Explorer</a></li>
   <li><a href="https://crackstation.net/">CrackStation</a></li>
   <li><a href="https://crt.sh/">crt.sh</a></li>
   <li><a href="https://gchq.github.io/CyberChef/">CyberChef</a></li>
-  <li><a href="https://github.com/darkoperator/dnsrecon">dnsrecon</a></li>
   <li><a href="/tools/xor-key-bruteforce/">XOR Key Bruteforce</a></li>
+  <li><a href="https://fishshell.com/">Fish Shell</a></li>
+  <li><a href="https://tampermonkey.net/">Tampermonkey</a></li>
 </ul>
 
 <h3 id="google-securitytxt">[Google] Security.txt</h3>
@@ -245,7 +248,7 @@ Some of FB's static flags looked like dynamic ones but most static flags were si
 
 <h3 id="automated-searching-tools">Automated searching tools</h3>
 
-<p>Eventually I got tired of manually crawling the pages and searching for "BountyCon" so I fired up Burp Proxy and opened up a few search windows for <code class="highlighter-rouge">BountyCon</code>, <code class="highlighter-rouge">Qm91bnR5Q29u</code> (base64 encoded), etc. This became a bit overkill and Burp ate a lot of memory. To replace this, I wrote a custom searching script for <a href="https://mitmproxy.org/">mitmdump</a> which had about 50 different search strings (all "BountyCon" in different encodings, <a href="https://gist.github.com/KishanBagaria/b36512ea0534287e8de9822c7e9a71c7">list here</a>).</p>
+<p>Eventually I got tired of manually crawling the pages and searching for "BountyCon" so I fired up <a href="https://portswigger.net/burp">Burp Proxy</a> and opened up a few search windows for <code class="highlighter-rouge">BountyCon</code>, <code class="highlighter-rouge">Qm91bnR5Q29u</code> (base64 encoded), etc. This became a bit overkill and Burp ate a lot of memory. To replace this, I wrote a custom searching script for <a href="https://mitmproxy.org/">mitmdump</a> which had about 50 different search strings (all "BountyCon" in different encodings, <a href="https://gist.github.com/KishanBagaria/b36512ea0534287e8de9822c7e9a71c7">list here</a>).</p>
 
 
 
@@ -350,7 +353,7 @@ Some of FB's static flags looked like dynamic ones but most static flags were si
 
 
 
-<p>Here's the fish script I used:</p>
+<p>Here's the <a href="https://fishshell.com/">fish</a> script I used:</p>
 
 
 
@@ -890,7 +893,7 @@ y4tqylbmjrtqm3fmvqwmn3fmi3dszlegbstkylbpu.corp.google.com</p>
 
 
 
-<p>I ran <a href="https://github.com/darkoperator/dnsrecon">dnsrecon</a> to enumerate the subdomains but soon realized it didn't fetch the TXT records so I wrote a shell (fish) script to enumerate over a wordlist and extract all DNS records:</p>
+<p>I ran <a href="https://github.com/darkoperator/dnsrecon">dnsrecon</a> to enumerate the subdomains but soon realized it didn't fetch the TXT records so I wrote a <a href="https://fishshell.com/">fish</a> script to enumerate over a wordlist and extract all DNS records:</p>
 
 
 
